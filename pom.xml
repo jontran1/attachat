@@ -16,19 +16,58 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<springframework.version>5.0.2.RELEASE</springframework.version>
+	<hibernate.version>5.4.1.Final</hibernate.version>
+	<mysql.connector.version>5.1.45</mysql.connector.version>
+	<c3po.version>0.9.5.2</c3po.version>
+	
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
   <dependencies>
-	<!-- Spring MVC support -->
+	<!-- Spring WebMVC Used for Model View Control support-->
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-webmvc</artifactId>
 		<version>${springframework.version}</version>
 	</dependency>
+	
+	<!-- Use transactions because the application makes use of Hibernate in the background -->	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${springframework.version}</version>
+	</dependency>
+	
+	 <!-- Spring Object Relational Mapping. A Spring supporting class for hibernate -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>${springframework.version}</version>
+	</dependency>
+	
+	<!-- Hibernate, The ORM mapping tool used for storing data in the database. -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
 
-	<!-- Servlet, JSP and JSTL support -->
+	<!-- MySQL, The actual database implmentation -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>${mysql.connector.version}</version>
+	</dependency>
+	
+	<!-- C3PO, The connection pooling framework for actually managing the database connections. -->
+	<dependency>
+		<groupId>com.mchange</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>${c3po.version}</version>
+	</dependency>
+	
+	<!-- Servlet+JSP+JSTL -->
+   	<!-- Spring make use of the Servlet api in the background. -->
 	<dependency>
 		<groupId>javax.servlet</groupId>
 		<artifactId>javax.servlet-api</artifactId>
@@ -41,6 +80,7 @@
 		<version>2.3.1</version>
 	</dependency>
 
+   	<!-- Gives support for JavaServer Pages Standard Tag Library. Used in MVC web development -->
 	<dependency>
 		<groupId>javax.servlet</groupId>
 		<artifactId>jstl</artifactId>
@@ -53,12 +93,14 @@
 	    <artifactId>jaxb-api</artifactId>
 	    <version>2.3.0</version>
 	</dependency>
+	
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    
   </dependencies>
 
   <build>
