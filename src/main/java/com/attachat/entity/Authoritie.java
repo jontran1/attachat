@@ -12,27 +12,16 @@ import javax.persistence.Table;
 public class Authoritie {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="authoritie_id")
-	private int authoritieId;
-	
 	@Column(name="user_name")
 	private String userName;
 	
+	@Id
 	@Column(name="authority")
 	private String authority;
 
 	public Authoritie(String userName, String authority) {
 		this.userName = userName;
 		this.authority = authority;
-	}
-
-	public int getAuthoritieId() {
-		return authoritieId;
-	}
-
-	public void setAuthoritieId(int authoritieId) {
-		this.authoritieId = authoritieId;
 	}
 
 	public String getUserName() {
