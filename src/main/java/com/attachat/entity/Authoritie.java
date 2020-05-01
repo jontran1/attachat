@@ -16,6 +16,10 @@ public class Authoritie {
 	@Column(name="user_name")
 	@ManyToOne(cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name="user_name")
+	/**
+	 * Spring will automagically look at the user class, Generate a bean and map
+	 * it to Authorite class.
+	 */
 	private User user;
 	
 	@Id
