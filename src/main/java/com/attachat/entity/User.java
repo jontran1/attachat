@@ -1,8 +1,11 @@
 package com.attachat.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,14 @@ public class User {
 	
 	@Column(name="enabled")
 	private boolean enabled;
+	
+	@OneToMany(mappedBy="user")
+	/*
+	 * A one to many relationship. mappedBy is able to map the correct user.
+	 * Because it uses the Authoritie class and mapps the user to the memeber
+	 * field user in Authoritie class.
+	 */
+	private List<Authoritie> authorities;
 
 	public User(String userName, String password, boolean enabled) {
 		this.userName = userName;
