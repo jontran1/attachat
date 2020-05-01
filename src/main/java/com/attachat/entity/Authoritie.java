@@ -1,10 +1,11 @@
 package com.attachat.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,23 +14,25 @@ public class Authoritie {
 	
 	@Id
 	@Column(name="user_name")
-	private String userName;
+	@ManyToOne(cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="user_name")
+	private User user;
 	
 	@Id
 	@Column(name="authority")
 	private String authority;
 
-	public Authoritie(String userName, String authority) {
-		this.userName = userName;
+	public Authoritie(User userName, String authority) {
+		this.user = userName;
 		this.authority = authority;
 	}
 
-	public String getUserName() {
-		return userName;
+	public User getUserName() {
+		return user;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(User userName) {
+		this.user = userName;
 	}
 
 	public String getAuthority() {
