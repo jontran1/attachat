@@ -57,15 +57,11 @@ public class UserDAOImpl implements UserDAO {
 
 	@Transactional
 	@Override
-	public void deleteUser(String userName) {
+	public void deleteUser(User user) {
 		// Get current session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		Query query = currentSession.createQuery("delete from User where user_name=:userName");
-		query.setParameter("userName", userName);
-		
-		query.executeUpdate();
-		
+		currentSession.delete(user);
 	}
 
 }
