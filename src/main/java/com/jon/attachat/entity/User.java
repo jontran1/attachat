@@ -1,4 +1,4 @@
-package com.attachat.entity;
+package com.jon.attachat.entity;
 
 import java.util.List;
 

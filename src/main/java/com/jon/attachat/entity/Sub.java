@@ -1,4 +1,4 @@
-package com.attachat.entity;
+package com.jon.attachat.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
