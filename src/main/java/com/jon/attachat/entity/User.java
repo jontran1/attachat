@@ -64,6 +64,11 @@ public class User {
 	public void setAuthorities(List<Authoritie> authorities) {
 		this.authorities = authorities;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userName=" + userName + ", enabled=" + enabled + ", authorities=" + authorities + "]";
+	}
 	
 	
 }
