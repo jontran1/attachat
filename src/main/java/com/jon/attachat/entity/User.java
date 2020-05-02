@@ -19,9 +19,6 @@ public class User {
 	@Column(name="user_name")
 	private String userName;
 	
-	@Column(name="password")
-	private String password;
-	
 	@Column(name="enabled")
 	private boolean enabled;
 	
@@ -38,9 +35,8 @@ public class User {
 		
 	}
 
-	public User(String userName, String password, boolean enabled) {
+	public User(String userName, boolean enabled) {
 		this.userName = userName;
-		this.password = password;
 		this.enabled = enabled;
 	}
 
@@ -52,13 +48,6 @@ public class User {
 		this.userName = userName;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public boolean isEnabled() {
 		return enabled;
