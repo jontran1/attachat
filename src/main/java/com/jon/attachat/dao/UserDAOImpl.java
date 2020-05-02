@@ -18,7 +18,6 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Transactional
 	@Override
 	public List<User> getUsers() {
 
@@ -33,7 +32,6 @@ public class UserDAOImpl implements UserDAO {
 		return users;
 	}
 
-	@Transactional
 	@Override
 	public void saveUser(User user) {
 		// Get current hibernate session
@@ -43,7 +41,6 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
-	@Transactional
 	@Override
 	public User getUser(String userName) {
 		// Get current session
@@ -55,7 +52,6 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
-	@Transactional
 	@Override
 	public void deleteUser(User user) {
 		// Get current session

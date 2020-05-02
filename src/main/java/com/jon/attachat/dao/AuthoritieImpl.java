@@ -16,7 +16,6 @@ public class AuthoritieImpl implements AuthoritieDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Transactional
 	@Override
 	public void saveAuthoritie(Authoritie authoritie) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -24,7 +23,6 @@ public class AuthoritieImpl implements AuthoritieDAO {
 		currentSession.saveOrUpdate(authoritie);
 	}
 
-	@Transactional
 	@Override
 	public void deleteAuthoritie(Authoritie authoritie) {
 		// Get current session
