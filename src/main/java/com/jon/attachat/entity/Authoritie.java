@@ -33,8 +33,8 @@ public class Authoritie {
 	public Authoritie() {
 	}
 
-	public Authoritie(User userName, String authority) {
-		this.user = userName;
+	public Authoritie(User user, String authority) {
+		this.user = user;
 		this.authority = authority;
 	}
 
@@ -42,8 +42,8 @@ public class Authoritie {
 		return user;
 	}
 
-	public void setUserName(User userName) {
-		this.user = userName;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getAuthority() {
