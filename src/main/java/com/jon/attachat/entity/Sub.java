@@ -2,6 +2,7 @@ package com.jon.attachat.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -18,6 +19,10 @@ public class Sub {
 	@OneToOne()
 	@JoinColumn(name="creator")
 	private User creator;
+	
+	public Sub() {
+		
+	}
 
 	public Sub(String subName, User creator) {
 		this.subName = subName;
@@ -39,7 +44,10 @@ public class Sub {
 	public void setCreator(User creator) {
 		this.creator = creator;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Sub [subName=" + subName + ", creator=" + creator + "]";
+	}
 	
 }
