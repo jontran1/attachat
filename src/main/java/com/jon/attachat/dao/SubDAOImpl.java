@@ -23,7 +23,7 @@ public class SubDAOImpl implements SubDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query<Sub> query =
-				currentSession.createQuery("from sub", Sub.class);
+				currentSession.createQuery("from Sub", Sub.class);
 		
 		List<Sub> subs = query.getResultList();
 		
