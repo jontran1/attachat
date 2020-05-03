@@ -1,0 +1,51 @@
+package com.jon.attachat.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.jon.attachat.dao.ThreadDAO;
+import com.jon.attachat.entity.Thread;
+
+@Service
+public class ThreadServiceImpl implements ThreadService {
+
+	@Autowired
+	private ThreadDAO threadDAO;
+	
+	@Transactional
+	@Override
+	public List<Thread> getThreads() {
+		return threadDAO.getThreads();
+	}
+
+	@Transactional
+	@Override
+	public List<Thread> getSubThreads(String subName) {
+		return threadDAO.getSubThreads(subName);
+	}
+
+	@Transactional
+	@Override
+	public Thread getThread(int threadId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Transactional
+	@Override
+	public void saveThread(Thread thread) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Transactional
+	@Override
+	public void deleteThread(Thread thread) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
