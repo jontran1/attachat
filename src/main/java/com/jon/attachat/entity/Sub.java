@@ -19,6 +19,9 @@ public class Sub {
 	@Column(name="creator")
 	private String creator;
 	
+	@Column(name="number_of_followers")
+	private int numberOfFollowers;
+	
 	public Sub() {
 		
 	}
@@ -42,6 +45,14 @@ public class Sub {
 
 	public void setCreator(String creator) {
 		this.creator = creator;
+	}
+
+	public int getNumberOfFollowers() {
+		return numberOfFollowers;
+	}
+
+	public void setNumberOfFollowers(int numberOfFollowers) {
+		this.numberOfFollowers = numberOfFollowers;
 	}
 
 	@Override
