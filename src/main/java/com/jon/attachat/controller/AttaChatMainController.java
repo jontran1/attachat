@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jon.attachat.dao.AuthoritieDAO;
 import com.jon.attachat.dao.UserDAO;
@@ -13,7 +14,9 @@ import com.jon.attachat.entity.Authoritie;
 import com.jon.attachat.entity.Sub;
 import com.jon.attachat.entity.User;
 import com.jon.attachat.service.SubService;
+import com.jon.attachat.service.ThreadService;
 import com.jon.attachat.service.UserService;
+import com.jon.attachat.entity.Thread;
 
 @Controller
 public class AttaChatMainController {
@@ -23,6 +26,9 @@ public class AttaChatMainController {
 	
 	@Autowired
 	private SubService subService;
+	
+	@Autowired
+	private ThreadService threadService;
 		
 	@GetMapping("/")
 	public String showHome(Model model) {
@@ -31,6 +37,17 @@ public class AttaChatMainController {
 		model.addAttribute("subs", subs);
 		
 		return "home";
+	}
+	
+	@GetMapping("/showSub")
+	public String showSub(@RequestParam("subName") String subName, Model model) {
+		
+		System.out.println("test sub name: " + subName);
+		List<Thread> threads = threadService.getSubThreads(subName);
+		
+		model.addAttribute("threads", threads);
+		
+		return "sub";
 	}
 	
 	@GetMapping("/test")
