@@ -16,15 +16,14 @@ public class Sub {
 	@Column(name="sub_name")
 	private String subName;
 
-	@OneToOne()
-	@JoinColumn(name="creator")
-	private User creator;
+	@Column(name="creator")
+	private String creator;
 	
 	public Sub() {
 		
 	}
 
-	public Sub(String subName, User creator) {
+	public Sub(String subName, String creator) {
 		this.subName = subName;
 		this.creator = creator;
 	}
@@ -37,11 +36,11 @@ public class Sub {
 		this.subName = subName;
 	}
 
-	public User getCreator() {
+	public String getCreator() {
 		return creator;
 	}
 
-	public void setCreator(User creator) {
+	public void setCreator(String creator) {
 		this.creator = creator;
 	}
 

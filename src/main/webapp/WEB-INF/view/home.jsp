@@ -17,7 +17,7 @@
 				
 		<p>
 			<td> Sub name: ${sub.subName} </td>
-			<td> Creator: ${sub.creator.userName} </td>
+			<td> Creator: ${sub.creator} </td>
 
 		</p>
 	</c:forEach>			
