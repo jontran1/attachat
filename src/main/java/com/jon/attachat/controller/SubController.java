@@ -17,7 +17,7 @@ import com.jon.attachat.service.ThreadService;
 import com.jon.attachat.service.UserService;
 
 @Controller
-public class AttaSubController {
+public class SubController {
 	
 	@Autowired
 	private UserService userService;
