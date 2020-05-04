@@ -15,7 +15,7 @@
 	
 	<c:forEach var="sub" items="${subs}">
 	
-		<c:url var="subLink" value="/showSub">
+		<c:url var="subLink" value="/showAttaSub">
 			<c:param name="subName" value="${sub.subName }"/>
 		</c:url>
 				
