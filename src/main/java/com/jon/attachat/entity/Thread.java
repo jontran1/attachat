@@ -28,11 +28,11 @@ public class Thread {
 	public Thread() {
 	}
 
-	public Thread(String userName, String subName, String threadTitle, String thread_content) {
+	public Thread(String userName, String subName, String threadTitle, String threadContent) {
 		this.userName = userName;
 		this.subName = subName;
 		this.threadTitle = threadTitle;
-		this.threadContent = thread_content;
+		this.threadContent = threadContent;
 	}
 
 	public String getUserName() {
@@ -59,12 +59,12 @@ public class Thread {
 		this.threadTitle = threadTitle;
 	}
 
-	public String getThread_content() {
+	public String getThreadContent() {
 		return threadContent;
 	}
 
-	public void setThread_content(String thread_content) {
-		this.threadContent = thread_content;
+	public void setThreadContent(String threadContent) {
+		this.threadContent = threadContent;
 	}
 
 	@Override
