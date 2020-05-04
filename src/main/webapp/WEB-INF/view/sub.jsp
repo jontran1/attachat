@@ -16,11 +16,11 @@
 	<c:forEach var="thread" items="${threads}">
 				
 		<p>
-			<p><td> Sub name: ${thread.subName} </td></p>
+			<td>Sub name: ${thread.subName} </td>
 			
 			<td>Thread title: ${thread.threadTitle }</td>
 			
-			<td>Thread title: ${thread.threadContent }</td>
+			<td>Thread content: ${thread.threadContent }</td>
 
 		</p>
 	</c:forEach>			
