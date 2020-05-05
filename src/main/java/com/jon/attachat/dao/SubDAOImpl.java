@@ -45,7 +45,7 @@ public class SubDAOImpl implements SubDAO {
 		// Get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		currentSession.saveOrUpdate(sub);
+		currentSession.save(sub);
 	}
 
 	@Override
