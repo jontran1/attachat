@@ -13,6 +13,8 @@
 	
 	<a href="${pageContext.request.contextPath }/test">TEST LINK</a>
 	
+	<a href="${pageContext.request.contextPath }/attaThread/userAction/showFormCreateAttaThread">Create A New Thread</a>
+	
 	<c:forEach var="thread" items="${threads}">
 	
 		<c:url var="threadLink" value="/attaThread/showAttaThread">
