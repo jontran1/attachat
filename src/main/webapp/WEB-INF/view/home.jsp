@@ -13,7 +13,7 @@
 	
 	<a href="${pageContext.request.contextPath }/test">TEST LINK</a>
 	
-	<a href="${pageContext.request.contextPath }/userAction/showFormCreateAttaSub">Create a new AttaSub</a>
+	<a href="${pageContext.request.contextPath }/attaSub/userAction/showFormCreateAttaSub">Create a new AttaSub</a>
 	
 	<c:forEach var="sub" items="${subs}">
 	
