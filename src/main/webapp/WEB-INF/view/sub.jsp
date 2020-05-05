@@ -14,11 +14,18 @@
 	<a href="${pageContext.request.contextPath }/test">TEST LINK</a>
 	
 	<c:forEach var="thread" items="${threads}">
+	
+		<c:url var="threadLink" value="/attaThread/showAttaThread">
+			<c:param name="threadId" value="${thread.threadId }"/>
+		</c:url>
 				
 		<p>
 			<td>Sub name: ${thread.subName} </td>
 			
-			<td>Thread title: ${thread.threadTitle }</td>
+			<td>
+				<a href="${threadLink }">${thread.threadTitle }</a>
+			</td>
+
 			
 			<td>Thread content: ${thread.threadContent }</td>
 
