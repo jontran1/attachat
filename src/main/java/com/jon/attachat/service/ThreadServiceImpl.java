@@ -36,8 +36,7 @@ public class ThreadServiceImpl implements ThreadService {
 	@Transactional
 	@Override
 	public void saveThread(Thread thread) {
-		// TODO Auto-generated method stub
-
+		threadDAO.saveThread(thread);
 	}
 
 	@Transactional

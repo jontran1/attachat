@@ -53,8 +53,9 @@ public class ThreadDAOImpl implements ThreadDAO {
 
 	@Override
 	public void saveThread(Thread thread) {
-		// TODO Auto-generated method stub
+		Session currentSession = sessionFactory.getCurrentSession();
 
+		currentSession.save(thread);
 	}
 
 	@Override
