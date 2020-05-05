@@ -17,14 +17,14 @@
 	
 	<c:forEach var="sub" items="${subs}">
 	
-		<c:url var="subLink" value="/showAttaSub">
+		<c:url var="subLink" value="/attaSub/showAttaSub">
 			<c:param name="subName" value="${sub.subName }"/>
 		</c:url>
 				
 		<p>
 			<td> Sub name: ${sub.subName} </td>
 			<td>
-				<a href="${subLink }"> ${sub.subName} </a>
+				<a href="${subLink }">${sub.subName} </a>
 			</td>
 			<td> Creator: ${sub.creator} </td>
 			<td> Population count:  ${sub.numberOfFollowers } </td>
