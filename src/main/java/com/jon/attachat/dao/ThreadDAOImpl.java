@@ -44,8 +44,11 @@ public class ThreadDAOImpl implements ThreadDAO {
 
 	@Override
 	public Thread getThread(int threadId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Thread thread = currentSession.get(Thread.class, threadId);
+		
+		return thread;
 	}
 
 	@Override

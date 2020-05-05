@@ -30,8 +30,7 @@ public class ThreadServiceImpl implements ThreadService {
 	@Transactional
 	@Override
 	public Thread getThread(int threadId) {
-		// TODO Auto-generated method stub
-		return null;
+		return threadDAO.getThread(threadId);
 	}
 
 	@Transactional
