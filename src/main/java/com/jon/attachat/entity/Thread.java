@@ -34,7 +34,11 @@ public class Thread {
 		this.threadTitle = threadTitle;
 		this.threadContent = threadContent;
 	}
-
+	
+	public int getThreadId() {
+		return threadId;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}
