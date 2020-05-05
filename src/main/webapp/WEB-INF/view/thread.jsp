@@ -16,6 +16,10 @@
 	<p>
 		${thread.threadContent }
 	</p>
+	<p>
+		Thread creator: ${thread.userName }
+	</p>
+	
 
 </body>
 </html>
