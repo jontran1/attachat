@@ -37,6 +37,7 @@ public class SubController {
 		List<Thread> threads = threadService.getSubThreads(subName);
 		
 		model.addAttribute("threads", threads);
+		model.addAttribute("subName", subName);
 		
 		return "sub";
 	}
