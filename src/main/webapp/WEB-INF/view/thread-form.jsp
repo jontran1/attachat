@@ -12,6 +12,7 @@
 	<h3>Thread Creation Form</h3>
 	
 	<form:form action="saveAttaThread" modelAttribute="thread" method="POST">
+
 		
 		<table>
 			<tbody>
@@ -23,6 +24,12 @@
 					<td><label>Thread content:</label></td>
 					<td><form:input path="threadContent"/></td>
 				</tr>
+				<tr>
+					<td><form:input type="hidden" path="userName"/></td>
+					<td><form:input type="hidden" path="subName"/></td>
+
+				</tr>
+				
 				<tr>
 					<td><lable></lable></td>
 					<td><input type="submit" value="Submit" /></td>

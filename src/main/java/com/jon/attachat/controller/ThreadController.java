@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jon.attachat.service.SubService;
 import com.jon.attachat.service.ThreadService;
@@ -39,24 +40,25 @@ public class ThreadController {
 	}
 	
 	@GetMapping("/userAction/showFormCreateAttaThread")
-	public String showFormCreateThread(Model model) {
+	public String showFormCreateThread(@RequestParam("subName") String subName, Model model) {
 		Thread thread = new Thread();
 		
 		model.addAttribute("thread", thread);
+		
+		thread.setSubName(subName);
+		thread.setUserName("john");
 		
 		return "thread-form";
 	}
 	
 	@PostMapping("/userAction/saveAttaThread")
-	public String saveThread(@ModelAttribute("thread") Thread thread) {
-		thread.setSubName("gaming");
-		thread.setUserName("john");
+	public String saveThread(@ModelAttribute("thread") Thread thread, 
+			RedirectAttributes redirectAttributes) {	
 		
-		System.out.println("saveThread function :");
-		System.out.println(thread.toString());
 		threadService.saveThread(thread);
-		
-		return "redirect:/";
+	   redirectAttributes.addAttribute("subName", thread.getSubName());
+
+		return "redirect:/attaSub/showAttaSub";
 	}
 
 
