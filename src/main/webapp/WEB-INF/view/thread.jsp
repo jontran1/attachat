@@ -20,6 +20,17 @@
 		Thread creator: ${thread.userName }
 	</p>
 	
+	<p>
+		<c:forEach var="comment" items="${comments }">
+			<p>
+				<td><label>Comment creator: ${comment.userName}</label> </td>
+				<td><label>Comment: ${comment.content}</label> </td>
+			</p>
+		
+		</c:forEach>
+	
+	</p>
+	
 
 </body>
 </html>
