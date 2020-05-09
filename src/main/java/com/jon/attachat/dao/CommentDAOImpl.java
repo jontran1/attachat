@@ -34,7 +34,7 @@ public class CommentDAOImpl implements CommentDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query<Comment> query = 
-				currentSession.createQuery("from Comment WHERE thread_id=:threadId");
+				currentSession.createQuery("from Comment WHERE thread_id=:threadId AND parent_id = NULL");
 		query.setParameter("threadId", threadId);
 		
 		List<Comment> comments = query.getResultList();

@@ -2,6 +2,8 @@ package com.jon.attachat.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,9 +42,16 @@ public class ThreadController {
 		
 		Thread thread = threadService.getThread(threadId);
 		List<Comment> comments = commentSerivce.getThreadComments(threadId);
-		
+
 		model.addAttribute("comments", comments);
 		model.addAttribute("thread", thread);
+		
+		for(Comment comment : comments) {
+			System.out.println("parent");
+			System.out.println(comment.toString());
+			System.out.println("children");
+			System.out.println(comment.getChildren());
+		}
 		
 		return "thread";
 	}
