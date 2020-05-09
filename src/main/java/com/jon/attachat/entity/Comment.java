@@ -1,10 +1,17 @@
 package com.jon.attachat.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,15 +34,17 @@ public class Comment {
 	
 	@Column(name="parent_id")
 	private Integer parentId;
-
+	
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="parentId", cascade= {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+	private List<Comment> children;
+	
 	public Comment() {
 	}
 
-	public Comment(int threadId, String userName, String content, int parentId) {
+	public Comment(int threadId, String userName, String content, Comment parent) {
 		this.threadId = threadId;
 		this.userName = userName;
 		this.content = content;
-		this.parentId = parentId;
 	}
 
 	public int getThreadId() {
@@ -73,7 +82,17 @@ public class Comment {
 	public int getCommentId() {
 		return commentId;
 	}
-	
+
+	public List<Comment> getChildren() {
+		return children;
+	}
+
+	@Override
+	public String toString() {
+		return "Comment [commentId=" + commentId + ", threadId=" + threadId + ", userName=" + userName + ", content="
+				+ content + ", parentId=" + parentId + "]";
+	}
+
 	
 
 }
