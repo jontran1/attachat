@@ -19,15 +19,14 @@
 	<p>
 		Thread creator: ${thread.userName }
 	</p>
-	
-	<p>
-		<c:forEach var="comment" items="${comments }">
-			<p>
-				<td><label>Comment creator: ${comment.userName}</label> </td>
-				<td><label>Comment: ${comment.content}</label> </td>
-			</p>
-		
+
+		<c:forEach var="comment" items="${comments}">
+		    <h4>Root comment: ${comment.content}</h4>
+		    <c:set var="comment" value="${comment}" scope="request"/>
+			<jsp:include page="node.jsp"/>
 		</c:forEach>
+		
+
 	
 	</p>
 	
