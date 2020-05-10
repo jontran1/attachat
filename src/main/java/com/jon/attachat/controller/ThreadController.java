@@ -73,7 +73,7 @@ public class ThreadController {
 			RedirectAttributes redirectAttributes) {	
 		
 		threadService.saveThread(thread);
-	   redirectAttributes.addAttribute("subName", thread.getSubName());
+		redirectAttributes.addAttribute("subName", thread.getSubName());
 
 		return "redirect:/attaSub/showAttaSub";
 	}
