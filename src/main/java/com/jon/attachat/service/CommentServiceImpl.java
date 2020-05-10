@@ -37,7 +37,7 @@ public class CommentServiceImpl implements CommentService {
 	@Transactional
 	@Override
 	public void saveComment(Comment comment) {
-		// TODO Auto-generated method stub
+		commentDAO.saveComment(comment);
 
 	}
 

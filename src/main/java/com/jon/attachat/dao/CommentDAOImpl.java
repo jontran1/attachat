@@ -50,8 +50,9 @@ public class CommentDAOImpl implements CommentDAO {
 
 	@Override
 	public void saveComment(Comment comment) {
-		// TODO Auto-generated method stub
-
+		Session currentSession = sessionFactory.getCurrentSession();
+				
+		currentSession.save(comment);
 	}
 
 	@Override
