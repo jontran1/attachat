@@ -19,6 +19,13 @@
 	<p>
 		Thread creator: ${thread.userName }
 	</p>
+	
+	<c:url var="createComment" value="/comment/userAction/showFormCreateComment">
+		<c:param name="threadId" value="${thread.threadId }"/>
+	</c:url>
+	<p>
+		<a href="${createComment }">Post a new comment</a>
+	</p>
 
 		<c:forEach var="comment" items="${comments}">
 		    <h4>Root comment: ${comment.content}</h4>
