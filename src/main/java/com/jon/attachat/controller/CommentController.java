@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jon.attachat.entity.Comment;
 import com.jon.attachat.service.CommentService;
@@ -30,5 +32,15 @@ public class CommentController {
 		model.addAttribute("comment", comment);
 		
 		return "comment-form";
+	}
+	
+	@PostMapping("/userAction/saveComment")
+	public String saveComment(@ModelAttribute("comment") Comment comment,
+			RedirectAttributes redirectAttributes) {
+		
+		commentSerivce.saveComment(comment);
+		redirectAttributes.addAttribute("threadId", comment.getThreadId());
+		
+		return "redirect:/attaThread/showAttaThread";
 	}
 }
