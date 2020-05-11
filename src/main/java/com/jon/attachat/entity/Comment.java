@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="comment")
@@ -37,6 +38,9 @@ public class Comment {
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="parentId", cascade= {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
 	private List<Comment> children;
+	
+	@Transient
+	public int indent;
 	
 	public Comment() {
 	}
@@ -85,6 +89,16 @@ public class Comment {
 
 	public List<Comment> getChildren() {
 		return children;
+	}
+
+	public int getIndent() {
+		return indent;
+	}
+
+
+
+	public void setIndent(int indent) {
+		this.indent = indent;
 	}
 
 	@Override

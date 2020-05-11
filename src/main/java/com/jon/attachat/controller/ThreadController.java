@@ -1,7 +1,8 @@
 package com.jon.attachat.controller;
 
 import java.util.List;
-
+import java.util.LinkedList; 
+import java.util.Queue; 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,15 +44,26 @@ public class ThreadController {
 		Thread thread = threadService.getThread(threadId);
 		List<Comment> comments = commentSerivce.getThreadComments(threadId);
 
+		for(Comment comment : comments) {
+			int indent = 0;
+			Queue<Comment> queue = new LinkedList<>();
+			queue.add(comment);
+			comment.indent = indent;
+
+			while(!queue.isEmpty()) {
+				Comment node = queue.remove();
+				indent += 10;
+				for(Comment child : node.getChildren()) {
+					queue.add(child);
+					child.indent = indent;
+				}
+				
+			}
+		}
+		
 		model.addAttribute("comments", comments);
 		model.addAttribute("thread", thread);
-		
-		for(Comment comment : comments) {
-			System.out.println("parent");
-			System.out.println(comment.toString());
-			System.out.println("children");
-			System.out.println(comment.getChildren());
-		}
+	
 		
 		return "thread";
 	}
