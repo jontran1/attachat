@@ -34,15 +34,14 @@
 		    	<c:param name="parentId" value="${comment.commentId }"/>
 		    </c:url>
 		    
-		    <h4>Root comment: ${comment.content}</h4>
+   		    <c:set var="comment" value="${comment}" scope="request"/>
 		    
-		    <c:set var="comment" value="${comment}" scope="request"/>
+		    <h4>Root comment: ${comment.content}
 		    <a href="${createReply }">Reply</a>
+		    </h4>
 		    
 			<jsp:include page="node.jsp"/>
 		</c:forEach>
-		
-
 	
 	</p>
 	
