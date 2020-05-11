@@ -75,11 +75,11 @@ public class Comment {
 		return parentId;
 	}
 
-	public void setParentId(int parentId) {
+	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
 
-	public int getCommentId() {
+	public Integer getCommentId() {
 		return commentId;
 	}
 
