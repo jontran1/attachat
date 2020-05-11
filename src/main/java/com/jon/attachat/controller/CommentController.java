@@ -29,6 +29,8 @@ public class CommentController {
 		Comment comment = new Comment();
 		comment.setThreadId(threadId);
 		comment.setUserName("john");
+		comment.setParentId(null);
+		
 		model.addAttribute("comment", comment);
 		
 		return "comment-form";
@@ -43,4 +45,21 @@ public class CommentController {
 		
 		return "redirect:/attaThread/showAttaThread";
 	}
+	
+	@GetMapping("/userAction/showFormCreateReply")
+	public String showFormCreateComment(@RequestParam("threadId") int threadId,
+			@RequestParam("parentId") int parentId,
+			Model model) {
+		
+		Comment comment = new Comment();
+		comment.setThreadId(threadId);
+		comment.setUserName("john");
+		comment.setParentId(parentId);
+		
+		model.addAttribute("comment", comment);
+		model.addAttribute("isReply", true);
+
+		return "comment-form";
+	}
+	
 }
