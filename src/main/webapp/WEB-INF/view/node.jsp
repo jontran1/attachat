@@ -14,7 +14,15 @@
 
 <c:forEach var="comment" items="${comment.children}">
     <p style="text-indent: 20px;;">${comment.content}</p>
+    <c:url var="createReply" value="/comment/userAction/showFormCreateReply">
+    	<c:param name="threadId" value="${comment.threadId }"/>
+    	<c:param name="parentId" value="${comment.commentId }"/>
+    </c:url>
+    
+    
     <c:set var="comment" value="${comment}" scope="request"/>
+    <a href="${createReply }">Reply</a>
+    
     <jsp:include page="node.jsp"/>
 </c:forEach>
 

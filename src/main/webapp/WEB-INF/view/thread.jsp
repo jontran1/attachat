@@ -28,8 +28,17 @@
 	</p>
 
 		<c:forEach var="comment" items="${comments}">
+		
+		    <c:url var="createReply" value="/comment/userAction/showFormCreateReply">
+		    	<c:param name="threadId" value="${comment.threadId }"/>
+		    	<c:param name="parentId" value="${comment.commentId }"/>
+		    </c:url>
+		    
 		    <h4>Root comment: ${comment.content}</h4>
+		    
 		    <c:set var="comment" value="${comment}" scope="request"/>
+		    <a href="${createReply }">Reply</a>
+		    
 			<jsp:include page="node.jsp"/>
 		</c:forEach>
 		
