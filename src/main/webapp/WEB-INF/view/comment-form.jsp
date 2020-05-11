@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE html>
@@ -26,7 +27,11 @@
 			</tr>
 				<td><form:input path="threadId" type="hidden"/></td>
 				<td><form:input path="userName" type="hidden"/></td>
-		
+				
+			<c:if test="${isReply}">
+				<td><form:input path="parentId" type="hidden"/></td>				
+			</c:if>
+						
 		</table>
 	
 		<p>
