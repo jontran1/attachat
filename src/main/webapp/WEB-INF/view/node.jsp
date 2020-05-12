@@ -11,10 +11,15 @@
     	<c:param name="parentId" value="${comment.commentId }"/>
     </c:url>
     
+    <c:url var="deleteComment" value="/comment/userAction/deleteComment">
+    	<c:param name="commentId" value="${comment.commentId }"/>
+    </c:url>
+    
 		<p style="text-indent: ${comment.indent}px;">
 		
 		${comment.content}
 		<a href="${createReply }">Reply</a>
+		<a href="${deleteComment }">Delete comment</a>
 		
 		<c:set var="comment" value="${comment}" scope="request"/>
 		<jsp:include page="node.jsp"/>

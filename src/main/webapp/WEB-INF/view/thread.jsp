@@ -34,10 +34,15 @@
 		    	<c:param name="parentId" value="${comment.commentId }"/>
 		    </c:url>
 		    
+   		    <c:url var="deleteComment" value="/comment/userAction/deleteComment">
+		    	<c:param name="commentId" value="${comment.commentId }"/>
+		    </c:url>
+		    
    		    <c:set var="comment" value="${comment}" scope="request"/>
 		    
 		    <h4>Root comment: ${comment.content}
 		    <a href="${createReply }">Reply</a>
+		    <a href="${deleteComment }">Delete coment</a>
 		    </h4>
 		    
 			<jsp:include page="node.jsp"/>

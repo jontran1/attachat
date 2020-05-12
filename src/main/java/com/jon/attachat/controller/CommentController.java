@@ -62,4 +62,17 @@ public class CommentController {
 		return "comment-form";
 	}
 	
+	@GetMapping("/userAction/deleteComment")
+	public String deleteComment(@ModelAttribute("commentId") int commentId,
+			RedirectAttributes redirectAttributes) {
+		
+		Comment comment = commentSerivce.getComment(commentId);
+				
+		commentSerivce.updateCommentContent(comment, "Deleted");
+		redirectAttributes.addAttribute("threadId", comment.getThreadId());
+		
+		return "redirect:/attaThread/showAttaThread";
+		
+	}
+	
 }
