@@ -30,8 +30,7 @@ public class CommentServiceImpl implements CommentService {
 	@Transactional
 	@Override
 	public Comment getComment(int commentId) {
-		// TODO Auto-generated method stub
-		return null;
+		return commentDAO.getComment(commentId);
 	}
 
 	@Transactional

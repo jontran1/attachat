@@ -44,8 +44,12 @@ public class CommentDAOImpl implements CommentDAO {
 
 	@Override
 	public Comment getComment(int commentId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Comment comment = currentSession.get(Comment.class, commentId);
+		
+		return comment;
+
 	}
 
 	@Override
