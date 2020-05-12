@@ -60,4 +60,14 @@ public class CommentDAOImpl implements CommentDAO {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void updateCommentContent(Comment comment, String content) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		comment.setContent(content);
+		
+		currentSession.update(comment);
+		
+	}
 }

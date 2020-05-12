@@ -47,5 +47,11 @@ public class CommentServiceImpl implements CommentService {
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Transactional
+	@Override
+	public void updateCommentContent(Comment comment, String content) {
+		commentDAO.updateCommentContent(comment, content);
+	}
 
 }

@@ -16,4 +16,6 @@ public interface CommentDAO {
 	
 	public void deleteComment(Comment comment);
 	
+	public void updateCommentContent(Comment comment, String content);
+	
 }
