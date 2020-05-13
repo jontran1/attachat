@@ -6,12 +6,12 @@
 
 
 <c:forEach var="comment" items="${comment.children}">
-     <c:url var="createReply" value="/comment/userAction/showFormCreateReply">
+     <c:url var="createReply" value="/Comment/userAction/showFormCreateReply">
     	<c:param name="threadId" value="${comment.threadId }"/>
     	<c:param name="parentId" value="${comment.commentId }"/>
     </c:url>
     
-    <c:url var="deleteComment" value="/comment/userAction/deleteComment">
+    <c:url var="deleteComment" value="/Comment/userAction/deleteComment">
     	<c:param name="commentId" value="${comment.commentId }"/>
     </c:url>
     
