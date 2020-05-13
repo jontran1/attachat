@@ -26,7 +26,6 @@
 				<td><input type="submit" value="Save" class="save"/></td>
 			</tr>
 				<td><form:input path="threadId" type="hidden"/></td>
-				<td><form:input path="userName" type="hidden"/></td>
 				
 			<c:if test="${isReply}">
 				<td><form:input path="parentId" type="hidden"/></td>				

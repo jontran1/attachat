@@ -2,6 +2,8 @@ package com.jon.attachat.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,6 @@ public class CommentController {
 		
 		Comment comment = new Comment();
 		comment.setThreadId(threadId);
-		comment.setUserName("john");
 		comment.setParentId(null);
 		
 		model.addAttribute("comment", comment);
@@ -38,7 +39,11 @@ public class CommentController {
 	
 	@PostMapping("/userAction/saveComment")
 	public String saveComment(@ModelAttribute("comment") Comment comment,
+			HttpServletRequest request,
 			RedirectAttributes redirectAttributes) {
+		
+		String userName = request.getUserPrincipal().getName();
+		comment.setUserName(userName);
 		
 		commentSerivce.saveComment(comment);
 		redirectAttributes.addAttribute("threadId", comment.getThreadId());
