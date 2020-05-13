@@ -15,6 +15,8 @@
 	
 	<a href="${pageContext.request.contextPath }/attaSub/userAction/showFormCreateAttaSub">Create a new AttaSub</a>
 	
+	<a href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
+	
 	<c:forEach var="sub" items="${subs}">
 	
 		<c:url var="subLink" value="/attaSub/showAttaSub">
