@@ -10,7 +10,7 @@
 
 	<h3>Sub Creation Form</h3>
 	
-	<form:form action= "saveAttaSub" modelAttribute="sub" method="POST">
+	<form:form action= "saveSub" modelAttribute="sub" method="POST">
 	
 		<table>
 			<tbody>

@@ -16,7 +16,7 @@ import com.jon.attachat.entity.Comment;
 import com.jon.attachat.service.CommentService;
 
 @Controller
-@RequestMapping("/comment")
+@RequestMapping("/Comment")
 public class CommentController {
 	
 	@Autowired
@@ -43,7 +43,7 @@ public class CommentController {
 		commentSerivce.saveComment(comment);
 		redirectAttributes.addAttribute("threadId", comment.getThreadId());
 		
-		return "redirect:/attaThread/showAttaThread";
+		return "redirect:/Thread/showThread";
 	}
 	
 	@GetMapping("/userAction/showFormCreateReply")
@@ -71,7 +71,7 @@ public class CommentController {
 		commentSerivce.updateCommentContent(comment, "Deleted");
 		redirectAttributes.addAttribute("threadId", comment.getThreadId());
 		
-		return "redirect:/attaThread/showAttaThread";
+		return "redirect:/Thread/showThread";
 		
 	}
 	

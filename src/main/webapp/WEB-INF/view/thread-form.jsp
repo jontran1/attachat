@@ -11,7 +11,7 @@
 <body>
 	<h3>Thread Creation Form</h3>
 	
-	<form:form action="saveAttaThread" modelAttribute="thread" method="POST">
+	<form:form action="saveThread" modelAttribute="thread" method="POST">
 
 		
 		<table>

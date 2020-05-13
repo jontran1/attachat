@@ -23,7 +23,7 @@ import com.jon.attachat.entity.Comment;
 import com.jon.attachat.entity.Thread;
 
 @Controller
-@RequestMapping("/attaThread")
+@RequestMapping("/Thread")
 public class ThreadController {
 	
 	@Autowired
@@ -38,7 +38,7 @@ public class ThreadController {
 	@Autowired
 	private CommentService commentSerivce;
 	
-	@GetMapping("/showAttaThread")
+	@GetMapping("/showThread")
 	public String showThread(@RequestParam("threadId") int threadId, Model model) {
 		
 		Thread thread = threadService.getThread(threadId);
@@ -68,7 +68,7 @@ public class ThreadController {
 		return "thread";
 	}
 	
-	@GetMapping("/userAction/showFormCreateAttaThread")
+	@GetMapping("/userAction/showFormCreateThread")
 	public String showFormCreateThread(@RequestParam("subName") String subName, Model model) {
 		Thread thread = new Thread();
 		
@@ -80,14 +80,14 @@ public class ThreadController {
 		return "thread-form";
 	}
 	
-	@PostMapping("/userAction/saveAttaThread")
+	@PostMapping("/userAction/saveThread")
 	public String saveThread(@ModelAttribute("thread") Thread thread, 
 			RedirectAttributes redirectAttributes) {	
 		
 		threadService.saveThread(thread);
 		redirectAttributes.addAttribute("subName", thread.getSubName());
 
-		return "redirect:/attaSub/showAttaSub";
+		return "redirect:/Sub/showSub";
 	}
 
 

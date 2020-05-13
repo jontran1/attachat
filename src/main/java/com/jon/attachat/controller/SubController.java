@@ -18,7 +18,7 @@ import com.jon.attachat.service.ThreadService;
 import com.jon.attachat.service.UserService;
 
 @Controller
-@RequestMapping("/attaSub")
+@RequestMapping("/Sub")
 public class SubController {
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class SubController {
 	@Autowired
 	private ThreadService threadService;
 	
-	@GetMapping("/showAttaSub")
+	@GetMapping("/showSub")
 	public String showSub(@RequestParam("subName") String subName, Model model) {
 		
 		System.out.println("test sub name: " + subName);
@@ -42,7 +42,7 @@ public class SubController {
 		return "sub";
 	}
 	
-	@GetMapping("/userAction/showFormCreateAttaSub")
+	@GetMapping("/userAction/showFormCreateSub")
 	public String showFormCreateSub(Model model) {
 		Sub sub = new Sub();
 		
@@ -51,7 +51,7 @@ public class SubController {
 		return "sub-form";
 	}
 	
-	@PostMapping("/userAction/saveAttaSub")
+	@PostMapping("/userAction/saveSub")
 	public String saveSub(@ModelAttribute("sub") Sub sub) {
 		
 		sub.setCreator("john");

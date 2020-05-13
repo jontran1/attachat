@@ -30,6 +30,8 @@ public class AttaChatSercurityConfig extends WebSecurityConfigurerAdapter  {
 		
 		http.authorizeRequests()
 			.antMatchers("/comment/userAction/**").hasRole("USER")
+			.antMatchers("/thread/userAction/**").hasRole("USER")
+			.antMatchers("/sub/userAction/**").hasRole("USER")
 			.and()
 			.formLogin()
 				.loginPage("/showMyLoginPage")
