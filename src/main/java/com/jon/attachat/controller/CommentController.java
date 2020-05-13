@@ -58,7 +58,6 @@ public class CommentController {
 		
 		Comment comment = new Comment();
 		comment.setThreadId(threadId);
-		comment.setUserName("john");
 		comment.setParentId(parentId);
 		
 		model.addAttribute("comment", comment);
