@@ -18,6 +18,7 @@
 		<p style="text-indent: ${comment.indent}px;">
 		
 		${comment.content}
+		User name: ${comment.userName }
 		<a href="${createReply }">Reply</a>
 		<a href="${deleteComment }">Delete comment</a>
 		

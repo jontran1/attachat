@@ -41,8 +41,9 @@
    		    <c:set var="comment" value="${comment}" scope="request"/>
 		    
 		    <h4>Root comment: ${comment.content}
+		    User name: ${comment.userName }
 		    <a href="${createReply }">Reply</a>
-		    <a href="${deleteComment }">Delete coment</a>
+		    <a href="${deleteComment }">Delete comment</a>
 		    </h4>
 		    
 			<jsp:include page="node.jsp"/>
