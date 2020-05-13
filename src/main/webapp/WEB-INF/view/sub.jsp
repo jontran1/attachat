@@ -17,6 +17,15 @@
 		<c:param name="subName" value="${subName }"/>
 	</c:url>
 	
+	<c:url var="followSub" value="/Sub/userAction/followSub">
+		<c:param name="subName" value="${subName }"/>
+	</c:url>
+	
+	
+	<form action="${followSub }" method="post">
+	    <button type="submit" >Follow</button>
+	</form>
+	
 	<a href="${createThreadLink}">Create A New Thread</a>
 	
 	<c:forEach var="thread" items="${threads}">
