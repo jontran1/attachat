@@ -20,7 +20,7 @@
 		Thread creator: ${thread.userName }
 	</p>
 	
-	<c:url var="createComment" value="/comment/userAction/showFormCreateComment">
+	<c:url var="createComment" value="/Comment/userAction/showFormCreateComment">
 		<c:param name="threadId" value="${thread.threadId }"/>
 	</c:url>
 	<p>
@@ -29,12 +29,12 @@
 
 		<c:forEach var="comment" items="${comments}">
 		
-		    <c:url var="createReply" value="/comment/userAction/showFormCreateReply">
+		    <c:url var="createReply" value="/Comment/userAction/showFormCreateReply">
 		    	<c:param name="threadId" value="${comment.threadId }"/>
 		    	<c:param name="parentId" value="${comment.commentId }"/>
 		    </c:url>
 		    
-   		    <c:url var="deleteComment" value="/comment/userAction/deleteComment">
+   		    <c:url var="deleteComment" value="/Comment/userAction/deleteComment">
 		    	<c:param name="commentId" value="${comment.commentId }"/>
 		    </c:url>
 		    

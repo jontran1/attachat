@@ -29,9 +29,9 @@ public class AttaChatSercurityConfig extends WebSecurityConfigurerAdapter  {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-			.antMatchers("/comment/userAction/**").hasRole("USER")
-			.antMatchers("/thread/userAction/**").hasRole("USER")
-			.antMatchers("/sub/userAction/**").hasRole("USER")
+			.antMatchers("/Comment/userAction/**").hasRole("USER")
+			.antMatchers("/Thread/userAction/**").hasRole("USER")
+			.antMatchers("/Sub/userAction/**").hasRole("USER")
 			.and()
 			.formLogin()
 				.loginPage("/showMyLoginPage")
