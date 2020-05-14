@@ -20,7 +20,9 @@
 		${comment.content}
 		User name: ${comment.userName }
 		<a href="${createReply }">Reply</a>
-		<a href="${deleteComment }">Delete comment</a>
+		<form action="${deleteComment }" method="POST">
+		    <button type="submit" >Delete comment</button>
+		</form>
 		
 		<c:set var="comment" value="${comment}" scope="request"/>
 		<jsp:include page="node.jsp"/>

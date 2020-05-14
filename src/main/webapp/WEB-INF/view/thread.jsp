@@ -43,7 +43,10 @@
 		    <h4>Root comment: ${comment.content}
 		    User name: ${comment.userName }
 		    <a href="${createReply }">Reply</a>
-		    <a href="${deleteComment }">Delete comment</a>
+		    
+			<form action="${deleteComment }" method="POST">
+			    <button type="submit" >Delete comment</button>
+			</form>
 		    </h4>
 		    
 			<jsp:include page="node.jsp"/>

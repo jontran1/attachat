@@ -66,7 +66,7 @@ public class CommentController {
 		return "comment-form";
 	}
 	
-	@GetMapping("/userAction/deleteComment")
+	@PostMapping("/userAction/deleteComment")
 	public String deleteComment(@ModelAttribute("commentId") int commentId,
 			RedirectAttributes redirectAttributes) {
 		
