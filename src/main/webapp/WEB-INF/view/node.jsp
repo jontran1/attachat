@@ -20,9 +20,11 @@
 		${comment.content}
 		User name: ${comment.userName }
 		<a href="${createReply }">Reply</a>
-		<form action="${deleteComment }" method="POST">
-		    <button type="submit" >Delete comment</button>
-		</form>
+		<c:if test="${comment.userName == userName }">								
+			<form action="${deleteComment }" method="POST">
+			    <button type="submit" >Delete comment</button>
+			</form>
+		</c:if>   
 		
 		<c:set var="comment" value="${comment}" scope="request"/>
 		<jsp:include page="node.jsp"/>

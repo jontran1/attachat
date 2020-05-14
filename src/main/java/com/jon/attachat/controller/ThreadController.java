@@ -39,7 +39,8 @@ public class ThreadController {
 	private CommentService commentSerivce;
 	
 	@GetMapping("/showThread")
-	public String showThread(@RequestParam("threadId") int threadId, Model model) {
+	public String showThread(@RequestParam("threadId") int threadId, Model model,
+			HttpServletRequest request) {
 		
 		Thread thread = threadService.getThread(threadId);
 		List<Comment> comments = commentSerivce.getThreadComments(threadId);
@@ -61,6 +62,9 @@ public class ThreadController {
 			}
 		}
 		
+		String userName = request.getUserPrincipal().getName();
+		
+		model.addAttribute("userName", userName);
 		model.addAttribute("comments", comments);
 		model.addAttribute("thread", thread);
 	
