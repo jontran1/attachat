@@ -21,11 +21,11 @@
 		User name: ${comment.userName }
 		<a href="${createReply }">Reply</a>
 		<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">								
-			<form action="${deleteComment }" method="POST">
+			<form action="${deleteComment }" method="POST" style="text-indent: ${comment.indent}px;">
 			    <button type="submit" >Delete comment</button>
 			</form>
 		</c:if>   
-		
+		 
 		<c:set var="comment" value="${comment}" scope="request"/>
 		<jsp:include page="node.jsp"/>
 		
