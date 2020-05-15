@@ -20,7 +20,7 @@
 		${comment.content}
 		User name: ${comment.userName }
 		<a href="${createReply }">Reply</a>
-		<c:if test="${comment.userName == userName }">								
+		<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">								
 			<form action="${deleteComment }" method="POST">
 			    <button type="submit" >Delete comment</button>
 			</form>

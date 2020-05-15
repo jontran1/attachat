@@ -61,10 +61,10 @@ public class ThreadController {
 				
 			}
 		}
-		
-		String userName = request.getUserPrincipal().getName();
-		
-		model.addAttribute("userName", userName);
+		if(request.getUserPrincipal() != null) {
+			String userName = request.getUserPrincipal().getName();
+			model.addAttribute("userName", userName);			
+		}
 		model.addAttribute("comments", comments);
 		model.addAttribute("thread", thread);
 	
