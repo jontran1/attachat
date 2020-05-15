@@ -12,4 +12,6 @@ public interface SubDAO {
 	public void saveSub(Sub sub);
 	
 	public void deleteSub(Sub sub);
+	
+	public void addFollower(Sub sub, String userName);
 }

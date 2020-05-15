@@ -56,4 +56,10 @@ public class SubDAOImpl implements SubDAO {
 		currentSession.delete(sub);
 	}
 
+	@Override
+	public void addFollower(Sub sub, String userName) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
