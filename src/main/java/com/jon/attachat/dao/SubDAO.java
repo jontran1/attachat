@@ -17,5 +17,5 @@ public interface SubDAO {
 	
 	public void addFollower(SubFollower subFollower);
 	
-	public void increaseSubPopulationCount(String subName);
+	public void increaseSubPopulationCount(Sub sub);
 }

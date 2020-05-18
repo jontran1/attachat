@@ -64,17 +64,17 @@ public class SubDAOImpl implements SubDAO {
 		
 		currentSession.save(subFollower);
 		
+		this.increaseSubPopulationCount(subFollower.getSub());
+		
 	}
 
 	@Override
-	public void increaseSubPopulationCount(String subName) {
+	public void increaseSubPopulationCount(Sub sub) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		
-		Sub sub = this.getSub(subName);
-		
+				
 		sub.setNumberOfFollowers(sub.getNumberOfFollowers() + 1);
 		
-		this.saveSub(sub);
+		currentSession.saveOrUpdate(sub);
 	}
 
 }
