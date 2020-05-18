@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.hibernate.query.Query;
 
+import com.jon.attachat.entity.Comment;
 import com.jon.attachat.entity.Sub;
+import com.jon.attachat.entity.SubFollower;
 
 @Repository
 public class SubDAOImpl implements SubDAO {
@@ -57,8 +59,10 @@ public class SubDAOImpl implements SubDAO {
 	}
 
 	@Override
-	public void addFollower(Sub sub, String userName) {
-		// TODO Auto-generated method stub
+	public void addFollower(SubFollower subFollower) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.save(subFollower);
 		
 	}
 

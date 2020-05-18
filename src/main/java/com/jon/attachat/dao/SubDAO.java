@@ -1,6 +1,8 @@
 package com.jon.attachat.dao;
 
 import com.jon.attachat.entity.Sub;
+import com.jon.attachat.entity.SubFollower;
+
 import java.util.List;
 
 public interface SubDAO {
@@ -13,5 +15,5 @@ public interface SubDAO {
 	
 	public void deleteSub(Sub sub);
 	
-	public void addFollower(Sub sub, String userName);
+	public void addFollower(SubFollower subFollower);
 }
