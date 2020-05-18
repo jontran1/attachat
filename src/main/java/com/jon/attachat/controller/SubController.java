@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jon.attachat.entity.Sub;
+import com.jon.attachat.entity.SubFollower;
 import com.jon.attachat.entity.Thread;
+import com.jon.attachat.entity.User;
 import com.jon.attachat.service.SubService;
 import com.jon.attachat.service.ThreadService;
 import com.jon.attachat.service.UserService;
@@ -65,6 +67,23 @@ public class SubController {
 		subService.saveSub(sub);
 		
 		return "redirect:/";
+	}
+	
+	@PostMapping("/userAction/followSub")
+	public String followSub(@RequestParam("subName") String subName,
+			RedirectAttributes redirectAttributes,
+			HttpServletRequest request) {
+		
+		User user = userService.getUser(request.getUserPrincipal().getName());
+		Sub sub = subService.getSub(subName);
+		SubFollower subFollower = new SubFollower(user, sub);
+		
+		subService.addFollower(subFollower);
+		
+		redirectAttributes.addAttribute("subName", subName);
+
+		return "redirect:/Sub/showSub";
+	
 	}
 
 }
