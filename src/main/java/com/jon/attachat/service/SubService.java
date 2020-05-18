@@ -2,6 +2,7 @@ package com.jon.attachat.service;
 
 import java.util.List;
 
+import com.jon.attachat.entity.SubFollower;
 import com.jon.attachat.entity.Sub;
 
 public interface SubService {
@@ -12,4 +13,7 @@ public interface SubService {
 	public void saveSub(Sub sub);
 	
 	public void deleteSub(Sub sub);
+	
+	public void addFollower(SubFollower subFollower);
+
 }
