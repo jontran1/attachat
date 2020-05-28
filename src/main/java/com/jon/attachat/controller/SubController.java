@@ -87,11 +87,6 @@ public class SubController {
 		Sub sub = subService.getSub(subName);
 		SubFollower subFollower = new SubFollower(user, sub);
 		
-		if(subService.isFollower(new SubFollowerId(user, sub))) {
-			redirectAttributes.addAttribute("subName", subName);
-			return "redirect:/Sub/showSub";
-		}
-		
 		subService.addFollower(subFollower);
 		
 		redirectAttributes.addAttribute("subName", subName);
