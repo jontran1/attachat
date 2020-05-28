@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jon.attachat.entity.Sub;
 import com.jon.attachat.entity.SubFollower;
+import com.jon.attachat.entity.SubFollowerId;
 import com.jon.attachat.entity.Thread;
 import com.jon.attachat.entity.User;
 import com.jon.attachat.service.SubService;
@@ -77,6 +78,11 @@ public class SubController {
 		User user = userService.getUser(request.getUserPrincipal().getName());
 		Sub sub = subService.getSub(subName);
 		SubFollower subFollower = new SubFollower(user, sub);
+		
+		if(subService.isFollower(new SubFollowerId(user, sub))) {
+			redirectAttributes.addAttribute("subName", subName);
+			return "redirect:/Sub/showSub";
+		}
 		
 		subService.addFollower(subFollower);
 		
