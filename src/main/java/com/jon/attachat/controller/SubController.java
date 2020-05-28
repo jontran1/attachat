@@ -40,7 +40,6 @@ public class SubController {
 	public String showSub(@RequestParam("subName") String subName, Model model,
 			HttpServletRequest request) {
 		
-		System.out.println("test sub name: " + subName);
 		List<Thread> threads = threadService.getSubThreads(subName);
 		
 		if(request.getUserPrincipal() != null) {
