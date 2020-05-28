@@ -11,6 +11,7 @@ import org.hibernate.query.Query;
 import com.jon.attachat.entity.Comment;
 import com.jon.attachat.entity.Sub;
 import com.jon.attachat.entity.SubFollower;
+import com.jon.attachat.entity.SubFollowerId;
 
 @Repository
 public class SubDAOImpl implements SubDAO {
@@ -75,6 +76,15 @@ public class SubDAOImpl implements SubDAO {
 		sub.setNumberOfFollowers(sub.getNumberOfFollowers() + 1);
 		
 		currentSession.saveOrUpdate(sub);
+	}
+
+	@Override
+	public boolean isFollower(SubFollowerId subFollowerId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		SubFollower subFollower = currentSession.get(SubFollower.class, subFollowerId);
+
+		return subFollower != null;
 	}
 
 }
