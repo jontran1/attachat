@@ -8,4 +8,14 @@ public class SubFollowerId implements Serializable {
 	
 	private Sub sub;
 
+	public SubFollowerId() {
+	}
+
+	public SubFollowerId(User user, Sub sub) {
+		this.user = user;
+		this.sub = sub;
+	}
+	
+	
+
 }
