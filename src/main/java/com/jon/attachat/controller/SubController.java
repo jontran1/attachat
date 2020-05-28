@@ -37,11 +37,19 @@ public class SubController {
 	private ThreadService threadService;
 	
 	@GetMapping("/showSub")
-	public String showSub(@RequestParam("subName") String subName, Model model) {
+	public String showSub(@RequestParam("subName") String subName, Model model,
+			HttpServletRequest request) {
 		
 		System.out.println("test sub name: " + subName);
 		List<Thread> threads = threadService.getSubThreads(subName);
 		
+		if(request.getUserPrincipal() != null) {
+			User user = userService.getUser(request.getUserPrincipal().getName());
+			Sub sub = subService.getSub(subName);
+			boolean isFollower = subService.isFollower(new SubFollowerId(user, sub));
+			model.addAttribute("isFollower", isFollower);
+		}
+
 		model.addAttribute("threads", threads);
 		model.addAttribute("subName", subName);
 		
