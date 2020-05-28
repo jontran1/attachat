@@ -3,6 +3,7 @@ package com.jon.attachat.service;
 import java.util.List;
 
 import com.jon.attachat.entity.SubFollower;
+import com.jon.attachat.entity.SubFollowerId;
 import com.jon.attachat.entity.Sub;
 
 public interface SubService {
@@ -15,5 +16,7 @@ public interface SubService {
 	public void deleteSub(Sub sub);
 	
 	public void addFollower(SubFollower subFollower);
+	
+	public boolean isFollower(SubFollowerId subFollowerId);
 
 }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jon.attachat.dao.SubDAO;
 import com.jon.attachat.entity.SubFollower;
+import com.jon.attachat.entity.SubFollowerId;
 import com.jon.attachat.entity.Sub;
 
 @Service
@@ -45,6 +46,12 @@ public class SubServiceImpl implements SubService {
 	@Override
 	public void addFollower(SubFollower subFollower) {
 		subDAO.addFollower(subFollower);
+	}
+
+	@Transactional
+	@Override
+	public boolean isFollower(SubFollowerId subFollowerId) {
+		return subDAO.isFollower(subFollowerId);
 	}
 
 }
