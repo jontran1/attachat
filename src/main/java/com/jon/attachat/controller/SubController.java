@@ -93,5 +93,21 @@ public class SubController {
 		return "redirect:/Sub/showSub";
 	
 	}
+	
+	@PostMapping("/userAction/unfollowSub")
+	public String unfollowSub(@RequestParam("subName") String subName,
+			RedirectAttributes redirectAttributes,
+			HttpServletRequest request) {
+		
+		User user = userService.getUser(request.getUserPrincipal().getName());
+		Sub sub = subService.getSub(subName);
+		SubFollower subFollower = new SubFollower(user, sub);
+
+		subService.removeFollower(subFollower);
+		
+		redirectAttributes.addAttribute("subName", subName);
+
+		return "redirect:/Sub/showSub";
+	}
 
 }
