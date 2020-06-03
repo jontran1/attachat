@@ -20,10 +20,18 @@
 	<c:url var="followSub" value="/Sub/userAction/followSub">
 		<c:param name="subName" value="${subName }"/>
 	</c:url>
+	<c:url var="unfollowSub" value="/Sub/userAction/unfollowSub">
+		<c:param name="subName" value="${subName }"/>
+	</c:url>
 	
 	<c:if test="${pageContext.request.userPrincipal.authenticated && !isFollower}">
 		<form action="${followSub }" method="post">
 		    <button type="submit" >Follow</button>
+		</form>
+	</c:if> 
+	<c:if test="${pageContext.request.userPrincipal.authenticated && isFollower}">
+		<form action="${unfollowSub }" method="post">
+		    <button type="submit" >Unfollow</button>
 		</form>
 	</c:if> 
 	
