@@ -15,7 +15,14 @@
 	
 	<a href="${pageContext.request.contextPath }/Sub/userAction/showFormCreateSub">Create a new Sub</a>
 	
-	<a href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
+	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+		<a href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
+	</c:if> 
+	<c:if test="${pageContext.request.userPrincipal.authenticated }">
+		<a href="${pageContext.request.contextPath }/logout">Logout</a>
+	</c:if> 
+	
+	
 	
 	<c:forEach var="sub" items="${subs}">
 	
