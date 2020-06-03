@@ -17,6 +17,8 @@ public interface SubService {
 	
 	public void addFollower(SubFollower subFollower);
 	
+	public void removeFollower(SubFollower subFollower);
+	
 	public boolean isFollower(SubFollowerId subFollowerId);
 
 }

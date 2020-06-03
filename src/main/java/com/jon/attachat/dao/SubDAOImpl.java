@@ -87,4 +87,11 @@ public class SubDAOImpl implements SubDAO {
 		return subFollower != null;
 	}
 
+	@Override
+	public void removeFollower(SubFollower subFollower) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.delete(subFollower);
+	}
+
 }
