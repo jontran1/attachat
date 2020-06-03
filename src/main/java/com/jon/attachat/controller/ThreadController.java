@@ -53,7 +53,7 @@ public class ThreadController {
 
 			while(!queue.isEmpty()) {
 				Comment node = queue.remove();
-				indent += 5;
+				indent += 10;
 				for(Comment child : node.getChildren()) {
 					queue.add(child);
 					child.indent = indent;
