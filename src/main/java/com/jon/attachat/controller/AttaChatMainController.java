@@ -38,10 +38,5 @@ public class AttaChatMainController {
 		
 		return "home";
 	}
-	
-	
-	@GetMapping("/test")
-	public String showTest() {
-		return "test";
-	}
+
 }

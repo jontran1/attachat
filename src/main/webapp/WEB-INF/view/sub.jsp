@@ -7,12 +7,6 @@
 	<title>${subName }</title>
 </head>
 	
-	<body>
-		TEST APP!!! HELLO WORLD! THIS IS A TEST FOR GIT
-	</body>
-	
-	<a href="${pageContext.request.contextPath }/test">TEST LINK</a>
-	
 	<c:url var="createThreadLink" value="/Thread/userAction/showFormCreateThread">
 		<c:param name="subName" value="${subName }"/>
 	</c:url>
