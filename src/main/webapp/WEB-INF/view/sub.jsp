@@ -6,6 +6,8 @@
 <head>
 	<title>${subName }</title>
 </head>
+
+	<a href="${pageContext.request.contextPath }/">Home</a>
 	
 	<c:url var="createThreadLink" value="/Thread/userAction/showFormCreateThread">
 		<c:param name="subName" value="${subName }"/>
