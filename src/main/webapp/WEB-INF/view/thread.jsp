@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>${thread.threadTitle }</title>
 </head>
 <body>
 	<a href="${pageContext.request.contextPath }/">Home</a>
