@@ -60,4 +60,9 @@ public class SubServiceImpl implements SubService {
 		subDAO.removeFollower(subFollower);		
 	}
 
+	@Override
+	public SubFollower getSubFollower(SubFollowerId id) {
+		return subDAO.getSubFollower(id);
+	}
+
 }

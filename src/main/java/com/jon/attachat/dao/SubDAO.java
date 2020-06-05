@@ -23,4 +23,6 @@ public interface SubDAO {
 	public boolean isFollower(SubFollowerId subFollowerId);
 	
 	public void increaseSubPopulationCount(Sub sub);
+	
+	public SubFollower getSubFollower(SubFollowerId id);
 }

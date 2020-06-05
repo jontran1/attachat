@@ -20,5 +20,7 @@ public interface SubService {
 	public void removeFollower(SubFollower subFollower);
 	
 	public boolean isFollower(SubFollowerId subFollowerId);
+	
+	public SubFollower getSubFollower(SubFollowerId id);
 
 }
