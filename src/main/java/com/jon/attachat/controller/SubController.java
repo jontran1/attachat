@@ -101,9 +101,13 @@ public class SubController {
 		
 		User user = userService.getUser(request.getUserPrincipal().getName());
 		Sub sub = subService.getSub(subName);
-		SubFollower subFollower = new SubFollower(user, sub);
-
-		subService.removeFollower(subFollower);
+		SubFollowerId id = new SubFollowerId(user, sub);
+		SubFollower subFollower = subService.getSubFollower(id);
+		
+		if(subFollower != null) {
+			subService.removeFollower(subFollower);
+			subService.decreaseSubPopulationCount(sub);
+		}
 		
 		redirectAttributes.addAttribute("subName", subName);
 
