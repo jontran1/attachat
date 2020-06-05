@@ -65,4 +65,10 @@ public class SubServiceImpl implements SubService {
 		return subDAO.getSubFollower(id);
 	}
 
+	@Transactional
+	@Override
+	public void decreaseSubPopulationCount(Sub sub) {
+		subDAO.decreaseSubPopulationCount(sub);
+	}
+
 }

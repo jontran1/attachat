@@ -22,5 +22,7 @@ public interface SubService {
 	public boolean isFollower(SubFollowerId subFollowerId);
 	
 	public SubFollower getSubFollower(SubFollowerId id);
+	
+	public void decreaseSubPopulationCount(Sub sub);
 
 }
