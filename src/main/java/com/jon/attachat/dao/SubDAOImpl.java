@@ -77,6 +77,15 @@ public class SubDAOImpl implements SubDAO {
 		
 		currentSession.saveOrUpdate(sub);
 	}
+	
+	@Override
+	public void decreaseSubPopulationCount(Sub sub) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		sub.setNumberOfFollowers(sub.getNumberOfFollowers() - 1);
+		
+		currentSession.saveOrUpdate(sub);		
+	}
 
 	@Override
 	public boolean isFollower(SubFollowerId subFollowerId) {
@@ -90,7 +99,7 @@ public class SubDAOImpl implements SubDAO {
 	@Override
 	public void removeFollower(SubFollower subFollower) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		
+
 		currentSession.delete(subFollower);
 	}
 
