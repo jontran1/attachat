@@ -11,6 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="${pageContext.request.contextPath }/">Home</a>
+	
 	<h3>${thread.threadTitle }</h3>
 	
 	<p>
