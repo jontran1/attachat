@@ -7,12 +7,6 @@
 	<title>TEST APP</title>
 </head>
 	
-	<body>
-		TEST APP!!! HELLO WORLD! THIS IS A TEST FOR GIT
-	</body>
-	
-	<a href="${pageContext.request.contextPath }/test">TEST LINK</a>
-	
 	<a href="${pageContext.request.contextPath }/Sub/userAction/showFormCreateSub">Create a new Sub</a>
 	
 	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
