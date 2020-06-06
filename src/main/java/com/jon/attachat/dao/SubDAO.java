@@ -10,6 +10,8 @@ public interface SubDAO {
 	
 	public List<Sub> getSubs();
 	
+	public List<Sub> getSubsByUser(List<SubFollower> subFollowers);
+	
 	public Sub getSub(String subName);
 	
 	public void saveSub(Sub sub);

@@ -77,4 +77,10 @@ public class SubServiceImpl implements SubService {
 	public List<SubFollower> getSubsFollowByUser(String userName) {
 		return subDAO.getSubsFollowByUser(userName);
 	}
+
+	@Override
+	public List<Sub> getSubsByUser(List<SubFollower> subFollowers) {
+		return subDAO.getSubsByUser(subFollowers);
+	}
+
 }

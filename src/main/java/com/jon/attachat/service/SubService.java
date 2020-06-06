@@ -9,6 +9,8 @@ import com.jon.attachat.entity.Sub;
 public interface SubService {
 	public List<Sub> getSubs();
 	
+	public List<Sub> getSubsByUser(List<SubFollower> subFollowers);
+	
 	public Sub getSub(String subName);
 	
 	public void saveSub(Sub sub);
@@ -24,7 +26,6 @@ public interface SubService {
 	public SubFollower getSubFollower(SubFollowerId id);
 	
 	public void decreaseSubPopulationCount(Sub sub);
-
 	
 	public List<SubFollower> getSubsFollowByUser(String userName);
 }

@@ -1,5 +1,6 @@
 package com.jon.attachat.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -123,6 +124,15 @@ public class SubDAOImpl implements SubDAO {
 		List<SubFollower> subFollowers = query.getResultList();
 		
 		return subFollowers;
+	}
+
+	@Override
+	public List<Sub> getSubsByUser(List<SubFollower> subFollowers) {
+		List<Sub> subs = new LinkedList<Sub>();
+		for(SubFollower subFollower : subFollowers) {
+			subs.add(subFollower.getSub());
+		}
+		return subs;
 	}
 
 }
