@@ -4,7 +4,7 @@
 <html>
 
 <head>
-	<title>TEST APP</title>
+	<title>Atta Chat</title>
 </head>
 	
 	<a href="${pageContext.request.contextPath }/Sub/userAction/showFormCreateSub">Create a new Sub</a>
