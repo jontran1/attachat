@@ -19,5 +19,7 @@ public interface CommentService {
 	public void updateCommentContent(Comment comment, String content);
 	
 	public void updateComment(Comment comment);
+	
+	public List<Comment> getUserComment(String userName);
 
 }

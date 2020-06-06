@@ -58,5 +58,11 @@ public class CommentServiceImpl implements CommentService {
 	public void updateComment(Comment comment) {
 		commentDAO.updateComment(comment);
 	}
+	
+	@Transactional
+	@Override
+	public List<Comment> getUserComment(String userName) {
+		return commentDAO.getUserComment(userName);
+	}
 
 }

@@ -20,4 +20,6 @@ public interface CommentDAO {
 	
 	public void updateComment(Comment comment);
 	
+	public List<Comment> getUserComment(String userName);
+	
 }
