@@ -66,7 +66,6 @@ CREATE TABLE `thread`(
     `sub_name` VARCHAR(50) NOT NULL,
 	`thread_title` VARCHAR(50) NOT NULL,
     `thread_content` text,
-	`deleted` int(1),
     PRIMARY KEY (`thread_id`),
     CONSTRAINT `thread_idx_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `thread_idx_2` FOREIGN KEY (`sub_name`) REFERENCES `sub` (`sub_name`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -89,6 +88,7 @@ CREATE TABLE `comment`(
 	`user_name` VARCHAR(50),
     `content` text,
     `parent_id` int(11),
+    `deleted` int(1) default 0,
     PRIMARY KEY (`comment_id`),
     CONSTRAINT `comment_idx_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `comment_idx_2` FOREIGN KEY (`thread_id`) REFERENCES `thread` (`thread_id`) ON DELETE CASCADE ON UPDATE CASCADE,
