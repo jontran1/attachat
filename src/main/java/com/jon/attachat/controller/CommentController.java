@@ -37,6 +37,15 @@ public class CommentController {
 		return "comment-form";
 	}
 	
+	@GetMapping("/user/showComments")
+	public String showUserComment(@RequestParam("userName") String userName) {
+		List<Comment> userComments = commentSerivce.getUserComment(userName);
+		
+		System.out.println(userComments);
+		
+		return null;
+	}
+	
 	@PostMapping("/userAction/saveComment")
 	public String saveComment(@ModelAttribute("comment") Comment comment,
 			HttpServletRequest request,
