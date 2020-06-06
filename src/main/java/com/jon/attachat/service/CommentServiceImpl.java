@@ -53,4 +53,10 @@ public class CommentServiceImpl implements CommentService {
 		commentDAO.updateCommentContent(comment, content);
 	}
 
+	@Transactional
+	@Override
+	public void updateComment(Comment comment) {
+		commentDAO.updateComment(comment);
+	}
+
 }

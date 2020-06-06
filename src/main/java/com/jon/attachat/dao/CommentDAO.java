@@ -18,4 +18,6 @@ public interface CommentDAO {
 	
 	public void updateCommentContent(Comment comment, String content);
 	
+	public void updateComment(Comment comment);
+	
 }

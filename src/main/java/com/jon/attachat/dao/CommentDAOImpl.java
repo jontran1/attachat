@@ -74,4 +74,11 @@ public class CommentDAOImpl implements CommentDAO {
 		currentSession.update(comment);
 		
 	}
+
+	@Override
+	public void updateComment(Comment comment) {
+		Session currentSession = sessionFactory.getCurrentSession();
+				
+		currentSession.update(comment);		
+	}
 }
