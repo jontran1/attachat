@@ -7,6 +7,8 @@
 	<title>Atta Chat</title>
 </head>
 	
+	<body>
+	
 	<a href="${pageContext.request.contextPath }/Sub/userAction/showFormCreateSub">Create a new Sub</a>
 	
 	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
@@ -66,4 +68,7 @@
 		
 	
 	</c:if> 	
+	
+	</body>
+	
 </html>
