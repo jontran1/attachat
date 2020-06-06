@@ -37,7 +37,7 @@ public class Comment {
 	private Integer parentId;
 	
 	@Column(name="deleted")
-	private boolean deleted;
+	private Boolean deleted;
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="parentId", cascade= {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
 	private List<Comment> children;
@@ -99,10 +99,16 @@ public class Comment {
 		return indent;
 	}
 
-
-
 	public void setIndent(int indent) {
 		this.indent = indent;
+	}
+
+	public Boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
 	}
 
 	@Override
