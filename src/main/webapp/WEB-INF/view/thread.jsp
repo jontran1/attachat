@@ -47,9 +47,11 @@
 		    <a href="${createReply }">Reply</a>
 			
 			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">								
-				<form action="${deleteComment }" method="POST">
-				    <button type="submit" >Delete comment</button>
-				</form>
+				<c:if test="${!comment.deleted }">
+					<form action="${deleteComment }" method="POST">
+					    <button type="submit" >Delete comment</button>
+					</form>
+				</c:if>
 			</c:if>   
 
 		    </h4>
