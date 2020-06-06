@@ -71,8 +71,9 @@ public class CommentController {
 			RedirectAttributes redirectAttributes) {
 		
 		Comment comment = commentSerivce.getComment(commentId);
-				
-		commentSerivce.updateCommentContent(comment, "Deleted");
+		comment.setDeleted(true);
+		comment.setContent("Deleted");
+		commentSerivce.updateComment(comment);
 		redirectAttributes.addAttribute("threadId", comment.getThreadId());
 		
 		return "redirect:/Thread/showThread";
