@@ -16,6 +16,13 @@
 		<a href="${pageContext.request.contextPath }/logout">Logout</a>
 	</c:if> 
 	
+	<c:if test="${pageContext.request.userPrincipal.authenticated }">
+		<c:url var="userComments" value="/Comment/user/showComments">
+			<c:param name="userName" value="${pageContext.request.userPrincipal.name }"/>
+		</c:url>
+		<a href="${userComments }">Comment History</a>
+	</c:if> 
+	
 	
 	
 	<c:forEach var="sub" items="${subs}">
