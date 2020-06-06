@@ -1,6 +1,9 @@
 package com.jon.attachat.controller;
 
+import java.util.LinkedList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import com.jon.attachat.dao.AuthoritieDAO;
 import com.jon.attachat.dao.UserDAO;
 import com.jon.attachat.entity.Authoritie;
 import com.jon.attachat.entity.Sub;
+import com.jon.attachat.entity.SubFollower;
 import com.jon.attachat.entity.User;
 import com.jon.attachat.service.SubService;
 import com.jon.attachat.service.ThreadService;
@@ -31,10 +35,21 @@ public class AttaChatMainController {
 	private ThreadService threadService;
 		
 	@GetMapping("/")
-	public String showHome(Model model) {
-		List<Sub> subs = subService.getSubs();
+	public String showHome(Model model, HttpServletRequest request) {
 		
+		List<Sub> subs = subService.getSubs();
+		List<Sub> userSubs = null;
+		
+		if(request.getUserPrincipal() != null) {
+			List<SubFollower> subFollowers = subService.getSubsFollowByUser(request.getUserPrincipal().getName());
+			System.out.println("sub Followers " + subFollowers);
+			userSubs = subService.getSubsByUser(subFollowers);
+		}
+		
+		model.addAttribute("userSubs", userSubs);
 		model.addAttribute("subs", subs);
+		
+		System.out.println("users subs " + userSubs);
 		
 		return "home";
 	}
