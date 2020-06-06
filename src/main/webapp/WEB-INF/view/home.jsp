@@ -43,4 +43,27 @@
 	</c:forEach>			
 			
 
+	<c:if test="${pageContext.request.userPrincipal.authenticated }">
+		<p>My subs</p>
+			<c:forEach var="sub" items="${userSubs}">
+				<c:url var="subLink" value="/Sub/showSub">
+				<c:param name="subName" value="${sub.subName }"/>
+				</c:url>
+						
+				<p>
+					<td> Sub name: ${sub.subName} </td>
+				<td>
+					<a href="${subLink }">${sub.subName} </a>
+				</td>
+				<td> Creator: ${sub.creator} </td>
+				<td> Population count:  ${sub.numberOfFollowers } </td>
+				
+				</p>
+			</c:forEach>
+		<c:if test="${empty userSubs}">
+		<p>You are not currently following any subs.</p>
+		</c:if>
+		
+	
+	</c:if> 	
 </html>
