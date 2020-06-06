@@ -10,6 +10,7 @@
 <title>${userName } comment history</title>
 </head>
 <body>
+	<h2>${userName } comment history</h2>
 
 	<c:forEach var="comment" items="${comments }">
 		
