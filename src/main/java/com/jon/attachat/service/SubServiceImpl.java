@@ -72,4 +72,9 @@ public class SubServiceImpl implements SubService {
 		subDAO.decreaseSubPopulationCount(sub);
 	}
 
+	@Transactional
+	@Override
+	public List<SubFollower> getSubsFollowByUser(String userName) {
+		return subDAO.getSubsFollowByUser(userName);
+	}
 }

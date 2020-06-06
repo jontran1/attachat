@@ -112,4 +112,17 @@ public class SubDAOImpl implements SubDAO {
 		return subFollower;
 	}
 
+	@Override
+	public List<SubFollower> getSubsFollowByUser(String userName) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query<SubFollower> query = currentSession
+				.createQuery("from SubFollower where user_name=:userName");
+		query.setParameter("userName", userName);
+		
+		List<SubFollower> subFollowers = query.getResultList();
+		
+		return subFollowers;
+	}
+
 }

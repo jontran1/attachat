@@ -27,4 +27,6 @@ public interface SubDAO {
 	public void decreaseSubPopulationCount(Sub sub);
 	
 	public SubFollower getSubFollower(SubFollowerId id);
+	
+	public List<SubFollower> getSubsFollowByUser(String userName);
 }
