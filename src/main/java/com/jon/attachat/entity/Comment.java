@@ -103,7 +103,7 @@ public class Comment {
 		this.indent = indent;
 	}
 
-	public Boolean isDeleted() {
+	public Boolean getDeleted() {
 		return deleted;
 	}
 
