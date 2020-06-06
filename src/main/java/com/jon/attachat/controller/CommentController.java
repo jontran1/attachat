@@ -38,12 +38,15 @@ public class CommentController {
 	}
 	
 	@GetMapping("/user/showComments")
-	public String showUserComment(@RequestParam("userName") String userName) {
+	public String showUserComment(@RequestParam("userName") String userName,
+			Model model) {
 		List<Comment> userComments = commentSerivce.getUserComment(userName);
 		
+		model.addAttribute("comments", userComments);
+		model.addAttribute("userName", userName);
 		System.out.println(userComments);
 		
-		return null;
+		return "comment-history";
 	}
 	
 	@PostMapping("/userAction/saveComment")
