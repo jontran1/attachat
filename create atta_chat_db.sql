@@ -28,10 +28,9 @@ CREATE TABLE `authoritie`(
 );
 
 INSERT INTO `authoritie` (`user_name`, `authority`) VALUES
-('john', 'ADMIN'),
-('john', 'MOD'),
-('mary', 'ADMIN'),
-('susan','EMPLOYEE');
+('john', 'USER'),
+('mary', 'USER'),
+('susan','USER');
 
 CREATE TABLE `sub`(
 	`sub_name` VARCHAR(50) NOT NULL,
@@ -56,9 +55,8 @@ CREATE TABLE `sub_follower`(
 
 INSERT INTO `sub_follower` VALUES	('gaming','john'),
 									('basket ball','john'),
-									('play station','john'),
 									('play station','mary'),
-									('play station','susan');
+									('xbox','susan');
 
 CREATE TABLE `thread`(
 	`thread_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -88,7 +86,7 @@ CREATE TABLE `comment`(
 	`user_name` VARCHAR(50),
     `content` text,
     `parent_id` int(11),
-    `deleted` int(1) default 0,
+    `deleted` int(1) default(0),
     PRIMARY KEY (`comment_id`),
     CONSTRAINT `comment_idx_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `comment_idx_2` FOREIGN KEY (`thread_id`) REFERENCES `thread` (`thread_id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -105,3 +103,9 @@ INSERT INTO `comment` (`thread_id`, `user_name`, `content`, `parent_id`) VALUES
 (1, null, 'Susan why are you replying to yourself? LOL', 6),
 (1, 'susan', 'New comment I am replying to noone!', null),
 (1, 'john', 'HI new comment! I am replaying to YOU!', 8);
+
+-- CREATE TRIGGER increase_sub_population_count AFTER INSERT ON sub_follower
+-- 	UPDATE sub_
+--  //
+
+-- delimiter ;
