@@ -36,6 +36,9 @@ public class Comment {
 	@Column(name="parent_id")
 	private Integer parentId;
 	
+	@Column(name="deleted")
+	private boolean deleted;
+	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="parentId", cascade= {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
 	private List<Comment> children;
 	
@@ -49,6 +52,7 @@ public class Comment {
 		this.threadId = threadId;
 		this.userName = userName;
 		this.content = content;
+		this.deleted = false;
 	}
 
 	public int getThreadId() {
