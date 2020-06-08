@@ -38,6 +38,10 @@ public class Thread {
 		this.threadContent = threadContent;
 	}
 	
+	public void setThreadId(int threadId) {
+		this.threadId = threadId;
+	}
+	
 	public int getThreadId() {
 		return threadId;
 	}
