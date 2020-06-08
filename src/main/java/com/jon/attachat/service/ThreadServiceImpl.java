@@ -45,5 +45,11 @@ public class ThreadServiceImpl implements ThreadService {
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Transactional
+	@Override
+	public void updateThread(Thread thread) {
+		threadDAO.updateThread(thread);
+	}
 
 }

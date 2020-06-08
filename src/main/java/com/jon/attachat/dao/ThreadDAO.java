@@ -13,6 +13,8 @@ public interface ThreadDAO {
 	
 	public void saveThread(Thread thread);
 	
+	public void updateThread(Thread thread);
+	
 	public void deleteThread(Thread thread);
 
 }
