@@ -25,9 +25,9 @@
 					<td><form:input path="threadContent"/></td>
 				</tr>
 				<tr>
-					<td><form:input type="hidden" path="userName"/></td>
-					<td><form:input type="hidden" path="subName"/></td>
-
+					<form:hidden path="userName"/>
+					<form:hidden path="subName"/>
+					<form:hidden path="threadId"/>
 				</tr>
 				
 				<tr>
