@@ -97,8 +97,8 @@ public class ThreadController {
 	public String saveThread(@ModelAttribute("thread") Thread thread, 
 			RedirectAttributes redirectAttributes) {	
 		
-		threadService.saveThread(thread);
 		redirectAttributes.addAttribute("subName", thread.getSubName());
+		threadService.saveOrUpdateThread(thread);
 
 		return "redirect:/Sub/showSub";
 	}
