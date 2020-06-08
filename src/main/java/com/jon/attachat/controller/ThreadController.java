@@ -84,6 +84,15 @@ public class ThreadController {
 		return "thread-form";
 	}
 	
+	@GetMapping("/userAction/editFormThread")
+	public String showFormEditThread(@RequestParam("threadId") int threadId, Model mode) {
+		Thread thread = threadService.getThread(threadId);
+		
+		mode.addAttribute("thread", thread);
+		
+		return "thread-form";
+	}
+	
 	@PostMapping("/userAction/saveThread")
 	public String saveThread(@ModelAttribute("thread") Thread thread, 
 			RedirectAttributes redirectAttributes) {	
