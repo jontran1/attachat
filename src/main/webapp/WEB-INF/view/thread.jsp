@@ -18,6 +18,11 @@
 	<p>
 		${thread.threadContent }
 	</p>
+	<c:url var="editThread" value="/Thread/userAction/editFormThread">
+		<c:param name="threadId" value="${thread.threadId }"/>
+	</c:url>
+	<a href="${editThread }">Edit</a>
+	
 	<p>
 		Thread creator: ${thread.userName }
 	</p>
