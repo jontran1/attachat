@@ -80,10 +80,8 @@ public class Thread {
 
 	@Override
 	public String toString() {
-		return "Thread [userName=" + userName + ", subName=" + subName + ", threadTitle=" + threadTitle
-				+ ", thread_content=" + threadContent + "]";
+		return "Thread [threadId=" + threadId + ", userName=" + userName + ", subName=" + subName + ", threadTitle="
+				+ threadTitle + ", threadContent=" + threadContent + "]";
 	}
-	
-	
 	
 }
