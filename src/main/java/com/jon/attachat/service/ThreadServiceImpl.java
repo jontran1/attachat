@@ -52,4 +52,10 @@ public class ThreadServiceImpl implements ThreadService {
 		threadDAO.updateThread(thread);
 	}
 
+	@Transactional
+	@Override
+	public void saveOrUpdateThread(Thread thread) {
+		threadDAO.saveOrUpdateThread(thread);
+	}
+
 }

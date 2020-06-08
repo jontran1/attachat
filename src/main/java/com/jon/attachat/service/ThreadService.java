@@ -17,5 +17,7 @@ public interface ThreadService {
 	public void updateThread(Thread thread);
 	
 	public void deleteThread(Thread thread);
+	
+	public void saveOrUpdateThread(Thread thread);
 
 }

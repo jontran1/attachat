@@ -70,4 +70,12 @@ public class ThreadDAOImpl implements ThreadDAO {
 		
 		currentSession.update(thread);
 	}
+
+	@Override
+	public void saveOrUpdateThread(Thread thread) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.saveOrUpdate(thread);		
+	}
+
 }
