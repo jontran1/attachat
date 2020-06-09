@@ -18,10 +18,13 @@
 	<p>
 		${thread.threadContent }
 	</p>
-	<c:url var="editThread" value="/Thread/userAction/editFormThread">
-		<c:param name="threadId" value="${thread.threadId }"/>
-	</c:url>
-	<a href="${editThread }">Edit</a>
+	
+	<c:if test="${pageContext.request.userPrincipal.authenticated && pageContext.request.userPrincipal.name == thread.userName }">
+		<c:url var="editThread" value="/Thread/userAction/editFormThread">
+			<c:param name="threadId" value="${thread.threadId }"/>
+		</c:url>
+		<a href="${editThread }">Edit</a>
+	</c:if>
 	
 	<p>
 		Thread creator: ${thread.userName }
