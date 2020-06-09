@@ -1,9 +1,11 @@
 package com.jon.attachat.controller;
 
 import java.util.List;
+import java.io.IOException;
 import java.util.LinkedList; 
 import java.util.Queue; 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,10 +87,19 @@ public class ThreadController {
 	}
 	
 	@GetMapping("/userAction/editFormThread")
-	public String showFormEditThread(@RequestParam("threadId") int threadId, Model mode) {
+	public String showFormEditThread(@RequestParam("threadId") int threadId, Model mode,
+			HttpServletResponse response, HttpServletRequest request) {
+			
 		Thread thread = threadService.getThread(threadId);
-		
 		mode.addAttribute("thread", thread);
+
+		try {
+			if(!request.getUserPrincipal().getName().equals(thread.getUserName())) {
+				response.sendError(HttpServletResponse.SC_FORBIDDEN, "Forbidden access");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		return "thread-form";
 	}
