@@ -58,6 +58,7 @@
 				<c:if test="${!comment.deleted }">
 					<form action="${deleteComment }" method="POST">
 					    <button type="submit" >Delete comment</button>
+				     	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				    
 					</form>
 				</c:if>
 			</c:if>   
