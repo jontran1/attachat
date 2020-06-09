@@ -23,12 +23,14 @@
 	<c:if test="${pageContext.request.userPrincipal.authenticated && !isFollower}">
 		<form action="${followSub }" method="post">
 		    <button type="submit" >Follow</button>
+		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				
 		</form>
 	</c:if> 
 	<c:if test="${pageContext.request.userPrincipal.authenticated && isFollower}">
-		<form action="${unfollowSub }" method="post">
+		<form:form action="${unfollowSub }" method="post">
 		    <button type="submit" >Unfollow</button>
-		</form>
+	     	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				    
+		</form:form>
 	</c:if> 
 	
 	<a href="${createThreadLink}">Create A New Thread</a>
