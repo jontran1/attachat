@@ -54,6 +54,10 @@ public class Comment {
 		this.content = content;
 		this.deleted = false;
 	}
+	
+	public void setCommentId(int commentId) {
+		this.commentId = commentId;
+	}
 
 	public int getThreadId() {
 		return threadId;
