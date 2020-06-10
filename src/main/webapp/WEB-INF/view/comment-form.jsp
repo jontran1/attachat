@@ -29,9 +29,9 @@
 				<form:input path="threadId" type="hidden"/>
 				<form:input path="deleted" type="hidden"/>
 				
-			<c:if test="${isReply}">
-				<td><form:input path="parentId" type="hidden"/></td>				
-			</c:if>
+				<c:if test="${isReply}">
+					<form:input path="parentId" type="hidden"/>		
+				</c:if>
 						
 		</table>
 	
