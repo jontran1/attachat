@@ -65,4 +65,10 @@ public class CommentServiceImpl implements CommentService {
 		return commentDAO.getUserComment(userName);
 	}
 
+	@Transactional
+	@Override
+	public void saveOrUpdate(Comment comment) {
+		commentDAO.saveOrUpdate(comment);
+	}
+
 }

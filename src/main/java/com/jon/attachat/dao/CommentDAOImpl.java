@@ -96,4 +96,15 @@ public class CommentDAOImpl implements CommentDAO {
 		
 		
 	}
+
+	/*
+	 * If the comment exist in the database. The comment will be updated.
+	 * If the comment doesn't exist, A new row will be added.
+	 */
+	@Override
+	public void saveOrUpdate(Comment comment) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.saveOrUpdate(comment);
+	}
 }

@@ -14,6 +14,8 @@ public interface CommentService {
 	
 	public void saveComment(Comment comment);
 	
+	public void saveOrUpdate(Comment comment);
+	
 	public void deleteComment(Comment comment);
 	
 	public void updateCommentContent(Comment comment, String content);
