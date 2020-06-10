@@ -25,7 +25,9 @@
 				<td><label></label></td>
 				<td><input type="submit" value="Save" class="save"/></td>
 			</tr>
-				<td><form:input path="threadId" type="hidden"/></td>
+				<form:input path="commentId" type="hidden"/>
+				<form:input path="threadId" type="hidden"/>
+				<form:input path="deleted" type="hidden"/>
 				
 			<c:if test="${isReply}">
 				<td><form:input path="parentId" type="hidden"/></td>				
