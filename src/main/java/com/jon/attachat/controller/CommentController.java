@@ -1,8 +1,10 @@
 package com.jon.attachat.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,10 +41,23 @@ public class CommentController {
 	}
 	
 	@GetMapping("/userAction/showFormEditComment")
-	public String showFormEditComment(@RequestParam("commentId") int commentId,
-			Model model) {
-		
+	public String showFormEditComment(@RequestParam("commentId") int commentId, 
+			Model model, HttpServletResponse response, HttpServletRequest request) {
+
 		Comment comment = commentSerivce.getComment(commentId);
+		
+		/*
+		 * Checks if the user currently logged in is the comment creator.
+		 * Only comment creators can edit their own comments.
+		 */
+		try {
+			if(!request.getUserPrincipal().getName().equals(comment.getUserName())) {
+				response.sendError(HttpServletResponse.SC_FORBIDDEN, "Forbidden access");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		model.addAttribute("comment", comment);
 		
 		return "comment-form";
