@@ -92,6 +92,10 @@ public class ThreadController {
 			
 		Thread thread = threadService.getThread(threadId);
 
+		/*
+		 * If the user's user name matches the thread user name. Then that user can edit the thread.
+		 * If not, a response error will be thrown. 
+		 */
 		try {
 			if(!request.getUserPrincipal().getName().equals(thread.getUserName())) {
 				response.sendError(HttpServletResponse.SC_FORBIDDEN, "Forbidden access");
