@@ -48,11 +48,16 @@
 		    	<c:param name="commentId" value="${comment.commentId }"/>
 		    </c:url>
 		    
+		    <c:url var="editComment" value="/Comment/userAction/showFormEditComment">
+		    	<c:param name="commentId" value="${comment.commentId }"/>
+		    </c:url>
+		    
    		    <c:set var="comment" value="${comment}" scope="request"/>
 		    
 		    <h4>Root comment: ${comment.content}
 		    User name: ${comment.userName }
 		    <a href="${createReply }">Reply</a>
+		    <a href="${editComment }">Edit</a>
 			
 			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">								
 				<c:if test="${!comment.deleted }">
