@@ -38,6 +38,16 @@ public class CommentController {
 		return "comment-form";
 	}
 	
+	@GetMapping("/userAction/showFormEditComment")
+	public String showFormEditComment(@RequestParam("commentId") int commentId,
+			Model model) {
+		
+		Comment comment = commentSerivce.getComment(commentId);
+		model.addAttribute("comment", comment);
+		
+		return "comment-form";
+	}
+	
 	@GetMapping("/user/showComments")
 	public String showUserComment(@RequestParam("userName") String userName,
 			Model model) {
