@@ -68,7 +68,12 @@ public class CommentController {
 		String userName = request.getUserPrincipal().getName();
 		comment.setUserName(userName);
 		
-		commentSerivce.saveComment(comment);
+		/*
+		 * Used saveOrUpdate because if the user edits the comment. That means the comment already exist.
+		 * So the comment will be updated.
+		 * If the user creates a new comment. Then a new row will be inserted into the comment table.
+		 */
+		commentSerivce.saveOrUpdate(comment);
 		redirectAttributes.addAttribute("threadId", comment.getThreadId());
 		
 		return "redirect:/Thread/showThread";
