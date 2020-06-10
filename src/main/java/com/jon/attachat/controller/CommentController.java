@@ -31,6 +31,7 @@ public class CommentController {
 		Comment comment = new Comment();
 		comment.setThreadId(threadId);
 		comment.setParentId(null);
+		comment.setDeleted(false);
 		
 		model.addAttribute("comment", comment);
 		
@@ -71,6 +72,7 @@ public class CommentController {
 		Comment comment = new Comment();
 		comment.setThreadId(threadId);
 		comment.setParentId(parentId);
+		comment.setDeleted(false);
 		
 		model.addAttribute("comment", comment);
 		model.addAttribute("isReply", true);
