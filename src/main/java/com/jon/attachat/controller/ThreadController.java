@@ -91,7 +91,6 @@ public class ThreadController {
 			HttpServletResponse response, HttpServletRequest request) {
 			
 		Thread thread = threadService.getThread(threadId);
-		mode.addAttribute("thread", thread);
 
 		try {
 			if(!request.getUserPrincipal().getName().equals(thread.getUserName())) {
@@ -100,6 +99,8 @@ public class ThreadController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		mode.addAttribute("thread", thread);
 		
 		return "thread-form";
 	}
