@@ -57,7 +57,9 @@
 		    <h4>Root comment: ${comment.content}
 		    User name: ${comment.userName }
 		    <a href="${createReply }">Reply</a>
-		    <a href="${editComment }">Edit</a>
+		    <c:if test="${pageContext.request.userPrincipal.authenticated && pageContext.request.userPrincipal.name == comment.userName }">
+			    <a href="${editComment }">Edit</a>	    
+		    </c:if>
 			
 			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">								
 				<c:if test="${!comment.deleted }">
