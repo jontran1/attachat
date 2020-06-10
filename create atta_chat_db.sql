@@ -82,11 +82,11 @@ INSERT INTO `thread` (`user_name`, `sub_name`, `thread_title`, `thread_content`)
 
 CREATE TABLE `comment`(
 	`comment_id` int(11) NOT NULL AUTO_INCREMENT,
-    `thread_id` int(11),
+    `thread_id` int(11) NOT NULL,
 	`user_name` VARCHAR(50),
-    `content` text,
+    `content` text NOT NULL,
     `parent_id` int(11),
-    `deleted` int(1) default(0),
+    `deleted` int(1) NOT NULL default(0),
     PRIMARY KEY (`comment_id`),
     CONSTRAINT `comment_idx_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `comment_idx_2` FOREIGN KEY (`thread_id`) REFERENCES `thread` (`thread_id`) ON DELETE CASCADE ON UPDATE CASCADE,
