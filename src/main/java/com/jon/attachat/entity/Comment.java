@@ -83,7 +83,7 @@ public class Comment {
 		this.content = content;
 	}
 
-	public int getParentId() {
+	public Integer getParentId() {
 		return parentId;
 	}
 
