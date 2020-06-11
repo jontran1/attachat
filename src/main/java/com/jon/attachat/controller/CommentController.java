@@ -43,7 +43,7 @@ public class CommentController {
 	@GetMapping("/userAction/showFormEditComment")
 	public String showFormEditComment(@RequestParam("commentId") int commentId, 
 			Model model, HttpServletResponse response, HttpServletRequest request) {
-
+		
 		Comment comment = commentSerivce.getComment(commentId);
 		
 		/*
@@ -58,6 +58,7 @@ public class CommentController {
 			e.printStackTrace();
 		}
 		
+		if(comment.getParentId() != null) model.addAttribute("isReply", true);
 		model.addAttribute("comment", comment);
 		
 		return "comment-form";
