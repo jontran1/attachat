@@ -15,12 +15,17 @@
     	<c:param name="commentId" value="${comment.commentId }"/>
     </c:url>
     
+    <c:url var="editComment" value="/Comment/userAction/showFormEditComment">
+    	<c:param name="commentId" value="${comment.commentId }"/>
+    </c:url>
+    
 		<p style="text-indent: ${comment.indent}px;">
 		
 		${comment.content}
 		User name: ${comment.userName }
 		<a href="${createReply }">Reply</a>
 		<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">	
+			<a href="${editComment }">Edit</a>
 			<c:if test="${!comment.deleted }">
 				<form action="${deleteComment }" method="POST" style="text-indent: ${comment.indent}px;">
 				    <button type="submit" >Delete comment</button>
