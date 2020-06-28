@@ -1,6 +1,8 @@
 package com.jon.attachat.entity;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -128,6 +130,29 @@ public class Comment {
 				+ content + ", parentId=" + parentId + "]";
 	}
 
-	
+	/*
+	 * Indents comment's children. Performs a level traverse children
+	 * and add indent by 10 each level.
+	 * This will allow the view to have a nice comment and replies view
+	 * for the user.
+	 *  
+	 */
+	public void indentReplies() {
+		Comment comment = this;
+		int indent = 0;
+		Queue<Comment> queue = new LinkedList<>();
+		queue.add(comment);
+		comment.indent = indent;
+
+		while(!queue.isEmpty()) {
+			Comment node = queue.remove();
+			indent += 10;
+			for(Comment child : node.getChildren()) {
+				queue.add(child);
+				child.indent = indent;
+			}
+			
+		}
+	}
 
 }

@@ -47,22 +47,13 @@ public class ThreadController {
 		Thread thread = threadService.getThread(threadId);
 		List<Comment> comments = commentSerivce.getThreadParentComments(threadId);
 
+		/*
+		 * Indent comments.
+		 */
 		for(Comment comment : comments) {
-			int indent = 0;
-			Queue<Comment> queue = new LinkedList<>();
-			queue.add(comment);
-			comment.indent = indent;
-
-			while(!queue.isEmpty()) {
-				Comment node = queue.remove();
-				indent += 10;
-				for(Comment child : node.getChildren()) {
-					queue.add(child);
-					child.indent = indent;
-				}
-				
-			}
+			comment.indentReplies();
 		}
+		
 		if(request.getUserPrincipal() != null) {
 			String userName = request.getUserPrincipal().getName();
 			model.addAttribute("userName", userName);			
