@@ -51,7 +51,7 @@ public class CommentController {
 		 * Only comment creators can edit their own comments.
 		 */
 		try {
-			if(!request.getUserPrincipal().getName().equals(comment.getUserName())) {
+			if(!request.getUserPrincipal().getName().equals(comment.getUserName()) || comment.getDeleted()) {
 				response.sendError(HttpServletResponse.SC_FORBIDDEN, "Forbidden access");
 			}
 		} catch (IOException e) {
