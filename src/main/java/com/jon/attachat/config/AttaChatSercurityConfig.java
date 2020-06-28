@@ -9,6 +9,10 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+/*
+ * The Spring Security Configuration file, uses java code instead of XML.
+ * 
+ */
 @Configuration
 @EnableWebSecurity
 public class AttaChatSercurityConfig extends WebSecurityConfigurerAdapter  {
