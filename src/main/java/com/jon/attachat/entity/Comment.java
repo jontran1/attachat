@@ -15,6 +15,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+/*
+ * Hibernate ORM maps the comment table in the MySQL database 
+ * to the Comment object.
+ */
 @Entity
 @Table(name="comment")
 public class Comment {
@@ -55,6 +59,9 @@ public class Comment {
 		this.deleted = false;
 	}
 	
+	/*
+	 * Getters and Setters.
+	 */
 	public void setCommentId(int commentId) {
 		this.commentId = commentId;
 	}
