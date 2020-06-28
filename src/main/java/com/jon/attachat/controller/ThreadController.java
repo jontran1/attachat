@@ -45,7 +45,7 @@ public class ThreadController {
 			HttpServletRequest request) {
 		
 		Thread thread = threadService.getThread(threadId);
-		List<Comment> comments = commentSerivce.getThreadComments(threadId);
+		List<Comment> comments = commentSerivce.getThreadParentComments(threadId);
 
 		for(Comment comment : comments) {
 			int indent = 0;

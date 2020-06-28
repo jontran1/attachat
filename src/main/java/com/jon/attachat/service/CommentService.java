@@ -8,7 +8,7 @@ public interface CommentService {
 	
 	public List<Comment> getComments();
 	
-	public List<Comment> getThreadComments(int threadId);
+	public List<Comment> getThreadParentComments(int threadId);
 	
 	public Comment getComment(int commentId);
 	

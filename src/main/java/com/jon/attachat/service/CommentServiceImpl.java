@@ -23,8 +23,8 @@ public class CommentServiceImpl implements CommentService {
 
 	@Transactional
 	@Override
-	public List<Comment> getThreadComments(int threadId) {
-		return commentDAO.getThreadComments(threadId);
+	public List<Comment> getThreadParentComments(int threadId) {
+		return commentDAO.getThreadParentComments(threadId);
 	}
 
 	@Transactional

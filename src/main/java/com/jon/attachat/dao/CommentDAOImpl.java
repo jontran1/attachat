@@ -30,7 +30,7 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 	
 	@Override
-	public List<Comment> getThreadComments(int threadId) {
+	public List<Comment> getThreadParentComments(int threadId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query<Comment> query = 
