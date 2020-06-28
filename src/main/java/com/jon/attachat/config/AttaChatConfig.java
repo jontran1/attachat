@@ -11,20 +11,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+/*
+ * The Spring configuration file. This uses java code to configure
+ * spring instead of xml. 
+ */
+
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
+@EnableAspectJAutoProxy
 @ComponentScan("com.jon.attachat")
 @PropertySource({ "classpath:persistence-mysql.properties" })
 public class AttaChatConfig implements WebMvcConfigurer {
@@ -33,10 +41,20 @@ public class AttaChatConfig implements WebMvcConfigurer {
 	private Environment env;
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
+	
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+          .addResourceHandler("/resources/**")
+          .addResourceLocations("/resources/"); 
+    }
 
-	
 	// Define a bean for ViewResolver
-	
+	/*
+	 * This function sets the view resolver where JSP pages are stored.
+	 * The JSP page is found using the prefix and the suffix is append
+	 * at the end. 
+	 */
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -47,6 +65,10 @@ public class AttaChatConfig implements WebMvcConfigurer {
 		return viewResolver;
 	}
 	
+	/*
+	 * Configures the JDBC driver.
+	 * 
+	 */
 	@Bean
 	public DataSource myDataSource() {
 		
