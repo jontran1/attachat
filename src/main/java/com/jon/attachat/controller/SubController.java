@@ -65,8 +65,13 @@ public class SubController {
 	}
 	
 	@PostMapping("/userAction/saveSub")
-	public String saveSub(@ModelAttribute("sub") Sub sub, HttpServletRequest request) {
+	public String saveSub(@Valid @ModelAttribute("sub") Sub sub, 
+			BindingResult bindingResult,
+			HttpServletRequest request) {
 		
+		if(bindingResult.hasErrors()) {
+			return "sub-form";
+		}
 		String userName = request.getUserPrincipal().getName();
 		
 		sub.setCreator(userName);
