@@ -41,12 +41,10 @@ public class AttaChatMainController {
 		List<Sub> userSubs = null;
 		
 		/**
-		 * If the user is logged in. 
+		 * If the user is logged in, this will retreive all subs followed by the user.
 		 */
 		if(request.getUserPrincipal() != null) {
-			List<SubFollower> subFollowers = subService.getSubsFollowByUser(request.getUserPrincipal().getName());
-			System.out.println("sub Followers " + subFollowers);
-			userSubs = subService.getSubsByUser(subFollowers);
+			userSubs = subService.getSubsByUser(request.getUserPrincipal().getName());
 		}
 		
 		model.addAttribute("userSubs", userSubs);

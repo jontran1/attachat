@@ -16,6 +16,8 @@ public interface SubService {
 	
 	public List<Sub> getSubsByUser(List<SubFollower> subFollowers);
 	
+	public List<Sub> getSubsByUser(String userName);
+	
 	public Sub getSub(String subName);
 	
 	public void saveSub(Sub sub);

@@ -140,4 +140,13 @@ public class SubDAOImpl implements SubDAO {
 		return subs;
 	}
 
+	@Override
+	public List<Sub> getSubsByUser(String userName) {
+		
+		List<SubFollower> subFollowers = getSubsFollowByUser(userName);
+		List<Sub> subs = getSubsByUser(subFollowers);
+		
+		return subs;
+	}
+
 }

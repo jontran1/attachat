@@ -88,4 +88,10 @@ public class SubServiceImpl implements SubService {
 		return subDAO.getSubsByUser(subFollowers);
 	}
 
+	@Transactional
+	@Override
+	public List<Sub> getSubsByUser(String userName) {
+		return subDAO.getSubsByUser(userName);
+	}
+
 }
