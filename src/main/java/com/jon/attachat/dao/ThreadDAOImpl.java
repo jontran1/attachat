@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import com.jon.attachat.entity.Thread;
 
+/**
+ * Implementation of ThreadDAO interface.
+ * @author jonat
+ *
+ */
 @Repository
 public class ThreadDAOImpl implements ThreadDAO {
 

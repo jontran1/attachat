@@ -12,6 +12,11 @@ import com.jon.attachat.entity.SubFollower;
 import com.jon.attachat.entity.SubFollowerId;
 import com.jon.attachat.entity.Sub;
 
+/**
+ * Implementation of SubService interface.
+ * @author jonat
+ *
+ */
 @Service
 public class SubServiceImpl implements SubService {
 

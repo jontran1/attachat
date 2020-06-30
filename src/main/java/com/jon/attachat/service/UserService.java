@@ -5,6 +5,11 @@ import java.util.List;
 import com.jon.attachat.entity.Authoritie;
 import com.jon.attachat.entity.User;
 
+/**
+ * User service for all user related database operations.
+ * @author jonat
+ *
+ */
 public interface UserService {
 	
 	public List<User> getUsers();

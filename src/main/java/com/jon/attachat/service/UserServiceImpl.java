@@ -12,6 +12,11 @@ import com.jon.attachat.dao.UserDAO;
 import com.jon.attachat.entity.Authoritie;
 import com.jon.attachat.entity.User;
 
+/**
+ * Implementation of UserService interface.
+ * @author jonat
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService {
 	

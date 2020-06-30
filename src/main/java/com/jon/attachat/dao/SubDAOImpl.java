@@ -14,6 +14,11 @@ import com.jon.attachat.entity.Sub;
 import com.jon.attachat.entity.SubFollower;
 import com.jon.attachat.entity.SubFollowerId;
 
+/**
+ * Implementation of SubDAO interface. 
+ * @author jonat
+ *
+ */
 @Repository
 public class SubDAOImpl implements SubDAO {
 	

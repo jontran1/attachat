@@ -8,6 +8,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * SubFollower object relating to the sub_follower table.
+ * @author jonat
+ *
+ */
 @Entity
 @IdClass(SubFollowerId.class)
 @Table(name="sub_follower")

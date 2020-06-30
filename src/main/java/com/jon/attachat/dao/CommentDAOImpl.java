@@ -9,7 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jon.attachat.entity.Comment;
-
+/**
+ * Implementation of the CommentDAO interface. 
+ * @author jonat
+ *
+ */
 @Repository
 public class CommentDAOImpl implements CommentDAO {
 	

@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * User object relating to the user table.
+ * @author jonat
+ *
+ */
 @Entity
 @Table(name="user")
 public class User {

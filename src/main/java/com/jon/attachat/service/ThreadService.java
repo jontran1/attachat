@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.jon.attachat.entity.Thread;
 
+/**
+ * Thread service for all Thread related database operations.
+ * @author jonat
+ *
+ */
 public interface ThreadService {
 	
 	public List<Thread> getThreads();

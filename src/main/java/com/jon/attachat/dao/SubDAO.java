@@ -6,6 +6,12 @@ import com.jon.attachat.entity.SubFollowerId;
 
 import java.util.List;
 
+/**
+ * SubDAO interface contains all methods for sub related
+ * database operations.
+ * @author jonat
+ *
+ */
 public interface SubDAO {
 	
 	public List<Sub> getSubs();

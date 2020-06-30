@@ -3,7 +3,12 @@ package com.jon.attachat.dao;
 import java.util.List;
 
 import com.jon.attachat.entity.Comment;
-
+/**
+ * CommentDAO interface contains all methods for comment related
+ * database operations.
+ * @author jonat
+ *
+ */
 public interface CommentDAO {
 
 	public List<Comment> getComments();
