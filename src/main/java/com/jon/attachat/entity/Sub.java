@@ -10,6 +10,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * Sub object, relating to the sub table.
+ * @author jonat
+ *
+ */
 @Entity
 @Table(name="sub")
 public class Sub {

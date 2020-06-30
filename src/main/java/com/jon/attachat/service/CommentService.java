@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.jon.attachat.entity.Comment;
 
+/**
+ * Comment service for all comment related database operations.
+ * @author jonat
+ *
+ */
 public interface CommentService {
 	
 	public List<Comment> getComments();

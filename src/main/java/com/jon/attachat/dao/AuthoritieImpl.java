@@ -8,7 +8,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jon.attachat.entity.Authoritie;
-
+/**
+ * Implementation of the AuthoritieDAO interface. 
+ * @author jonat
+ *
+ */
 @Repository
 public class AuthoritieImpl implements AuthoritieDAO {
 

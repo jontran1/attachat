@@ -8,7 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jon.attachat.dao.CommentDAO;
 import com.jon.attachat.entity.Comment;
-
+/**
+ * Implementation of CommentService interface.
+ * @author jonat
+ *
+ */
 @Service
 public class CommentServiceImpl implements CommentService {
 	

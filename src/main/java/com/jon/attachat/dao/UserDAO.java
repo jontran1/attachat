@@ -4,7 +4,12 @@ import java.util.List;
 
 import com.jon.attachat.entity.User;
 
-
+/**
+ * UserDAO interface contains all methods for user related
+ * database operations.
+ * @author jonat
+ *
+ */
 public interface UserDAO {
 	
 	public List<User> getUsers();

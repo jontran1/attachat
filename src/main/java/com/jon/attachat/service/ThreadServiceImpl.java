@@ -9,6 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jon.attachat.dao.ThreadDAO;
 import com.jon.attachat.entity.Thread;
 
+/**
+ * Implementation of the ThreadService interface.
+ * @author jonat
+ *
+ */
 @Service
 public class ThreadServiceImpl implements ThreadService {
 

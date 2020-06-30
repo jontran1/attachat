@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Thread object relating to the thread table.
+ * @author jonat
+ *
+ */
 @Entity
 @Table(name="thread")
 public class Thread {

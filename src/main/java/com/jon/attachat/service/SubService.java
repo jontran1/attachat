@@ -6,6 +6,11 @@ import com.jon.attachat.entity.SubFollower;
 import com.jon.attachat.entity.SubFollowerId;
 import com.jon.attachat.entity.Sub;
 
+/**
+ * Sub service for all sub related database operations.
+ * @author jonat
+ *
+ */
 public interface SubService {
 	public List<Sub> getSubs();
 	

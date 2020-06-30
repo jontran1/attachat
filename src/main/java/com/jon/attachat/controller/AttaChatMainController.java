@@ -33,13 +33,16 @@ public class AttaChatMainController {
 	
 	@Autowired
 	private ThreadService threadService;
-		
+	
 	@GetMapping("/")
 	public String showHome(Model model, HttpServletRequest request) {
 		
 		List<Sub> subs = subService.getSubs();
 		List<Sub> userSubs = null;
 		
+		/**
+		 * If the user is logged in. 
+		 */
 		if(request.getUserPrincipal() != null) {
 			List<SubFollower> subFollowers = subService.getSubsFollowByUser(request.getUserPrincipal().getName());
 			System.out.println("sub Followers " + subFollowers);

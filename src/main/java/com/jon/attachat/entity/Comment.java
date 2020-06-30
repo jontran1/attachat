@@ -21,6 +21,11 @@ import javax.persistence.Transient;
  * Hibernate ORM maps the comment table in the MySQL database 
  * to the Comment object.
  */
+/**
+ * Comment object relating to the comment table. 
+ * @author jonat
+ *
+ */
 @Entity
 @Table(name="comment")
 public class Comment {

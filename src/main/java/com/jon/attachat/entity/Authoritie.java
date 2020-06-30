@@ -12,6 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Authorite object, relating to the 'authoritie' table.
+ * @author jonat
+ *
+ */
 @Entity
 @IdClass(AuthoritieId.class)
 @Table(name="authoritie")
