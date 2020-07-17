@@ -11,11 +11,19 @@
 </head>
 <body>
 	<h2>${userName } comment history</h2>
+	
 
 	<c:forEach var="comment" items="${comments }">
+
+		<c:url var="threadLink" value="/Thread/showThread">
+			<c:param name="threadId" value="${comment.threadId }"/>
+		</c:url>
 		
 		<p>
 			<td>${comment.content}</td>
+			<td>
+				<a href="${threadLink }">Thread</a>
+			</td>
 		</p>
 	
 	</c:forEach>
