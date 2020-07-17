@@ -46,8 +46,14 @@ public class AttaChatConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
           .addResourceHandler("/resources/**")
-          .addResourceLocations("/resources/"); 
+          .addResourceLocations("/resources/");
+        registry
+          .addResourceHandler("/css/**", "/js/**")
+          .addResourceLocations("classpath:/static/css/", "classpath:/static/js/");
     }
+    
+
+
 
 	// Define a bean for ViewResolver
 	/*
