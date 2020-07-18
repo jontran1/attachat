@@ -1,6 +1,7 @@
 package com.jon.attachat.controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -83,7 +84,7 @@ public class CommentController {
 		
 		String userName = request.getUserPrincipal().getName();
 		comment.setUserName(userName);
-		
+		comment.setLocalDateTime(LocalDateTime.now());
 		/*
 		 * Used saveOrUpdate because if the user edits the comment. That means the comment already exist.
 		 * So the comment will be updated.
