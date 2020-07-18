@@ -24,7 +24,9 @@
 		<a href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 	</c:if> 
 	<c:if test="${pageContext.request.userPrincipal.authenticated }">
-		<a href="${pageContext.request.contextPath }/logout">Logout</a>
+		<form:form action="${pageContext.request.contextPath }/logout">
+			<input type="submit" value="logout" />
+		</form:form>
 	</c:if> 
 	
 	<c:if test="${pageContext.request.userPrincipal.authenticated }">
