@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -89,12 +90,23 @@ public class SubController {
 		if(bindingResult.hasErrors()) {
 			return "sub-form";
 		}
-		String userName = request.getUserPrincipal().getName();
 		
-		sub.setCreator(userName);
-		sub.setNumberOfFollowers(1);
-		
-		subService.saveSub(sub);
+		/**
+		 * A try catch statement to catch and handle DataIntregrity Violations.
+		 */
+		try {
+			String userName = request.getUserPrincipal().getName();
+			
+			sub.setCreator(userName);
+			sub.setNumberOfFollowers(1);
+			
+			subService.saveSub(sub);
+		}catch(DataIntegrityViolationException e) {
+			bindingResult.rejectValue("subName","error.sub", "This sub already exist.");
+			e.printStackTrace();
+			return "sub-form";
+		}
+
 		
 		return "redirect:/";
 	}
