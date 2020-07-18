@@ -54,7 +54,7 @@
 		    
    		    <c:set var="comment" value="${comment}" scope="request"/>
 		    
-		    <h4>Root comment: ${comment.content}
+		    <h4>Root comment: ${comment.content} ${comment.localDateTime }
 		    User name: ${comment.userName }
 		    <a href="${createReply }">Reply</a>
 		    <c:if test="${pageContext.request.userPrincipal.authenticated && 

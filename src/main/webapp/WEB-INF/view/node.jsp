@@ -21,7 +21,7 @@
     
 		<p style="text-indent: ${comment.indent}px;">
 		
-		${comment.content}
+		${comment.content} ${comment.localDateTime }
 		User name: ${comment.userName }
 		<a href="${createReply }">Reply</a>
 		<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">	
