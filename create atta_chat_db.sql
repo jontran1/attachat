@@ -82,6 +82,7 @@ INSERT INTO `thread` (`user_name`, `sub_name`, `thread_title`, `thread_content`)
 
 CREATE TABLE `comment`(
 	`comment_id` int(11) NOT NULL AUTO_INCREMENT,
+	`date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `thread_id` int(11) NOT NULL,
 	`user_name` VARCHAR(50),
     `content` text NOT NULL,
@@ -93,16 +94,16 @@ CREATE TABLE `comment`(
     CONSTRAINT `comment_idx_3` FOREIGN KEY (`parent_id`) REFERENCES `comment` (`comment_id`) ON DELETE SET NULL ON UPDATE NO ACTION
 );
 
-INSERT INTO `comment` (`thread_id`, `user_name`, `content`, `parent_id`) VALUES
-(1, 'john', 'Dude GOW is game of the year.....', null),
-(1, 'john', 'I am John and I am Replying to myself', 1),
-(1, 'mary', 'This is Marry\'s New comment!', null),
-(1, 'susan', 'John you\'re an dummy! GOW isnt GOTY', 1),
-(1, 'mary', 'I agree susan. John isn\'t smart.', 4),
-(1, 'susan', 'I am susan and I am Replying to myself', 4),
-(1, null, 'Susan why are you replying to yourself? LOL', 6),
-(1, 'susan', 'New comment I am replying to noone!', null),
-(1, 'john', 'HI new comment! I am replaying to YOU!', 8);
+INSERT INTO `comment` (`thread_id`, `date_time`, `user_name`, `content`, `parent_id`) VALUES
+(1, now(), 'john', 'Dude GOW is game of the year.....', null),
+(1, now(), 'john', 'I am John and I am Replying to myself', 1),
+(1, now(), 'mary', 'This is Marry\'s New comment!', null),
+(1, now(), 'susan', 'John you\'re an dummy! GOW isnt GOTY', 1),
+(1, now(), 'mary', 'I agree susan. John isn\'t smart.', 4),
+(1, now(), 'susan', 'I am susan and I am Replying to myself', 4),
+(1, now(), null, 'Susan why are you replying to yourself? LOL', 6),
+(1, now(), 'susan', 'New comment I am replying to noone!', null),
+(1, now(), 'john', 'HI new comment! I am replaying to YOU!', 8);
 
 -- CREATE TRIGGER increase_sub_population_count AFTER INSERT ON sub_follower
 -- 	UPDATE sub_

@@ -1,5 +1,6 @@
 package com.jon.attachat.entity;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -34,6 +35,9 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="comment_id")
 	private int commentId;
+	
+    @Column(name="date_time", columnDefinition = "TIMESTAMP", nullable = false)
+	private LocalDateTime localDateTime;
 	
 	@Column(name="thread_id")
 	private int threadId;
@@ -127,6 +131,14 @@ public class Comment {
 
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
+	}
+
+	public LocalDateTime getLocalDateTime() {
+		return localDateTime;
+	}
+
+	public void setLocalDateTime(LocalDateTime localDateTime) {
+		this.localDateTime = localDateTime;
 	}
 
 	@Override
