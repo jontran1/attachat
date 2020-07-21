@@ -16,7 +16,9 @@
 			<tbody>
 				<tr>
 					<td><label>Sub name:</label></td>
-					<td><form:input path="subName"/></td>
+					<td>
+					<form:input path="subName"/>
+					<form:errors path="subName"/></td>
 				</tr>
 				<tr>
 					<td><label></label></td>
