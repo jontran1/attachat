@@ -18,6 +18,9 @@
 	<p>
 		${thread.threadContent }
 	</p>
+	<p>
+		${thread.localDateTime }
+	</p>
 	
 	<c:if test="${pageContext.request.userPrincipal.authenticated && pageContext.request.userPrincipal.name == thread.userName }">
 		<c:url var="editThread" value="/Thread/userAction/editFormThread">

@@ -28,6 +28,7 @@
 					<form:hidden path="userName"/>
 					<form:hidden path="subName"/>
 					<form:hidden path="threadId"/>
+					<form:hidden path="localDateTime"/>
 				</tr>
 				
 				<tr>

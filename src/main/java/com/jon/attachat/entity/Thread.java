@@ -1,5 +1,7 @@
 package com.jon.attachat.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +23,9 @@ public class Thread {
 	@Column(name="thread_id")
 	private int threadId;
 	
+    @Column(name="date_time", columnDefinition = "TIMESTAMP", nullable = false)
+	private LocalDateTime localDateTime;
+	
 	@Column(name="user_name")
 	private String userName;
 	
@@ -34,6 +39,7 @@ public class Thread {
 	private String threadContent;
 
 	public Thread() {
+		this.localDateTime = LocalDateTime.now();
 	}
 
 	public Thread(String userName, String subName, String threadTitle, String threadContent) {
@@ -44,7 +50,6 @@ public class Thread {
 	}
 	
 	public void setThreadId(int threadId) {
-		this.threadId = threadId;
 	}
 	
 	public int getThreadId() {
@@ -81,6 +86,14 @@ public class Thread {
 
 	public void setThreadContent(String threadContent) {
 		this.threadContent = threadContent;
+	}
+
+	public LocalDateTime getLocalDateTime() {
+		return localDateTime;
+	}
+
+	public void setLocalDateTime(LocalDateTime localDateTime) {
+		this.localDateTime = localDateTime;
 	}
 
 	@Override
