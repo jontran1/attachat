@@ -15,7 +15,7 @@
 	
 	<nav class="navbar navbar-dark bg-dark">
 	
-	    <a class="navbar-brand" href="/">
+	    <a class="navbar-brand" href="${pageContext.request.contextPath }/">
 	        <img src="${pageContext.request.contextPath }/img/chat-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
 	        AttaChat
 	    </a>
