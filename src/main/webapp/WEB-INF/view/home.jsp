@@ -67,71 +67,70 @@
 			</c:forEach>	
 		</div>
 			
-	<div class="sidebar">
-	     <form id="form-search" action="/search/" method="post">
-		    <div class="input-group mb-3">
-		        <input type="text" class="form-control" name="query" placeholder="Find a post" required="">
-		        <div class="input-group-append">
-		            <button class="btn btn-primary submit" type="submit">Search</button>
-		        </div>
-		    </div>
-		</form>                  
-		
-		
-		<div class="btn-group" style="width: 100%">
-		<a class="btn btn-success auth-req" href="/submit/link" id="submit-link" style="width: 100%">New link</a>
-		<a class="btn btn-primary auth-req" href="/submit/post" id="submit-post" style="width: 100%">New post</a>
-		</div>
-		<br><br>
-		
-		<a class="btn btn-block btn-light auth-req" href="${pageContext.request.contextPath }/Sub/userAction/showFormCreateSub">Create sub</a><br>
-		            
-		
-        <h4 class="text-center">Subbeddits (16)</h4>
-		<table class="table table-striped">
-			    <tbody>
+		<div class="sidebar">
+		     <form id="form-search" action="/search/" method="post">
+			    <div class="input-group mb-3">
+			        <input type="text" class="form-control" name="query" placeholder="Find a post" required="">
+			        <div class="input-group-append">
+			            <button class="btn btn-primary submit" type="submit">Search</button>
+			        </div>
+			    </div>
+			</form>                  
 			
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			        <tr>
-			        <td><a href="/r/test">/r/test</a></td>
-			        </tr>
-			    
-			    </tbody>
-			</table>   
-	        </div>
-		
-	</div>		
+			
+			<div class="btn-group" style="width: 100%">
+			<a class="btn btn-success auth-req" href="/submit/link" id="submit-link" style="width: 100%">New link</a>
+			<a class="btn btn-primary auth-req" href="/submit/post" id="submit-post" style="width: 100%">New post</a>
+			</div>
+			<br><br>
+			
+			<a class="btn btn-block btn-light auth-req" href="${pageContext.request.contextPath }/Sub/userAction/showFormCreateSub">Create sub</a><br>
+			            
+			
+	        <h4 class="text-center">Subbeddits (16)</h4>
+			<table class="table table-striped">
+				    <tbody>
+				
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				    </tbody>
+				</table>   
+		        </div>
+		</div>		
 
 	<c:if test="${pageContext.request.userPrincipal.authenticated }">
 		<p>My subs</p>
