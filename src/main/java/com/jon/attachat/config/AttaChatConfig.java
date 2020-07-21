@@ -48,8 +48,8 @@ public class AttaChatConfig implements WebMvcConfigurer {
           .addResourceHandler("/resources/**")
           .addResourceLocations("/resources/");
         registry
-          .addResourceHandler("/css/**", "/js/**")
-          .addResourceLocations("classpath:/static/css/", "classpath:/static/js/");
+          .addResourceHandler("/css/**", "/js/**", "/img/**")
+          .addResourceLocations("classpath:/static/css/", "classpath:/static/js/", "classpath:/static/img/");
     }
     
 
