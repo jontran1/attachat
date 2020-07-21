@@ -2,6 +2,7 @@ package com.jon.attachat.controller;
 
 import java.util.List;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.LinkedList; 
 import java.util.Queue; 
 import javax.servlet.http.HttpServletRequest;
@@ -73,6 +74,7 @@ public class ThreadController {
 		
 		thread.setSubName(subName);
 		thread.setUserName("john");
+		thread.setLocalDateTime(LocalDateTime.now());
 		
 		return "thread-form";
 	}
@@ -103,8 +105,9 @@ public class ThreadController {
 	@PostMapping("/userAction/saveThread")
 	public String saveThread(@ModelAttribute("thread") Thread thread, 
 			RedirectAttributes redirectAttributes) {	
+				
+		threadService.saveOrUpdateThread(thread);		
 		
-		threadService.saveOrUpdateThread(thread);
 		redirectAttributes.addAttribute("threadId", thread.getThreadId());
 
 		return "redirect:/Thread/showThread";
