@@ -21,15 +21,13 @@
 	</c:url>
 	
 	<c:if test="${pageContext.request.userPrincipal.authenticated && !isFollower}">
-		<form action="${followSub }" method="post">
+		<form:form action="${followSub }" method="post">
 		    <button type="submit" >Follow</button>
-		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				
-		</form>
+		</form:form>
 	</c:if> 
 	<c:if test="${pageContext.request.userPrincipal.authenticated && isFollower}">
 		<form:form action="${unfollowSub }" method="post">
 		    <button type="submit" >Unfollow</button>
-	     	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				    
 		</form:form>
 	</c:if> 
 	
