@@ -84,7 +84,7 @@ public class CommentController {
 		
 		String userName = request.getUserPrincipal().getName();
 		comment.setUserName(userName);
-		comment.setLocalDateTime(LocalDateTime.now());
+		
 		/*
 		 * Used saveOrUpdate because if the user edits the comment. That means the comment already exist.
 		 * So the comment will be updated.
@@ -105,6 +105,7 @@ public class CommentController {
 		comment.setThreadId(threadId);
 		comment.setParentId(parentId);
 		comment.setDeleted(false);
+		comment.setLocalDateTime(LocalDateTime.now());
 		
 		model.addAttribute("comment", comment);
 		model.addAttribute("isReply", true);

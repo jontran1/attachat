@@ -60,6 +60,7 @@ INSERT INTO `sub_follower` VALUES	('gaming','john'),
 
 CREATE TABLE `thread`(
 	`thread_id` int(11) NOT NULL AUTO_INCREMENT,
+	`date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `user_name` VARCHAR(50),
     `sub_name` VARCHAR(50) NOT NULL,
 	`thread_title` VARCHAR(50) NOT NULL,
@@ -69,16 +70,16 @@ CREATE TABLE `thread`(
     CONSTRAINT `thread_idx_2` FOREIGN KEY (`sub_name`) REFERENCES `sub` (`sub_name`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO `thread` (`user_name`, `sub_name`, `thread_title`, `thread_content`) VALUES	
-('john','gaming','God Of War isn\'t a good game....',"Xbox is better LOL!"),
-('john','gaming','No more remakes.....','Make new games.'),
-('john','basket ball','Basket ball is so freaking.', 'This sport is so damn boring omg.'),
-('susan','xbox','Halo is the greatest name.', 'HALO FTW'),
-('susan','xbox','Gears 1 is good.', 'gears FTW'),
-('susan','xbox','Halo 3 is good.', 'HALO 3 FTW'),
-('mary','play station','Xbox is better LOL!', 'XBPX FTW'),
-('mary','play station','GO GO GO PS1', 'PS1 FTW'),
-('mary','play station','Play Station 3 has no games lol.', 'XBOX FTW');
+INSERT INTO `thread` (`user_name`, `date_time`, `sub_name`, `thread_title`, `thread_content`) VALUES	
+('john',  now(), 'gaming','God Of War isn\'t a good game....',"Xbox is better LOL!"),
+('john',  now(), 'gaming','No more remakes.....','Make new games.'),
+('john',  now(), 'basket ball','Basket ball is so freaking.', 'This sport is so damn boring omg.'),
+('susan', now(),'xbox','Halo is the greatest name.', 'HALO FTW'),
+('susan', now(),'xbox','Gears 1 is good.', 'gears FTW'),
+('susan', now(), 'xbox','Halo 3 is good.', 'HALO 3 FTW'),
+('mary', now(), 'play station','Xbox is better LOL!', 'XBPX FTW'),
+('mary', now(), 'play station','GO GO GO PS1', 'PS1 FTW'),
+('mary', now(), 'play station','Play Station 3 has no games lol.', 'XBOX FTW');
 
 CREATE TABLE `comment`(
 	`comment_id` int(11) NOT NULL AUTO_INCREMENT,
