@@ -3,10 +3,9 @@
 
 <html>
 
-<head>
-	<title>Atta Chat</title>
-</head>
-
+	<head>
+		<title>Atta Chat</title>
+	</head>
 	
 	<!-- Reference Bootstrap files -->		 
  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -93,7 +92,7 @@
 			    <tbody>
 			
 			        <tr>
-			        <td><a href="/r/test">/r/FE</a></td>
+			        <td><a href="/r/test">/r/test</a></td>
 			        </tr>
 			    
 			        <tr>
@@ -101,31 +100,31 @@
 			        </tr>
 			    
 			        <tr>
-			        <td><a href="/r/test">/r/nice clone dude</a></td>
+			        <td><a href="/r/test">/r/test</a></td>
 			        </tr>
 			    
 			        <tr>
-			        <td><a href="/r/test">/r/freedom</a></td>
+			        <td><a href="/r/test">/r/test</a></td>
 			        </tr>
 			    
 			        <tr>
-			        <td><a href="/r/test">/r/general</a></td>
+			        <td><a href="/r/test">/r/test</a></td>
 			        </tr>
 			    
 			        <tr>
-			        <td><a href="/r/test">/r/News</a></td>
+			        <td><a href="/r/test">/r/test</a></td>
 			        </tr>
 			    
 			        <tr>
-			        <td><a href="/r/test">/r/thedonald</a></td>
+			        <td><a href="/r/test">/r/test</a></td>
 			        </tr>
 			    
 			        <tr>
-			        <td><a href="/r/test">/r/friends</a></td>
+			        <td><a href="/r/test">/r/test</a></td>
 			        </tr>
 			    
 			        <tr>
-			        <td><a href="/r/test">/r/talk</a></td>
+			        <td><a href="/r/test">/r/test</a></td>
 			        </tr>
 			    
 			    </tbody>
