@@ -70,6 +70,14 @@ public class Comment {
 		this.deleted = false;
 	}
 	
+	public Comment(int threadId, String userName, String content, Integer parentId) {
+		this.threadId = threadId;
+		this.userName = userName;
+		this.content = content;
+		this.parentId = parentId;
+		this.deleted = false;
+	}
+
 	/*
 	 * Getters and Setters.
 	 */
