@@ -29,12 +29,12 @@ public class CommentController {
 	
 	@GetMapping("/userAction/showFormCreateComment")
 	public String showFormCreateComment(@RequestParam("threadId") int threadId,
+			HttpServletRequest request,
 			Model model) {
 		
-		Comment comment = new Comment();
-		comment.setThreadId(threadId);
-		comment.setParentId(null);
-		comment.setDeleted(false);
+		String userName = request.getUserPrincipal().getName();
+		
+		Comment comment = new Comment(threadId, userName, null);
 		
 		model.addAttribute("comment", comment);
 		
