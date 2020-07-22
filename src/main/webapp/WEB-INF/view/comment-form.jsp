@@ -25,6 +25,7 @@
 				<td><label></label></td>
 				<td><input type="submit" value="Save" class="save"/></td>
 			</tr>
+				<form:input path="userName" type="hidden"/>
 				<form:input path="commentId" type="hidden"/>
 				<form:input path="threadId" type="hidden"/>
 				<form:input path="deleted" type="hidden"/>
