@@ -99,13 +99,12 @@ public class CommentController {
 	@GetMapping("/userAction/showFormCreateReply")
 	public String showFormCreateComment(@RequestParam("threadId") int threadId,
 			@RequestParam("parentId") int parentId,
+			HttpServletRequest request,
 			Model model) {
 		
-		Comment comment = new Comment();
-		comment.setThreadId(threadId);
-		comment.setParentId(parentId);
-		comment.setDeleted(false);
-		comment.setLocalDateTime(LocalDateTime.now());
+		String userName = request.getUserPrincipal().getName();
+		
+		Comment comment = new Comment(threadId, userName, null, parentId);
 		
 		model.addAttribute("comment", comment);
 		model.addAttribute("isReply", true);
