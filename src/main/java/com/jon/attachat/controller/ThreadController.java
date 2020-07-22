@@ -23,7 +23,10 @@ import com.jon.attachat.service.SubService;
 import com.jon.attachat.service.ThreadService;
 import com.jon.attachat.service.UserService;
 import com.jon.attachat.entity.Comment;
+import com.jon.attachat.entity.Sub;
+import com.jon.attachat.entity.SubFollowerId;
 import com.jon.attachat.entity.Thread;
+import com.jon.attachat.entity.User;
 
 @Controller
 @RequestMapping("/Thread")
@@ -59,6 +62,29 @@ public class ThreadController {
 			String userName = request.getUserPrincipal().getName();
 			model.addAttribute("userName", userName);			
 		}
+		
+		/**
+		 * Checks if the user is logged in and is a follower of the
+		 * sub. Depending on whether the user is a follower of not 
+		 * the button follow and unfollow will be displayed.
+		 */
+		if(request.getUserPrincipal() != null) {
+			User user = userService.getUser(request.getUserPrincipal().getName());
+			Sub sub = subService.getSub(thread.getSubName());
+			boolean isFollower = subService.isFollower(new SubFollowerId(user, sub));
+			model.addAttribute("isFollower", isFollower);
+		}
+		
+		String userName = null;
+		if(request.getUserPrincipal() != null)
+			userName = request.getUserPrincipal().getName();
+		
+		/**
+		 * A new comment object for when the user posts a comment.
+		 */
+		Comment comment = new Comment(threadId, userName, null, null);
+		model.addAttribute("comment", comment);
+		
 		model.addAttribute("comments", comments);
 		model.addAttribute("thread", thread);
 	

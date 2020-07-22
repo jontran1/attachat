@@ -19,25 +19,42 @@
     	<c:param name="commentId" value="${comment.commentId }"/>
     </c:url>
     
-		<p style="text-indent: ${comment.indent}px;">
+	<div class="comment" style="margin-right: ${comment.indent}px;">
+    	<ul>
+    		<span>
+    		${comment.userName }
+    		${comment.localDateTime }
+    		</span>  
+    	</ul>
 		
-		${comment.content} ${comment.localDateTime }
-		User name: ${comment.userName }
-		<a href="${createReply }">Reply</a>
-		<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">	
-			<a href="${editComment }">Edit</a>
-			<c:if test="${!comment.deleted }">
-				<form action="${deleteComment }" method="POST" style="text-indent: ${comment.indent}px;">
-				    <button type="submit" >Delete comment</button>
+   		<div class="comment-body">
+   			${comment.content}
+   		</div>
+		
+		<ul>
+		
+		
+		<span>
+		
+			<a href="${createReply }">Reply</a>
+			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">	
+				<a href="${editComment }">Edit</a>						
+			</c:if>   
+			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName && !comment.deleted }">
+				<form action="${deleteComment }" method="POST">
+				    <button class="btn btn-link" type="submit" >Delete</button>
 			     	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				    
 				</form>
-			</c:if>							
-		</c:if>   
-		 
-		<c:set var="comment" value="${comment}" scope="request"/>
-		<jsp:include page="node.jsp"/>
+			</c:if>	
 		
-   		</p>
+		</span>
+		
+		</ul>
+	 
+	<c:set var="comment" value="${comment}" scope="request"/>
+	<jsp:include page="node.jsp"/>
+	
+  		</div>
 
 </c:forEach>
 
