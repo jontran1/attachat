@@ -79,11 +79,10 @@ public class CommentController {
 	
 	@PostMapping("/userAction/saveComment")
 	public String saveComment(@ModelAttribute("comment") Comment comment,
-			HttpServletRequest request,
 			RedirectAttributes redirectAttributes) {
 		
-		String userName = request.getUserPrincipal().getName();
-		comment.setUserName(userName);
+		if(comment.getLocalDateTime() == null)
+			comment.setLocalDateTime(LocalDateTime.now());
 		
 		/*
 		 * Used saveOrUpdate because if the user edits the comment. That means the comment already exist.
