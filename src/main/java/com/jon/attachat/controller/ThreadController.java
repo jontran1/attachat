@@ -82,7 +82,7 @@ public class ThreadController {
 		/**
 		 * A new comment object for when the user posts a comment.
 		 */
-		Comment comment = new Comment(threadId, userName, null, null);
+		Comment comment = new Comment(threadId, userName, null);
 		model.addAttribute("comment", comment);
 		
 		model.addAttribute("comments", comments);
