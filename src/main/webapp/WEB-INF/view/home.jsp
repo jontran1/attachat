@@ -129,8 +129,8 @@
 				    
 				    </tbody>
 				</table>   
-		        </div>
-		</div>		
+		</div>
+	</div>		
 
 	<c:if test="${pageContext.request.userPrincipal.authenticated }">
 		<p>My subs</p>
