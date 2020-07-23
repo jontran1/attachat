@@ -50,6 +50,7 @@ public class Thread {
 	}
 	
 	public void setThreadId(int threadId) {
+		this.threadId = threadId;
 	}
 	
 	public int getThreadId() {
