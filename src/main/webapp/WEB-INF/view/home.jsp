@@ -55,7 +55,7 @@
 				</c:url>
 				
 				<article class="post">
-					<div class="container">
+					<div >
 						<header>
 							<td><a href="${subLink }">${sub.subName} </a></td>
 						</header>
