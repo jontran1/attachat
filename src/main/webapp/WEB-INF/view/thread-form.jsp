@@ -25,10 +25,12 @@
 					<td><form:input path="threadContent"/></td>
 				</tr>
 				<tr>
-					<form:hidden path="userName"/>
-					<form:hidden path="subName"/>
-					<form:hidden path="threadId"/>
-					<form:hidden path="localDateTime"/>
+
+					
+					<form:input path="userName" type="hidden"/>
+					<form:input path="subName" type="hidden"/>
+					<form:input path="threadId" type="hidden"/>
+					<form:input path="localDateTime" type="hidden"/>
 				</tr>
 				
 				<tr>
