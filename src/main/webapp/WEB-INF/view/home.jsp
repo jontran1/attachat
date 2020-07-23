@@ -26,7 +26,10 @@
 					<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 				</c:if> 
 				<c:if test="${pageContext.request.userPrincipal.authenticated }">
-	
+					<form:form action="${pageContext.request.contextPath }/logout" method="POST">
+						<input class="btn btn-success" type="submit" value="Logout" />
+					</form:form>
+
 				</c:if> 
 				<c:if test="${pageContext.request.userPrincipal.authenticated }">
 					<c:url var="userComments" value="/Comment/user/showComments">
