@@ -16,7 +16,23 @@
 	<!-- Reference Bootstrap files -->		 
  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 	
+	<script>
+		function showReplyFormFunction(id){
+			console.log(id);
+			let form = document.getElementById("hole");
+			console.log(form);
+  
+			if (form.style.display === "none") {
+				  form.style.display = "block";
+			  } else {
+				  form.style.display = "none";
+			  }
+		}
+	</script>
 	<body>
 	
 		<nav class="navbar navbar-dark bg-dark">
@@ -135,20 +151,29 @@
 			   		    <c:set var="comment" value="${comment}" scope="request"/>
 					    
 					    <article class="comment">
-					    	<ul>
 					    		<span>
 					    		${comment.userName }
 					    		${comment.localDateTime }
 					    		</span>  
-					    	</ul>
 					   		
 					   		<div class="comment-body">
 					   		${comment.content}
 					   		</div>
 						    
 						   <span>
-						   
-							    <a href="${createReply }">Reply</a>
+				
+     							<c:set var = "id" scope = "session" value = "id${comment.commentId }"/> 
+
+							    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#${id }">Reply</button>
+								<form:form id="${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
+									<form:textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" path="content"/>
+									<form:input path="userName" type="hidden"/>
+									<form:input path="threadId" type="hidden"/>
+									<form:input path="deleted" type="hidden"/>
+									<form:input path="parentId" type="hidden" value="${comment.commentId }"/>									
+									<input class="btn btn-primary submit" type="submit" value="Post a new comment"/>	
+								</form:form>
+								
 							    <c:if test="${pageContext.request.userPrincipal.authenticated && 
 							    			pageContext.request.userPrincipal.name == comment.userName &&
 							    			!comment.deleted }">

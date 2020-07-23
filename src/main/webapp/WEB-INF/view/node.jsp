@@ -2,10 +2,25 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+	<script>
+		function showReplyFormFunction(id){
+			console.log(id);
+			let form = document.getElementById("ass");
+			console.log(form);
+  
+			if (form.style.display === "none") {
+				  form.style.display = "block";
+			  } else {
+				  form.style.display = "none";
+			  }
+		}
+	</script>
 
 
 <c:forEach var="comment" items="${comment.children}">
+
      <c:url var="createReply" value="/Comment/userAction/showFormCreateReply">
     	<c:param name="threadId" value="${comment.threadId }"/>
     	<c:param name="parentId" value="${comment.commentId }"/>
@@ -19,7 +34,8 @@
     	<c:param name="commentId" value="${comment.commentId }"/>
     </c:url>
     
-	<div class="comment" style="margin-right: ${comment.indent}px;">
+	<article class="comment" style="margin-right: ${comment.indent}px;">
+	
     	<ul>
     		<span>
     		${comment.userName }
@@ -31,12 +47,9 @@
    			${comment.content}
    		</div>
 		
-		<ul>
-		
 		
 		<span>
-		
-			<a href="${createReply }">Reply</a>
+			
 			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">	
 				<a href="${editComment }">Edit</a>						
 			</c:if>   
@@ -46,15 +59,30 @@
 			     	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				    
 				</form>
 			</c:if>	
-		
+			
+			
+			<c:set var = "id" scope = "session" value = "id${comment.commentId }"/> 
+	
+			<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#${id }" aria-expanded="true">Reply</button>			
+			
+
+			<form:form id="${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
+				<textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" id="content" name="content""></textarea>
+				<form:input path="userName" type="hidden"/>
+				<form:input path="threadId" type="hidden"/>
+				<form:input path="deleted" type="hidden"/>
+				<form:input path="parentId" type="hidden" value="${comment.commentId }"/>									
+				<input class="btn btn-primary submit" type="submit" value="Post a new comment"/>	
+			</form:form>
+			
 		</span>
 		
-		</ul>
 	 
-	<c:set var="comment" value="${comment}" scope="request"/>
-	<jsp:include page="node.jsp"/>
+		<c:set var="comment" value="${comment}" scope="request"/>
+		<jsp:include page="node.jsp"/>
+		
 	
-  		</div>
+	</article>
 
 </c:forEach>
 

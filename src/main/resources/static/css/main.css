@@ -48,11 +48,10 @@
 
 .comment {
     background-color: #e9ecef;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     border-radius: 0.25rem;
     border: 1px solid #ced4da;
     padding: 15px;
-    word-wrap: break-word;    
 }
 
 .comment-body {
