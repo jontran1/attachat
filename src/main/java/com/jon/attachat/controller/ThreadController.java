@@ -109,29 +109,32 @@ public class ThreadController {
 	public String showFormEditThread(@RequestParam("threadId") int threadId, Model mode,
 			HttpServletResponse response, HttpServletRequest request) {
 			
-		Thread thread = threadService.getThread(threadId);
+		Thread thread = null;
 
 		/*
 		 * If the user's user name matches the thread user name. Then that user can edit the thread.
 		 * If not, a response error will be thrown. 
 		 */
 		try {
-			if(!request.getUserPrincipal().getName().equals(thread.getUserName())) {
+			thread = threadService.getThread(threadId);
+						
+			if(thread == null || !request.getUserPrincipal().getName().equals(thread.getUserName())) {
 				response.sendError(HttpServletResponse.SC_FORBIDDEN, "Forbidden access");
+				return null;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		mode.addAttribute("thread", thread);
-		
+				
 		return "thread-form";
 	}
 	
 	@PostMapping("/userAction/saveThread")
 	public String saveThread(@ModelAttribute("thread") Thread thread, 
 			RedirectAttributes redirectAttributes) {	
-				
+						
 		threadService.saveOrUpdateThread(thread);		
 		
 		redirectAttributes.addAttribute("threadId", thread.getThreadId());
