@@ -45,15 +45,19 @@ public class CommentController {
 	public String showFormEditComment(@RequestParam("commentId") int commentId, 
 			Model model, HttpServletResponse response, HttpServletRequest request) {
 		
-		Comment comment = commentSerivce.getComment(commentId);
+		Comment comment = null;
 		
 		/*
 		 * Checks if the user currently logged in is the comment creator.
 		 * Only comment creators can edit their own comments.
 		 */
 		try {
-			if(!request.getUserPrincipal().getName().equals(comment.getUserName()) || comment.getDeleted()) {
+			
+			comment = commentSerivce.getComment(commentId);
+			
+			if(comment == null || !request.getUserPrincipal().getName().equals(comment.getUserName()) || comment.getDeleted()) {
 				response.sendError(HttpServletResponse.SC_FORBIDDEN, "Forbidden access");
+				return null;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
