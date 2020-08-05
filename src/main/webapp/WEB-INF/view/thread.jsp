@@ -63,7 +63,10 @@
 		<div class="jumbotron jumbotron-fluid">
 		    <div class="container">
 		        <h1 class="display-4 text-center">
-		            <span id="subreddit-name">${thread.subName }</span>
+			        <c:url var="subLink" value="/Sub/showSub">
+						<c:param name="subName" value="${thread.subName }"/>
+					</c:url>
+		            <span id="sub-name"><a href="${subLink }">${thread.subName} </a></span>
 		        </h1>
 		    </div>
 		</div>
