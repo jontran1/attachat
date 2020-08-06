@@ -73,7 +73,7 @@
 		<div class="sidebar">
 		     <form id="form-search" action="/search/" method="post">
 			    <div class="input-group mb-3">
-			        <input type="text" class="form-control" name="query" placeholder="Find a post" required="">
+			        <input type="text" class="form-control" name="query" placeholder="Find a sub" required="">
 			        <div class="input-group-append">
 			            <button class="btn btn-primary submit" type="submit">Search</button>
 			        </div>
