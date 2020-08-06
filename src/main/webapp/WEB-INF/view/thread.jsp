@@ -205,24 +205,7 @@
 			
 			<div class="sidebar">
 				
-				<c:url var="followSub" value="/Sub/userAction/followSub">
-					<c:param name="subName" value="${thread.subName }"/>
-				</c:url>
-				<c:url var="unfollowSub" value="/Sub/userAction/unfollowSub">
-					<c:param name="subName" value="${thread.subName }"/>
-				</c:url>
-				
-				<c:if test="${pageContext.request.userPrincipal.authenticated && !isFollower}">
-					<form:form action="${followSub }" method="post">
-					    <button class="btn btn-block btn-light" type="submit" >Follow</button>
-					</form:form>
-				</c:if> 
-				<c:if test="${pageContext.request.userPrincipal.authenticated && isFollower}">
-					<form:form action="${unfollowSub }" method="post">
-					    <button class="btn btn-block btn-light" type="submit" >Unfollow</button>
-					</form:form>
-				</c:if> 
-							
+
 				            
 		      	<h4 class="text-center">Subbeddits (16)</h4>
 				<table class="table table-striped">
