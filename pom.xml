@@ -141,7 +141,6 @@
 
   <build>
     <finalName>attachat</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
       <!-- 
         <plugin>
@@ -196,6 +195,5 @@
 		       </executions>
 		   </plugin>   
       </plugins>
-    </pluginManagement>
   </build>
 </project>
