@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `jga8q0ra136q8wxu`;
-USE `jga8q0ra136q8wxu`;
+CREATE DATABASE IF NOT EXISTS `atta_chat`;
+USE `atta_chat`;
 
 DROP TABLE IF EXISTS `comment`;
 DROP TABLE IF EXISTS `thread`;
