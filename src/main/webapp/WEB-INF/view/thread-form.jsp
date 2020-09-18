@@ -15,73 +15,71 @@
 	
 	<body>
 	
-	<nav class="navbar navbar-dark bg-dark">
-	
-	    <a class="navbar-brand" href="${pageContext.request.contextPath }/">
-	        <img src="${pageContext.request.contextPath }/img/chat-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-	        AttaChat
-	    </a>
-	    
-	    <div id="user-info">
-	        	        
-	       	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
-				<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
-			</c:if> 
-			<c:if test="${pageContext.request.userPrincipal.authenticated }">
-				
-				<!-- Show currently logged in user's comment history.
-				<c:url var="userComments" value="/Comment/user/showComments">
-					<c:param name="userName" value="${pageContext.request.userPrincipal.name }"/>
-				</c:url>
-				<a class="btn btn-success" href="${userComments }">Comment History</a>
-				-->
-				
-				<form:form action="${pageContext.request.contextPath }/logout" method="POST">
-					<input class="btn btn-success" type="submit" value="Logout" />
-				</form:form>
-	
-			</c:if> 
-	
-	    </div>
-	    
-	</nav>
-
-	<div class="jumbotron jumbotron-fluid">
-	
-	    <div class="container">
-	        <h1 class="display-4 text-center">
-            	<c:url var="subLink" value="/Sub/showSub">
-					<c:param name="subName" value="${thread.subName }"/>
-				</c:url>
-	            <span id="sub-name"><a href="${subLink }">${thread.subName} </a></span>
-	        </h1>
-	    </div>
-	    
-	</div>
+		<nav class="navbar navbar-dark bg-dark">
 		
-	<div class="container">
-	
-		<form:form action="saveThread" modelAttribute="thread" method="POST">
-	
-			
-						<label>Thread title:</label>
-						<form:input class="form-control" path="threadTitle"/>
-
-						<label>Thread content:</label>
-						<textarea class="form-control" placeholder="Thread Content..." maxlength="1000" id="threadContent" name="threadContent"">${thread.threadContent }</textarea>
-						
-						<form:input path="userName" type="hidden"/>
-						<form:input path="subName" type="hidden"/>
-						<form:input path="threadId" type="hidden"/>
-						<form:input path="localDateTime" type="hidden"/>
+		    <a class="navbar-brand" href="${pageContext.request.contextPath }/">
+		        <img src="${pageContext.request.contextPath }/img/chat-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		        AttaChat
+		    </a>
+		    
+		    <div id="user-info">
+		        	        
+		       	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+					<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
+				</c:if> 
+				<c:if test="${pageContext.request.userPrincipal.authenticated }">
 					
-						<lable></lable>
-						<input type="submit" value="Submit" />
-				
+					<!-- Show currently logged in user's comment history.
+					<c:url var="userComments" value="/Comment/user/showComments">
+						<c:param name="userName" value="${pageContext.request.userPrincipal.name }"/>
+					</c:url>
+					<a class="btn btn-success" href="${userComments }">Comment History</a>
+					-->
+					
+					<form:form action="${pageContext.request.contextPath }/logout" method="POST">
+						<input class="btn btn-success" type="submit" value="Logout" />
+					</form:form>
 		
-		</form:form>
+				</c:if> 
+		
+		    </div>
+		    
+		</nav>
+
+		<div class="jumbotron jumbotron-fluid">
+		
+		    <div class="container">
+		        <h1 class="display-4 text-center">
+	            	<c:url var="subLink" value="/Sub/showSub">
+						<c:param name="subName" value="${thread.subName }"/>
+					</c:url>
+		            <span id="sub-name"><a href="${subLink }">${thread.subName} </a></span>
+		        </h1>
+		    </div>
+		    
+		</div>
+		
+		<div class="container">
+		
+			<form:form action="saveThread" modelAttribute="thread" method="POST">
 	
-	</div>
+				<label>Thread title:</label>
+				<form:input class="form-control" path="threadTitle"/>
+	
+				<label>Thread content:</label>
+				<textarea class="form-control" placeholder="Thread Content..." maxlength="1000" id="threadContent" name="threadContent"">${thread.threadContent }</textarea>
+				
+				<form:input path="userName" type="hidden"/>
+				<form:input path="subName" type="hidden"/>
+				<form:input path="threadId" type="hidden"/>
+				<form:input path="localDateTime" type="hidden"/>
+			
+				<lable></lable>
+				<input type="submit" value="Submit" />
+			
+			</form:form>
+		
+		</div>
 	
 	</body>
 </html>
