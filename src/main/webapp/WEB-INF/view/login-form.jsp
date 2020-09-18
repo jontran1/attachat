@@ -35,7 +35,7 @@
 		<div class="jumbotron jumbotron-fluid">
 	    <div class="container">
 	        <h1 class="display-4 text-center">
-	            <span id="subreddit-name">Atta Chat</span>
+	            <span id="subreddit-name">Login</span>
 	        </h1>
 	    </div>
 		</div>
