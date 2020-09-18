@@ -28,13 +28,12 @@
 				<form:form action="${pageContext.request.contextPath }/logout" method="POST">
 					<input class="btn btn-success" type="submit" value="Logout" />
 				</form:form>
-
-			</c:if> 
-			<c:if test="${pageContext.request.userPrincipal.authenticated }">
+			<!-- Show currently logged in user's comment.
 				<c:url var="userComments" value="/Comment/user/showComments">
 					<c:param name="userName" value="${pageContext.request.userPrincipal.name }"/>
 				</c:url>
 				<a class="btn btn-success" href="${userComments }">Comment History</a>
+			-->
 			</c:if> 
 	    </div>
 		    
