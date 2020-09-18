@@ -36,16 +36,19 @@
 		        	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
 						<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 					</c:if> 
+					
 					<c:if test="${pageContext.request.userPrincipal.authenticated }">
-		
-					</c:if> 
-					<c:if test="${pageContext.request.userPrincipal.authenticated }">
+						
+						<form:form action="${pageContext.request.contextPath }/logout" method="POST">
+							<input class="btn btn-success" type="submit" value="Logout" />
+						</form:form>
 						<!-- Shows currently logged in user's comment.
 						<c:url var="userComments" value="/Comment/user/showComments">
 							<c:param name="userName" value="${pageContext.request.userPrincipal.name }"/>
 						</c:url>
 						<a class="btn btn-success" href="${userComments }">Comment History</a>
 						-->
+						
 					</c:if> 
 		    </div>
 		    
