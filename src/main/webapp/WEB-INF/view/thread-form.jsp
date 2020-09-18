@@ -65,7 +65,7 @@
 						<form:input class="form-control" path="threadTitle"/>
 
 						<label>Thread content:</label>
-						<textarea class="form-control" placeholder="Thread Content..." maxlength="1000" id="threadContent" name="threadContent""></textarea>
+						<textarea class="form-control" placeholder="Thread Content..." maxlength="1000" id="threadContent" name="threadContent"">${thread.threadContent }</textarea>
 						
 						<form:input path="userName" type="hidden"/>
 						<form:input path="subName" type="hidden"/>
