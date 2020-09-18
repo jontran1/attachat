@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `atta_chat`;
-USE `atta_chat`;
+CREATE DATABASE IF NOT EXISTS `jga8q0ra136q8wxu`;
+USE `jga8q0ra136q8wxu`;
 
 DROP TABLE IF EXISTS `comment`;
 DROP TABLE IF EXISTS `thread`;
@@ -88,7 +88,7 @@ CREATE TABLE `comment`(
 	`user_name` VARCHAR(50),
     `content` text NOT NULL,
     `parent_id` int(11),
-    `deleted` int(1) NOT NULL default(0),
+    `deleted` int(1) NOT NULL default 0,
     PRIMARY KEY (`comment_id`),
     CONSTRAINT `comment_idx_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `comment_idx_2` FOREIGN KEY (`thread_id`) REFERENCES `thread` (`thread_id`) ON DELETE CASCADE ON UPDATE CASCADE,
