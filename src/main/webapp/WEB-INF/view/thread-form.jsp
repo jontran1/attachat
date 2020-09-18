@@ -1,47 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Thread Creation Form</title>
-</head>
-<body>
-	<h3>Thread Creation Form</h3>
+	<head>
+		<title>Thread Creation Form</title>
+	</head>
 	
-	<form:form action="saveThread" modelAttribute="thread" method="POST">
-
-		
-		<table>
-			<tbody>
-				<tr>
-					<td><label>Thread title:</label></td>
-					<td><form:input path="threadTitle"/></td>
-				</tr>
-				<tr>
-					<td><label>Thread content:</label></td>
-					<td><form:input path="threadContent"/></td>
-				</tr>
-				<tr>
-
-					
-					<form:input path="userName" type="hidden"/>
-					<form:input path="subName" type="hidden"/>
-					<form:input path="threadId" type="hidden"/>
-					<form:input path="localDateTime" type="hidden"/>
-				</tr>
+	<!-- Reference Bootstrap files -->		 
+ 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/main.css">
+	
+	<body>
+	
+	<nav class="navbar navbar-dark bg-dark">
+	
+	    <a class="navbar-brand" href="${pageContext.request.contextPath }/">
+	        <img src="${pageContext.request.contextPath }/img/chat-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	        AttaChat
+	    </a>
+	    
+	    <div id="user-info">
+	        	        
+	       	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+				<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
+			</c:if> 
+			<c:if test="${pageContext.request.userPrincipal.authenticated }">
 				
-				<tr>
-					<td><lable></lable></td>
-					<td><input type="submit" value="Submit" /></td>
-				</tr>
-			
-			</tbody>
-		</table>
+				<!-- Show currently logged in user's comment history.
+				<c:url var="userComments" value="/Comment/user/showComments">
+					<c:param name="userName" value="${pageContext.request.userPrincipal.name }"/>
+				</c:url>
+				<a class="btn btn-success" href="${userComments }">Comment History</a>
+				-->
+				
+				<form:form action="${pageContext.request.contextPath }/logout" method="POST">
+					<input class="btn btn-success" type="submit" value="Logout" />
+				</form:form>
 	
-	</form:form>
+			</c:if> 
+	
+	    </div>
+	    
+	</nav>
 
-</body>
+	<div class="jumbotron jumbotron-fluid">
+	
+	    <div class="container">
+	        <h1 class="display-4 text-center">
+	            <span id="subreddit-name">${thread.subName}</span>
+	        </h1>
+	    </div>
+	    
+	</div>
+		
+	<div class="container">
+	
+		<form:form action="saveThread" modelAttribute="thread" method="POST">
+	
+			
+						<label>Thread title:</label>
+						<form:input class="form-control" path="threadTitle"/>
+
+						<label>Thread content:</label>
+						<textarea class="form-control" placeholder="Thread Content..." maxlength="1000" id="threadContent" name="threadContent""></textarea>
+						
+						<form:input path="userName" type="hidden"/>
+						<form:input path="subName" type="hidden"/>
+						<form:input path="threadId" type="hidden"/>
+						<form:input path="localDateTime" type="hidden"/>
+					
+						<lable></lable>
+						<input type="submit" value="Submit" />
+				
+		
+		</form:form>
+	
+	</div>
+	
+	</body>
 </html>
