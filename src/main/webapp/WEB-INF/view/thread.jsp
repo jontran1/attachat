@@ -21,17 +21,6 @@
 	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 	
 	<script>
-		function showReplyFormFunction(id){
-			console.log(id);
-			let form = document.getElementById("hole");
-			console.log(form);
-  
-			if (form.style.display === "none") {
-				  form.style.display = "block";
-			  } else {
-				  form.style.display = "none";
-			  }
-		}
 	</script>
 	<body>
 	

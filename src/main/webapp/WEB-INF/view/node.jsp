@@ -4,20 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-	<script>
-		function showReplyFormFunction(id){
-			console.log(id);
-			let form = document.getElementById("ass");
-			console.log(form);
-  
-			if (form.style.display === "none") {
-				  form.style.display = "block";
-			  } else {
-				  form.style.display = "none";
-			  }
-		}
-	</script>
-
 
 <c:forEach var="comment" items="${comment.children}">
 
