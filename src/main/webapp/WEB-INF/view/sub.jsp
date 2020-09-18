@@ -73,9 +73,6 @@
 							
 					<article>
 						<div>
-							<header>
-								<td>Sub name: ${thread.subName} </td>
-							</header>
 							<td><a href="${threadLink }">${thread.threadTitle }</a> </td>
 						</div>
 					</article>
@@ -155,19 +152,9 @@
 					    </tbody>
 					</table>   
 			</div>
-				
-				
-				
-				
-		
-		
-		
+
 		</div>
 	
 	</body>
-	
-
-		
-			
 
 </html>
