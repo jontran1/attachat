@@ -77,7 +77,6 @@
 								<td>Sub name: ${thread.subName} </td>
 							</header>
 							<td><a href="${threadLink }">${thread.threadTitle }</a> </td>
-							<td>Thread content: ${thread.threadContent }</td>
 						</div>
 					</article>
 				</c:forEach>
