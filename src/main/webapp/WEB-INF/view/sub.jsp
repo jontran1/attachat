@@ -20,7 +20,7 @@
         AttaChat
     </a>
     
-	    <div id="user-info" style="display: inline; left;">        
+	    <div id="user-info">        
         	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
 				<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 			</c:if> 
