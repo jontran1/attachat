@@ -93,13 +93,14 @@ public class ThreadController {
 	}
 	
 	@GetMapping("/userAction/showFormCreateThread")
-	public String showFormCreateThread(@RequestParam("subName") String subName, Model model) {
+	public String showFormCreateThread(@RequestParam("subName") String subName, Model model, HttpServletRequest request) {
 		Thread thread = new Thread();
 		
 		model.addAttribute("thread", thread);
+		String userName = request.getUserPrincipal().getName();
 		
 		thread.setSubName(subName);
-		thread.setUserName("john");
+		thread.setUserName(userName);
 		thread.setLocalDateTime(LocalDateTime.now());
 		
 		return "thread-form";
