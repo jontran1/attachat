@@ -33,11 +33,11 @@
 		    
 		    <div id="user-info">
 		        	        
-		        	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+		        	<c:if test="${empty pageContext.request.userPrincipal }">
 						<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 					</c:if> 
 					
-					<c:if test="${pageContext.request.userPrincipal.authenticated }">
+					<c:if test="${not empty pageContext.request.userPrincipal }">
 						
 						<form:form action="${pageContext.request.contextPath }/logout" method="POST">
 							<input class="btn btn-success" type="submit" value="Logout" />
@@ -55,18 +55,24 @@
 		</nav>
 		
 		<div class="jumbotron jumbotron-fluid">
+		
 		    <div class="container">
+		    
 		        <h1 class="display-4 text-center">
 			        <c:url var="subLink" value="/Sub/showSub">
 						<c:param name="subName" value="${thread.subName }"/>
 					</c:url>
 		            <span id="sub-name"><a href="${subLink }">${thread.subName} </a></span>
 		        </h1>
+		        
 		    </div>
+		    
 		</div>
 		
 		<div class="grid-container">
+		
 			<div class="main">
+			
 				<div class="comment-wrapper">
 				
 					<article class="post">
@@ -101,10 +107,10 @@
 				
 				<div class="submit-wrapper">
 				
-		        	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+		        	<c:if test="${empty pageContext.request.userPrincipal }">
 						You must be <a href="${pageContext.request.contextPath }/showMyLoginPage">logged in</a> to leave a comment.
 					</c:if> 
-					<c:if test="${pageContext.request.userPrincipal.authenticated }">
+					<c:if test="${not empty pageContext.request.userPrincipal }">
 						<!-- A form for posting comments. -->
 						
 						<!-- 
@@ -171,13 +177,13 @@
 									<input class="btn btn-primary submit" type="submit" value="Post a new comment"/>	
 								</form:form>
 								
-							    <c:if test="${pageContext.request.userPrincipal.authenticated && 
+							    <c:if test="${not empty pageContext.request.userPrincipal && 
 							    			pageContext.request.userPrincipal.name == comment.userName &&
 							    			!comment.deleted }">
 								    <a href="${editComment }">Edit</a>	    
 							    </c:if>
 								
-								<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">								
+								<c:if test="${not empty pageContext.request.userPrincipal && comment.userName == userName}">								
 									<c:if test="${!comment.deleted }">
 										<form:form action="${deleteComment }" method="POST">
 										    <button class="btn btn-link" type="submit" >Delete</button>
@@ -198,60 +204,50 @@
 			</div>
 			
 			<div class="sidebar">
-				
-
-				            
-		      	<h4 class="text-center">Subbeddits (16)</h4>
+			   	<h4 class="text-center">Subbeddits (16)</h4>
 				<table class="table table-striped">
-					    <tbody>
-					
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					        <tr>
-					        <td><a href="/r/test">/r/test</a></td>
-					        </tr>
-					    
-					    </tbody>
-					</table>   
-		        </div>
-
+				    <tbody>
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    
+				        <tr>
+				        <td><a href="/r/test">/r/test</a></td>
+				        </tr>
+				    </tbody>
+				    
+				</table>   
 			</div>
-		
+
 		</div>
-		
-		
-		</p>
-		
-	
+
 	</body>
 </html>

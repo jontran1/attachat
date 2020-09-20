@@ -21,10 +21,10 @@
     </a>
     
 	    <div id="user-info">        
-        	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+        	<c:if test="${empty pageContext.request.userPrincipal }">
 				<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 			</c:if> 
-			<c:if test="${pageContext.request.userPrincipal.authenticated }">
+			<c:if test="${not empty pageContext.request.userPrincipal }">
 				<form:form action="${pageContext.request.contextPath }/logout" method="POST">
 					<input class="btn btn-success" type="submit" value="Logout" />
 				</form:form>
@@ -73,7 +73,7 @@
 							
 					<article>
 						<div>
-							<td><a href="${threadLink }">${thread.threadTitle }</a> </td>
+							<a href="${threadLink }">${thread.threadTitle }</a>
 						</div>
 					</article>
 				</c:forEach>

@@ -22,10 +22,10 @@
 		    
 		    <div id="user-info">
 		        	        
-	        	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+	        	<c:if test="${empty pageContext.request.userPrincipal }">
 					<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 				</c:if> 
-				<c:if test="${pageContext.request.userPrincipal.authenticated }">
+				<c:if test="${not empty pageContext.request.userPrincipal }">
 					
 					<!-- Show currently logged in user's comment history.
 					<c:url var="userComments" value="/Comment/user/showComments">

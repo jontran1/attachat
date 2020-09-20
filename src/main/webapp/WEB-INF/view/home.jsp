@@ -22,10 +22,10 @@
 	    
 	    <div id="user-info">
 	        	        
-	        	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+	        	<c:if test="${empty pageContext.request.userPrincipal}">
 					<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 				</c:if> 
-				<c:if test="${pageContext.request.userPrincipal.authenticated }">
+				<c:if test="${not empty pageContext.request.userPrincipal }">
 					
 					<!-- Show currently logged in user's comment history.
 					<c:url var="userComments" value="/Comment/user/showComments">
@@ -63,10 +63,10 @@
 				<article class="post">
 					<div >
 						<header>
-							<td><a href="${subLink }">${sub.subName} </a></td>
+							<a href="${subLink }">${sub.subName} </a>
 						</header>
-						<td> Created by ${sub.creator} </td>
-						<td> Followers:  ${sub.numberOfFollowers } </td>
+						Created by ${sub.creator}
+						Followers:  ${sub.numberOfFollowers }
 					</div>
 				</article>
 			
@@ -138,7 +138,8 @@
 		</div>
 	</div>		
 
-	<c:if test="${pageContext.request.userPrincipal.authenticated }">
+	<c:if test="${not empty pageContext.request.userPrincipal }">
+	
 		<p>My subs</p>
 			<c:forEach var="sub" items="${userSubs}">
 				<c:url var="subLink" value="/Sub/showSub">
@@ -146,20 +147,19 @@
 				</c:url>
 						
 				<p>
-					<td> Sub name: ${sub.subName} </td>
-				<td>
+					Sub name: ${sub.subName}
+				
 					<a href="${subLink }">${sub.subName} </a>
-				</td>
-				<td> Creator: ${sub.creator} </td>
-				<td> Population count:  ${sub.numberOfFollowers } </td>
+			
+					Creator: ${sub.creator}
+					Population count:  ${sub.numberOfFollowers }
 				
 				</p>
 			</c:forEach>
 		<c:if test="${empty userSubs}">
 		<p>You are not currently following any subs.</p>
 		</c:if>
-		
-	
+
 	</c:if> 	
 	
 	</body>

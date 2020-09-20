@@ -24,10 +24,10 @@
 		    
 		    <div id="user-info">
 		        	        
-		       	<c:if test="${!pageContext.request.userPrincipal.authenticated }">
+		       	<c:if test="${empty pageContext.request.userPrincipal }">
 					<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
 				</c:if> 
-				<c:if test="${pageContext.request.userPrincipal.authenticated }">
+				<c:if test="${not empty pageContext.request.userPrincipal }">
 					
 					<!-- Show currently logged in user's comment history.
 					<c:url var="userComments" value="/Comment/user/showComments">
@@ -67,14 +67,13 @@
 				<form:input class="form-control" path="threadTitle"/>
 	
 				<label>Thread content:</label>
-				<textarea class="form-control" placeholder="Thread Content..." maxlength="1000" id="threadContent" name="threadContent"">${thread.threadContent }</textarea>
+				<textarea class="form-control" placeholder="Thread Content..." maxlength="1000" id="threadContent" name="threadContent">${thread.threadContent }</textarea>
 				
 				<form:input path="userName" type="hidden"/>
 				<form:input path="subName" type="hidden"/>
 				<form:input path="threadId" type="hidden"/>
 				<form:input path="localDateTime" type="hidden"/>
 			
-				<lable></lable>
 				<input type="submit" value="Submit" />
 			
 			</form:form>

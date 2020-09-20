@@ -20,10 +20,10 @@
 		</c:url>
 		
 		<p>
-			<td>${comment.content}</td>
-			<td>
-				<a href="${threadLink }">Thread</a>
-			</td>
+			${comment.content}
+			
+			<a href="${threadLink }">Thread</a>
+			
 		</p>
 	
 	</c:forEach>
