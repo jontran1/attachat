@@ -11,14 +11,14 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
 	`user_name` VARCHAR(50) NOT NULL,
-    `password` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
     `enabled` TINYINT(1) NOT NULL,
     PRIMARY KEY (`user_name`) 
 );
 INSERT INTO `user` (`user_name`, `password`, `enabled`) VALUES 
-('john','{noop}test123',1),
-('mary','{noop}test123',1),
-('susan','{noop}test123',1);
+('john','$2a$10$Ib8FZJ0K2cATrxrc2WIOvO3iR8u9Zo7zKA7/9u01vOTXKwkY9UiGy',1),
+('mary','$2a$10$Ib8FZJ0K2cATrxrc2WIOvO3iR8u9Zo7zKA7/9u01vOTXKwkY9UiGy',1),
+('susan','$2a$10$Ib8FZJ0K2cATrxrc2WIOvO3iR8u9Zo7zKA7/9u01vOTXKwkY9UiGy',1);
 
 CREATE TABLE `authoritie`(
 	`user_name`  VARCHAR(50) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE `thread`(
 INSERT INTO `thread` (`user_name`, `date_time`, `sub_name`, `thread_title`, `thread_content`) VALUES	
 ('john',  now(), 'gaming','God Of War isn\'t a good game....',"Xbox is better LOL!"),
 ('john',  now(), 'gaming','No more remakes.....','Make new games.'),
-('john',  now(), 'basket ball','Basket ball is so freaking.', 'This sport is so damn boring omg.'),
+('john',  now(), 'basket ball','Basket ball is so freaking boring.', 'This sport is so damn boring omg.'),
 ('susan', now(),'xbox','Halo is the greatest name.', 'HALO FTW'),
 ('susan', now(),'xbox','Gears 1 is good.', 'gears FTW'),
 ('susan', now(), 'xbox','Halo 3 is good.', 'HALO 3 FTW'),
