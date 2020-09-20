@@ -10,11 +10,7 @@
 		<!-- Reference Bootstrap files -->		 
 	 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="${pageContext.request.contextPath }/css/main.css">
-		<style>
-			.failed{
-				color: red;
-			}
-		</style>
+
 	</head>
 
 	<body>
@@ -72,7 +68,11 @@
 		
 		                            <div class="col-md-6 offset-md-4">
 		                            	<input class="btn btn-primary" type="submit" value="Login" />
-		             
+										 <a href="${pageContext.request.contextPath}/register/showRegistrationForm"
+											 class="btn btn-primary"
+											 role="button" aria-pressed="true">
+											 Register
+										 </a>
 		                            </div>
 		                         </form:form>
 		                         

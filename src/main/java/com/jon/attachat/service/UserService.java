@@ -2,7 +2,10 @@ package com.jon.attachat.service;
 
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.jon.attachat.entity.Authoritie;
+import com.jon.attachat.entity.CrmUser;
 import com.jon.attachat.entity.User;
 
 /**
@@ -10,7 +13,7 @@ import com.jon.attachat.entity.User;
  * @author jonat
  *
  */
-public interface UserService {
+public interface UserService extends UserDetailsService {
 	
 	public List<User> getUsers();
 	
@@ -23,5 +26,8 @@ public interface UserService {
 	public void saveAuthoritie(Authoritie authoritie);
 	
 	public void deleteAuthoritie(Authoritie authoritie);
+	
+    User findByUserName(String theUserName);
 
+    void save(CrmUser crmUser);
 }
