@@ -73,6 +73,7 @@
 				<form:input path="subName" type="hidden"/>
 				<form:input path="threadId" type="hidden"/>
 				<form:input path="localDateTime" type="hidden"/>
+				<form:input path="numberOfComments" type="hidden"/>
 			
 				<input type="submit" value="Submit" />
 			
