@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jon.attachat.entity.Comment;
+import com.jon.attachat.entity.Thread;
 import com.jon.attachat.service.CommentService;
+import com.jon.attachat.service.ThreadService;
 
 @Controller
 @RequestMapping("/Comment")
@@ -26,6 +28,9 @@ public class CommentController {
 	
 	@Autowired
 	private CommentService commentSerivce;
+	
+	@Autowired
+	private ThreadService threadService;
 	
 	@GetMapping("/userAction/showFormCreateComment")
 	public String showFormCreateComment(@RequestParam("threadId") int threadId,
@@ -95,6 +100,11 @@ public class CommentController {
 		 */
 		commentSerivce.saveOrUpdate(comment);
 		redirectAttributes.addAttribute("threadId", comment.getThreadId());
+		
+		// Increase thread comment count.
+		Thread currentThread = threadService.getThread(comment.getThreadId());
+		currentThread.setNumberOfComments(currentThread.getNumberOfComments() + 1);
+		threadService.saveOrUpdateThread(currentThread);
 		
 		return "redirect:/Thread/showThread";
 	}
