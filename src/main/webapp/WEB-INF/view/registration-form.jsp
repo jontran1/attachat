@@ -30,7 +30,7 @@
 		<div class="jumbotron jumbotron-fluid">
 	    <div class="container">
 	        <h1 class="display-4 text-center">
-	            <span id="subreddit-name">Registration</span>
+	            <span id="subreddit-name">Welcome To AttaChat</span>
 	        </h1>
 	    </div>
 		</div>
@@ -41,7 +41,7 @@
 		        <div class="row justify-content-center">
 		            <div class="col-md-8">
 		                <div class="card">
-		                    <div class="card-header">Login/Register</div>
+		                    <div class="card-header">Registration Form</div>
 		                    <div class="card-body">
 		                    
 								<!-- Registration Form -->
