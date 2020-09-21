@@ -63,7 +63,7 @@ CREATE TABLE `thread`(
 	`date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `user_name` VARCHAR(50),
     `sub_name` VARCHAR(50) NOT NULL,
-	`thread_title` VARCHAR(50) NOT NULL,
+	`thread_title` VARCHAR(100) NOT NULL,
     `thread_content` text,
     PRIMARY KEY (`thread_id`),
     CONSTRAINT `thread_idx_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON DELETE SET NULL ON UPDATE CASCADE,
