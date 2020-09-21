@@ -60,14 +60,15 @@
 					<c:param name="subName" value="${sub.subName }"/>
 				</c:url>
 				
-				<article class="post">
-					<div >
-						<header>
-							<a href="${subLink }">${sub.subName} </a>
-						</header>
-						Created by ${sub.creator}
-						Followers:  ${sub.numberOfFollowers }
-					</div>
+				<article class="thread-wrapper">
+					
+					<h2>
+						<a href="${subLink }">${sub.subName} </a>
+					</h2>
+					<span>
+						Created by ${sub.creator} Followers:  ${sub.numberOfFollowers }
+					</span>
+				
 				</article>
 			
 			</c:forEach>	
