@@ -65,6 +65,7 @@ CREATE TABLE `thread`(
     `sub_name` VARCHAR(50) NOT NULL,
 	`thread_title` VARCHAR(100) NOT NULL,
     `thread_content` text,
+    `number_of_comments` INT DEFAULT 0,
     PRIMARY KEY (`thread_id`),
     CONSTRAINT `thread_idx_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `thread_idx_2` FOREIGN KEY (`sub_name`) REFERENCES `sub` (`sub_name`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -105,6 +106,10 @@ INSERT INTO `comment` (`thread_id`, `date_time`, `user_name`, `content`, `parent
 (1, now(), null, 'Susan why are you replying to yourself? LOL', 6),
 (1, now(), 'susan', 'New comment I am replying to noone!', null),
 (1, now(), 'john', 'HI new comment! I am replaying to YOU!', 8);
+
+UPDATE thread
+SET number_of_comments = 9
+WHERE thread_id = 1;
 
 -- CREATE TRIGGER increase_sub_population_count AFTER INSERT ON sub_follower
 -- 	UPDATE sub_

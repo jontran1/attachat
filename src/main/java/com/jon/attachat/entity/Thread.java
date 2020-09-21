@@ -37,6 +37,9 @@ public class Thread {
 	
 	@Column(name="thread_content")
 	private String threadContent;
+	
+	@Column(name="number_of_comments")
+	private int numberOfComments;
 
 	public Thread() {
 		this.localDateTime = LocalDateTime.now();
@@ -97,6 +100,14 @@ public class Thread {
 		this.localDateTime = localDateTime;
 	}
 
+	public int getNumberOfComments() {
+		return numberOfComments;
+	}
+
+	public void setNumberOfComments(int numberOfComments) {
+		this.numberOfComments = numberOfComments;
+	}
+	
 	@Override
 	public String toString() {
 		return "Thread [threadId=" + threadId + ", userName=" + userName + ", subName=" + subName + ", threadTitle="

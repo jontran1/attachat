@@ -79,7 +79,7 @@
 						
 						<span>Submitted by ${thread.userName } on ${thread.localDateTime }</span >
 						<ul class="list-inline">
-							<li class="list-inline-item">400 Comments</li>
+							<li class="List-inLine-item"><a href="${threadLink }">${thread.numberOfComments } comments</a></li>
 							<li class="list-inline-item">Share</li>
 							<li class="list-inline-item">Save</li>
 							<li class="list-inline-item">Hide</li>
