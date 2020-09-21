@@ -23,6 +23,7 @@
 	    <div id="user-info">        
         	<c:if test="${empty pageContext.request.userPrincipal }">
 				<a class="btn btn-success" href="${pageContext.request.contextPath }/showMyLoginPage">Login</a>
+				<a class="btn btn-success" href="${pageContext.request.contextPath }/register/showRegistrationForm">New User</a>
 			</c:if> 
 			<c:if test="${not empty pageContext.request.userPrincipal }">
 				<form:form action="${pageContext.request.contextPath }/logout" method="POST">
