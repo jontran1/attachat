@@ -71,11 +71,23 @@
 						<c:param name="threadId" value="${thread.threadId }"/>
 					</c:url>
 							
-					<article>
-						<div>
+					<article class="thread-wrapper">
+						
+						<h4>
 							<a href="${threadLink }">${thread.threadTitle }</a>
-						</div>
+						</h4>
+						
+						<span>Submitted by ${thread.userName } on ${thread.localDateTime }</span >
+						<ul class="list-inline">
+							<li class="list-inline-item">400 Comments</li>
+							<li class="list-inline-item">Share</li>
+							<li class="list-inline-item">Save</li>
+							<li class="list-inline-item">Hide</li>
+							<li class="list-inline-item">Report</li>
+						</ul>
+					
 					</article>
+
 				</c:forEach>
 	
 			</div>

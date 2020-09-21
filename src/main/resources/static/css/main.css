@@ -62,3 +62,15 @@
 .failed{
 	color: red;
 }
+
+.thread-wrapper {
+    background-color: #e9ecef;
+    margin-bottom: 10px;
+    border-radius: 0.25rem;
+    padding: 10px;
+    border: 1px solid #ced4da;
+}
+
+.thread_title{
+	font-size: 20px;
+}
