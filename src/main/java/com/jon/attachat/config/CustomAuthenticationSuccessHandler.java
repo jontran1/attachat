@@ -15,6 +15,11 @@ import org.springframework.stereotype.Component;
 import com.jon.attachat.entity.User;
 import com.jon.attachat.service.UserService;
 
+/**
+ * Responsible for what happens after successful login. 
+ * @author jon
+ *
+ */
 @Component
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 

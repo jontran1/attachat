@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import com.jon.attachat.service.UserService;
 
@@ -27,6 +29,14 @@ public class AttaChatSercurityConfig extends WebSecurityConfigurerAdapter  {
 	
     @Autowired
     private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
+    
+    @Autowired
+    private LogoutSuccessHandler myLogoutSuccessHandler;
+    
+    @Bean
+    public AuthenticationSuccessHandler successHandler() {
+        return new MyCustomLoginSuccessHandler("/");
+    }
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -56,11 +66,11 @@ public class AttaChatSercurityConfig extends WebSecurityConfigurerAdapter  {
 			.formLogin()
 				.loginPage("/showMyLoginPage")
 				.loginProcessingUrl("/authenticateTheUser")
-				.successHandler(customAuthenticationSuccessHandler)
+				.successHandler(successHandler())
 				.permitAll()
 			.and()
 			.logout()
-			.logoutSuccessUrl("/")
+			.logoutSuccessHandler(myLogoutSuccessHandler)
 			.permitAll();	
 
 	}
