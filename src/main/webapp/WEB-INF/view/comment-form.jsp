@@ -30,10 +30,7 @@
 				<form:input path="threadId" type="hidden"/>
 				<form:input path="deleted" type="hidden"/>
 				<form:input path="localDateTime" type="hidden"/>
-				
-				<c:if test="${isReply}">
-					<form:input path="parentId" type="hidden"/>		
-				</c:if>
+				<form:input path="parentId" type="hidden"/>		
 						
 		</table>
 	

@@ -2,6 +2,7 @@ package com.jon.attachat.controller;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -89,9 +90,19 @@ public class CommentController {
 	@PostMapping("/userAction/saveComment")
 	public String saveComment(@ModelAttribute("comment") Comment comment,
 			RedirectAttributes redirectAttributes) {
+
+		System.out.println("Save Comment: " + comment);
 		
-		if(comment.getLocalDateTime() == null)
+		Comment exist = commentSerivce.getComment(comment.getCommentId());
+		if(exist != null) {
+			comment.setLocalDateTime(exist.getLocalDateTime());
+		}else if(comment.getLocalDateTime() == null) {
+			// This is a new comment. Create a new date object and increase comment count.
+			Thread currentThread = threadService.getThread(comment.getThreadId());
+			currentThread.setNumberOfComments(currentThread.getNumberOfComments() + 1);
+			threadService.saveOrUpdateThread(currentThread);
 			comment.setLocalDateTime(LocalDateTime.now());
+		}
 		
 		/*
 		 * Used saveOrUpdate because if the user edits the comment. That means the comment already exist.
@@ -100,11 +111,6 @@ public class CommentController {
 		 */
 		commentSerivce.saveOrUpdate(comment);
 		redirectAttributes.addAttribute("threadId", comment.getThreadId());
-		
-		// Increase thread comment count.
-		Thread currentThread = threadService.getThread(comment.getThreadId());
-		currentThread.setNumberOfComments(currentThread.getNumberOfComments() + 1);
-		threadService.saveOrUpdateThread(currentThread);
 		
 		return "redirect:/Thread/showThread";
 	}

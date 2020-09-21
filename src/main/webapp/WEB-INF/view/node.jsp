@@ -43,13 +43,30 @@
 			
 			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">	
 				
+				<!-- 
 				<li class="list-inline-item"><a href="${editComment }">Edit</a></li>
+				 -->
+				<li class="list-inline-item"><a href="#" data-toggle="collapse" data-target="#reply${id }">Edit</a></li>
 				
 				<c:if test="${!comment.deleted }">
 					<li class="list-inline-item"><a href="javascript:{}" onclick="document.getElementById('delete${id}').submit();">Delete</a></li>
 				</c:if>
 
-			</c:if>			
+			</c:if>		
+
+			<form:form id="reply${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
+				
+				<textarea id="content" name="content" maxlength="1000" class="form-control comment-text">${comment.content}</textarea>
+													
+				<input type="submit" value="Save" class="save"/>
+				
+				<form:input path="userName" type="hidden" value="${comment.userName }"/>
+				<form:input path="commentId" type="hidden" value="${comment.commentId }"/>
+				<form:input path="threadId" type="hidden" value="${thread.threadId }"/>
+				<form:input path="deleted" type="hidden" value="${comment.deleted }"/>
+				<form:input path="parentId" type="hidden" value="${comment.parentId }"/>
+
+			</form:form>	
 
 			<form:form id="${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
 				<p><textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" id="content" name="content"></textarea></p>
