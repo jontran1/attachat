@@ -73,37 +73,35 @@
 		
 			<div class="main">
 			
-				<div class="comment-wrapper">
 				
-					<article class="post">
+				<article class="thread-content">
+				
+					<h3>
+						${thread.threadTitle }
+					</h3>
 					
-						<div class="info">
-							<header>
-								${thread.threadTitle }
-							</header>
-							
-							<div>
-								 submitted <time>${thread.localDateTime }</time>
-								<c:url var="subLink" value="/Sub/showSub">
-									<c:param name="subName" value="${thread.subName }"/>
-								</c:url>
-								 by <span class="post-user"><a href="#">${thread.userName }</a></span>
-								 from <span><a href="${subLink }">${thread.subName }</a></span>
-							</div>
-							<p class="border border-primary post-body">${thread.threadContent }</p>
-							<span class="post-options">
-								<c:if test="${pageContext.request.userPrincipal.authenticated && pageContext.request.userPrincipal.name == thread.userName }">
-									<c:url var="editThread" value="/Thread/userAction/editFormThread">
-									<c:param name="threadId" value="${thread.threadId }"/>
-									</c:url>
-									<a href="${editThread }">Edit</a>
-								</c:if>
-							</span>
-						</div>
-						
-					</article>
+					<div>
+						<c:url var="subLink" value="/Sub/showSub">
+							<c:param name="subName" value="${thread.subName }"/>
+						</c:url>
+						submitted <time>${thread.localDateTime }</time>
+						by <span class="post-user"><a href="#">${thread.userName }</a></span>
+						from <span><a href="${subLink }">${thread.subName }</a></span>
+					</div>
+					<div class="border border-primary rounded post-body">
+						<p>${thread.threadContent }</p>
+					</div>
+					<span class="post-options">
+						<c:if test="${pageContext.request.userPrincipal.authenticated && pageContext.request.userPrincipal.name == thread.userName }">
+							<c:url var="editThread" value="/Thread/userAction/editFormThread">
+							<c:param name="threadId" value="${thread.threadId }"/>
+							</c:url>
+							<a href="${editThread }">Edit</a>
+						</c:if>
+					</span>
 					
-				</div>
+				</article>
+					
 				
 				<div class="submit-wrapper">
 				
@@ -120,7 +118,9 @@
 						-->
 						
 						<form:form action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
-							<form:textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" path="content"/>
+							<p>
+								<form:textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" path="content"/>							
+							</p>
 							<form:input path="userName" type="hidden"/>
 							<form:input path="commentId" type="hidden"/>
 							<form:input path="threadId" type="hidden"/>
@@ -153,50 +153,51 @@
 					    
 			   		    <c:set var="comment" value="${comment}" scope="request"/>
 					    
-					    <article class="comment">
-					    		<span>
-					    		${comment.userName }
-					    		${comment.localDateTime }
-					    		</span>  
-					   		
-					   		<div class="comment-body">
-					   		${comment.content}
-					   		</div>
-						    
-						   <span>
-				
-     							<c:set var = "id" scope = "session" value = "id${comment.commentId }"/> 
+						<article class="comment">
+							<span>
+							${comment.userName }
+							${comment.localDateTime }
+							</span>  
+							
+							<div class="comment-body">
+							${comment.content}
+							</div>						
+							
+							<c:set var = "id" scope = "session" value = "id${comment.commentId }"/> 
+				    		<form:form id="delete${id }" action="${deleteComment }" method="POST"></form:form>
+							<ul class="list-inline">
+								<li class="list-inline-item"><a href="#" data-toggle="collapse" data-target="#${id }">Reply</a></li>
+					
+							    <c:if test="${not empty pageContext.request.userPrincipal && 
+							    			pageContext.request.userPrincipal.name == comment.userName }">
+							    			
+									<li class="list-inline-item"><a href="${editComment }">Edit</a></li>
+							    	<c:if test="${!comment.deleted }">
+							    		<li class="list-inline-item"><a href="javascript:{}" onclick="document.getElementById('delete${id}').submit();">Delete</a></li>
+							    	</c:if>
+									
+							    </c:if>
+							</ul>	
 
-							    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#${id }">Reply</button>
+
 								<form:form id="${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
+									<p>
 									<form:textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" path="content"/>
+									</p>
 									<form:input path="userName" type="hidden"/>
 									<form:input path="threadId" type="hidden"/>
 									<form:input path="deleted" type="hidden"/>
-									<form:input path="parentId" type="hidden" value="${comment.commentId }"/>									
+									<form:input path="parentId" type="hidden" value="${comment.commentId }"/>		
+																
 									<input class="btn btn-primary submit" type="submit" value="Post a new comment"/>	
+
 								</form:form>
-								
-							    <c:if test="${not empty pageContext.request.userPrincipal && 
-							    			pageContext.request.userPrincipal.name == comment.userName &&
-							    			!comment.deleted }">
-								    <a href="${editComment }">Edit</a>	    
-							    </c:if>
-								
-								<c:if test="${not empty pageContext.request.userPrincipal && comment.userName == userName}">								
-									<c:if test="${!comment.deleted }">
-										<form:form action="${deleteComment }" method="POST">
-										    <button class="btn btn-link" type="submit" >Delete</button>
-										</form:form>
-									</c:if>
-								</c:if>   
-								
-						   </span>
-						   
-						   <jsp:include page="node.jsp"/>
-						   
-					     </article>
-						
+							
+						  
+						  <jsp:include page="node.jsp"/>
+						  
+						</article>
+
 					</c:forEach>
 				
 				</div>

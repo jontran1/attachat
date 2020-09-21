@@ -33,24 +33,23 @@
    			${comment.content}
    		</div>
 		
+		<c:set var = "id" scope = "session" value = "id${comment.commentId }"/> 
 		
-		<span>
+		<form:form id="delete${id }" action="${deleteComment }" method="POST"></form:form>
+		
+		<ul class="list-inline">
+			
+			<li class="list-inline-item"><a href="#" data-toggle="collapse" data-target="#${id }">Reply</a></li>
 			
 			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName}">	
-				<a href="${editComment }">Edit</a>						
-			</c:if>   
-			<c:if test="${pageContext.request.userPrincipal.authenticated && comment.userName == userName && !comment.deleted }">
-				<form action="${deleteComment }" method="POST">
-				    <button class="btn btn-link" type="submit" >Delete</button>
-			     	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>				    
-				</form>
-			</c:if>	
-			
-			
-			<c:set var = "id" scope = "session" value = "id${comment.commentId }"/> 
-	
-			<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#${id }" aria-expanded="true">Reply</button>			
-			
+				
+				<li class="list-inline-item"><a href="${editComment }">Edit</a></li>
+				
+				<c:if test="${!comment.deleted }">
+					<li class="list-inline-item"><a href="javascript:{}" onclick="document.getElementById('delete${id}').submit();">Delete</a></li>
+				</c:if>
+
+			</c:if>			
 
 			<form:form id="${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
 				<textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" id="content" name="content"></textarea>
@@ -61,8 +60,7 @@
 				<input class="btn btn-primary submit" type="submit" value="Post a new comment"/>	
 			</form:form>
 			
-		</span>
-		
+		</ul>
 	 
 		<c:set var="comment" value="${comment}" scope="request"/>
 		<jsp:include page="node.jsp"/>
