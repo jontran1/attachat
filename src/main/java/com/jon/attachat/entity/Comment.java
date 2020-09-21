@@ -36,8 +36,8 @@ public class Comment {
 	@Column(name="comment_id")
 	private int commentId;
 	
-    @Column(name="date_time", columnDefinition = "TIMESTAMP", nullable = false)
-	private LocalDateTime localDateTime;
+	@Column(name="date_time", columnDefinition = "TIMESTAMP", nullable = false)
+    private LocalDateTime localDateTime;
 	
 	@Column(name="thread_id")
 	private int threadId;
@@ -159,8 +159,9 @@ public class Comment {
 
 	@Override
 	public String toString() {
-		return "Comment [commentId=" + commentId + ", threadId=" + threadId + ", userName=" + userName + ", content="
-				+ content + ", parentId=" + parentId + "]";
+		return "Comment [commentId=" + commentId + ", localDateTime=" + localDateTime + ", threadId=" + threadId
+				+ ", userName=" + userName + ", content=" + content + ", parentId=" + parentId + ", deleted=" + deleted
+				+ "]";
 	}
 
 	/*
