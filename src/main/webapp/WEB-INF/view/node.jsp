@@ -52,7 +52,7 @@
 			</c:if>			
 
 			<form:form id="${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
-				<textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" id="content" name="content"></textarea>
+				<p><textarea class="form-control comment-text" placeholder="Comment here ..." maxlength="1000" id="content" name="content"></textarea></p>
 				<form:input path="userName" type="hidden"/>
 				<form:input path="threadId" type="hidden"/>
 				<form:input path="deleted" type="hidden"/>
