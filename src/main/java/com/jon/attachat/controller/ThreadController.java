@@ -3,6 +3,7 @@ package com.jon.attachat.controller;
 import java.util.List;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.LinkedList; 
 import java.util.Queue; 
 import javax.servlet.http.HttpServletRequest;
@@ -58,10 +59,8 @@ public class ThreadController {
 			comment.indentReplies();
 		}
 		
-		if(request.getUserPrincipal() != null) {
-			String userName = request.getUserPrincipal().getName();
-			model.addAttribute("userName", userName);			
-		}
+		// Sort comments based on date created. Note: This isn't a deep sort.
+		Collections.sort(comments, (c1, c2) -> c2.getLocalDateTime().compareTo(c1.getLocalDateTime()));
 		
 		/**
 		 * Checks if the user is logged in and is a follower of the
@@ -76,8 +75,10 @@ public class ThreadController {
 		}
 		
 		String userName = null;
-		if(request.getUserPrincipal() != null)
+		if(request.getUserPrincipal() != null) {
 			userName = request.getUserPrincipal().getName();
+			model.addAttribute("userName", userName);			
+		}
 		
 		/**
 		 * A new comment object for when the user posts a comment.
