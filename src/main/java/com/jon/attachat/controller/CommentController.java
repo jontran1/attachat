@@ -89,10 +89,18 @@ public class CommentController {
 	
 	@PostMapping("/userAction/saveComment")
 	public String saveComment(@ModelAttribute("comment") Comment comment,
-			RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes, HttpServletResponse response) {
 
-		System.out.println("Save Comment: " + comment);
-		
+		// If the comment is already deleted, return Forbidden access screen.
+		try {
+			if(comment.getDeleted()) {
+				response.sendError(HttpServletResponse.SC_FORBIDDEN, "Forbidden access");
+				return null;
+			}			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		Comment exist = commentSerivce.getComment(comment.getCommentId());
 		if(exist != null) {
 			comment.setLocalDateTime(exist.getLocalDateTime());

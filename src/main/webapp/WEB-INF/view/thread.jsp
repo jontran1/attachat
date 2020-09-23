@@ -175,28 +175,28 @@
 							    	<!-- 
 							    	<li class="list-inline-item"><a href="${editComment }">Edit</a></li>
 							    	 -->
-									<li class="list-inline-item"><a href="#" data-toggle="collapse" data-target="#reply${id }">Edit</a></li>
 							    	<c:if test="${!comment.deleted }">
+  										<li class="list-inline-item"><a href="#" data-toggle="collapse" data-target="#edit-${id }">Edit</a></li>
 							    		<li class="list-inline-item"><a href="javascript:{}" onclick="document.getElementById('delete${id}').submit();">Delete</a></li>
+							    		
+		 								<form:form id="edit-${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
+											
+											<p><textarea id="content" name="content" maxlength="1000" class="form-control comment-text">${comment.content}</textarea></p>
+											
+											<form:input path="userName" type="hidden" value="${comment.userName }"/>
+											<form:input path="commentId" type="hidden" value="${comment.commentId }"/>
+											<form:input path="threadId" type="hidden" value="${thread.threadId }"/>
+											<form:input path="deleted" type="hidden" value="${comment.deleted }"/>
+											<form:input path="parentId" type="hidden" value="${comment.parentId }"/>
+											
+											<input class="btn btn-primary submit" type="submit" value="Submit Comment"/>
+		
+										</form:form>
+										
 							    	</c:if>
 									
 							    </c:if>
-							</ul>	
-							
-								<form:form id="reply${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
-									
-									<p><textarea id="content" name="content" maxlength="1000" class="form-control comment-text">${comment.content}</textarea></p>
-									
-									<form:input path="userName" type="hidden" value="${comment.userName }"/>
-									<form:input path="commentId" type="hidden" value="${comment.commentId }"/>
-									<form:input path="threadId" type="hidden" value="${thread.threadId }"/>
-									<form:input path="deleted" type="hidden" value="${comment.deleted }"/>
-									<form:input path="parentId" type="hidden" value="${comment.parentId }"/>
-									
-									<input class="btn btn-primary submit" type="submit" value="Submit Comment"/>
-
-								</form:form>
-
+							</ul>
 
 								<form:form id="${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
 									<p>
