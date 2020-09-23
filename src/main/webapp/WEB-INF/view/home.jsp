@@ -76,14 +76,14 @@
 		</div>
 			
 		<div class="sidebar">
-		     <form id="form-search" action="/search/" method="post">
-			    <div class="input-group mb-3">
-			        <input type="text" class="form-control" name="query" placeholder="Find a sub" required="">
-			        <div class="input-group-append">
-			            <button class="btn btn-primary submit" type="submit">Search</button>
-			        </div>
-			    </div>
-			</form>                  
+			<form:form id="form-search" action="search" method="POST">
+				<div class="input-group mb-3">
+				    <input type="text" class="form-control" name="sub" placeholder="Search for sub" required="">
+				    <div class="input-group-append">
+				        <button class="btn btn-primary submit" type="submit">Search</button>
+				    </div>
+				</div>
+			</form:form>               
 			
 			
 			<div class="btn-group" style="width: 100%">

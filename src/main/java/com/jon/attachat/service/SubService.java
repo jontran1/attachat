@@ -35,4 +35,6 @@ public interface SubService {
 	public void decreaseSubPopulationCount(Sub sub);
 	
 	public List<SubFollower> getSubsFollowByUser(String userName);
+	
+	public List<Sub> searchSub(String sub);
 }
