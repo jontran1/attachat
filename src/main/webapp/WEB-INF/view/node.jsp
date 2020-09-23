@@ -56,15 +56,15 @@
 
 			<form:form id="reply${id }" class="collapse" action="${pageContext.request.contextPath }/Comment/userAction/saveComment" modelAttribute="comment" method="POST">
 				
-				<textarea id="content" name="content" maxlength="1000" class="form-control comment-text">${comment.content}</textarea>
-													
-				<input type="submit" value="Save" class="save"/>
-				
+				<p><textarea id="content" name="content" maxlength="1000" class="form-control comment-text">${comment.content}</textarea></p>
+																	
 				<form:input path="userName" type="hidden" value="${comment.userName }"/>
 				<form:input path="commentId" type="hidden" value="${comment.commentId }"/>
 				<form:input path="threadId" type="hidden" value="${thread.threadId }"/>
 				<form:input path="deleted" type="hidden" value="${comment.deleted }"/>
 				<form:input path="parentId" type="hidden" value="${comment.parentId }"/>
+				
+				<input class="btn btn-primary submit" type="submit" value="Submit Comment"/>
 
 			</form:form>	
 
