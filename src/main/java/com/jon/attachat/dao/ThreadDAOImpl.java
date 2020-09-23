@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jon.attachat.entity.Sub;
 import com.jon.attachat.entity.Thread;
 
 /**
@@ -81,6 +82,24 @@ public class ThreadDAOImpl implements ThreadDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		currentSession.saveOrUpdate(thread);		
+	}
+
+	@Override
+	public List<Thread> searchThread(String thread) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query<Thread> query = null;
+		
+		if(thread != null && thread.trim().length() > 0) {
+			query = currentSession.createQuery("from Thread where lower(thread_title) like :thread", Thread.class);
+			query.setParameter("thread", "%" + thread.toLowerCase() + "%");
+		}else {
+			query = currentSession.createNamedQuery("from Thread", Thread.class);
+		}
+		
+		List<Thread> threads = query.getResultList();
+		
+		return threads;
 	}
 
 }

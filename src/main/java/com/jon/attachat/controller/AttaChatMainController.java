@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jon.attachat.dao.AuthoritieDAO;
@@ -38,6 +39,29 @@ public class AttaChatMainController {
 	public String showHome(Model model, HttpServletRequest request) {
 		
 		List<Sub> subs = subService.getSubs();
+		List<Sub> userSubs = null;
+		
+		/**
+		 * If the user is logged in, this will retreive all subs followed by the user.
+		 */
+		if(request.getUserPrincipal() != null) {
+			userSubs = subService.getSubsByUser(request.getUserPrincipal().getName());
+		}
+		
+		model.addAttribute("userSubs", userSubs);
+		model.addAttribute("subs", subs);
+		
+		System.out.println("users subs " + userSubs);
+		
+		return "home";
+	}
+	
+	@PostMapping("/search")
+	public String showSub(@RequestParam("sub") String sub, Model model, 
+			HttpServletRequest request) {
+		
+		System.out.println("in side search in main controller");
+		List<Sub> subs = subService.searchSub(sub);
 		List<Sub> userSubs = null;
 		
 		/**

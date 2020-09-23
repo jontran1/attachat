@@ -93,5 +93,11 @@ public class SubServiceImpl implements SubService {
 	public List<Sub> getSubsByUser(String userName) {
 		return subDAO.getSubsByUser(userName);
 	}
+	
+	@Transactional
+	@Override
+	public List<Sub> searchSub(String sub) {
+		return subDAO.searchSub(sub);
+	}
 
 }

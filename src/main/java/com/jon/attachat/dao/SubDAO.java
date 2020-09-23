@@ -40,4 +40,6 @@ public interface SubDAO {
 	
 	public List<SubFollower> getSubsFollowByUser(String userName);
 	
+	public List<Sub> searchSub(String sub);
+	
 }

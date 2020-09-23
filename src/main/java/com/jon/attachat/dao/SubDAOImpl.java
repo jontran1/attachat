@@ -149,4 +149,25 @@ public class SubDAOImpl implements SubDAO {
 		return subs;
 	}
 
+	@Override
+	public List<Sub> searchSub(String sub) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query<Sub> query = null;
+		
+		if(sub != null && sub.trim().length() > 0 ) {
+			
+			query = currentSession.createQuery("from Sub where lower(sub_name) like :sub", Sub.class);
+			query.setParameter("sub", "%" + sub.toLowerCase() + "%");
+			
+		}else {
+			query = currentSession.createNamedQuery("from Sub", Sub.class);
+		}
+		
+		List<Sub> subs = query.getResultList();
+		
+		return subs;
+	}
+
 }
