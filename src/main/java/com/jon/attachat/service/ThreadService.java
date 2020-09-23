@@ -24,5 +24,7 @@ public interface ThreadService {
 	public void deleteThread(Thread thread);
 	
 	public void saveOrUpdateThread(Thread thread);
+	
+	public List<Thread> searchThread(String thread);
 
 }

@@ -63,4 +63,10 @@ public class ThreadServiceImpl implements ThreadService {
 		threadDAO.saveOrUpdateThread(thread);
 	}
 
+	@Transactional
+	@Override
+	public List<Thread> searchThread(String thread) {
+		return threadDAO.searchThread(thread);
+	}
+
 }

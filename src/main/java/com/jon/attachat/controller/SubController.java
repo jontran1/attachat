@@ -87,6 +87,31 @@ public class SubController {
 		return "sub";
 	}
 	
+	@PostMapping("/search")
+	public String searchSub(@RequestParam("thread") String thread,
+			@RequestParam("subName") String subName, Model model,
+			HttpServletRequest request) {
+		System.out.println("inside search sub: " + thread + " " + subName);
+		List<Thread> threads = threadService.searchThread(thread);
+		
+		/**
+		 * Checks if the user is logged in and is a follower of the
+		 * sub. Depending on whether the user is a follower of not 
+		 * the button follow and unfollow will be displayed in sub.jsp.
+		 */
+		if(request.getUserPrincipal() != null) {
+			User user = userService.getUser(request.getUserPrincipal().getName());
+			Sub sub = subService.getSub(subName);
+			boolean isFollower = subService.isFollower(new SubFollowerId(user, sub));
+			model.addAttribute("isFollower", isFollower);
+		}
+
+		model.addAttribute("threads", threads);
+		model.addAttribute("subName", subName);
+		
+		return "sub";
+	}
+	
 	/**
 	 * A new sub object is created an passed into
 	 * sub-form.jsp. 
