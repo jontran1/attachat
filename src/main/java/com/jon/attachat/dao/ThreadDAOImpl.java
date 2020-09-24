@@ -85,14 +85,15 @@ public class ThreadDAOImpl implements ThreadDAO {
 	}
 
 	@Override
-	public List<Thread> searchThread(String thread) {
+	public List<Thread> searchThread(String thread, String subName) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		Query<Thread> query = null;
 		
 		if(thread != null && thread.trim().length() > 0) {
-			query = currentSession.createQuery("from Thread where lower(thread_title) like :thread", Thread.class);
+			query = currentSession.createQuery("from Thread WHERE sub_name=:subName AND lower(thread_title) like :thread", Thread.class);
 			query.setParameter("thread", "%" + thread.toLowerCase() + "%");
+			query.setParameter("subName", subName);
 		}else {
 			query = currentSession.createNamedQuery("from Thread", Thread.class);
 		}

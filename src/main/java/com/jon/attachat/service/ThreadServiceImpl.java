@@ -65,8 +65,8 @@ public class ThreadServiceImpl implements ThreadService {
 
 	@Transactional
 	@Override
-	public List<Thread> searchThread(String thread) {
-		return threadDAO.searchThread(thread);
+	public List<Thread> searchThread(String thread, String subName) {
+		return threadDAO.searchThread(thread, subName);
 	}
 
 }

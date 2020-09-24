@@ -92,7 +92,7 @@ public class SubController {
 			@RequestParam("subName") String subName, Model model,
 			HttpServletRequest request) {
 		System.out.println("inside search sub: " + thread + " " + subName);
-		List<Thread> threads = threadService.searchThread(thread);
+		List<Thread> threads = threadService.searchThread(thread, subName);
 		
 		/**
 		 * Checks if the user is logged in and is a follower of the
