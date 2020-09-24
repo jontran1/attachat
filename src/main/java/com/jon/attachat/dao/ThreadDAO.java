@@ -25,6 +25,6 @@ public interface ThreadDAO {
 	
 	public void saveOrUpdateThread(Thread thread);
 	
-	public List<Thread> searchThread(String thread);
+	public List<Thread> searchThread(String thread, String subName);
 
 }
