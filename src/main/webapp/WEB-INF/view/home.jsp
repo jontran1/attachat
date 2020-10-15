@@ -139,7 +139,7 @@
 				</table>   
 		</div>
 	</div>		
-
+<!--  Testing code.
 	<c:if test="${not empty pageContext.request.userPrincipal }">
 	
 		<p>My subs</p>
@@ -163,7 +163,7 @@
 		</c:if>
 
 	</c:if> 	
-	
+-->
 	</body>
 	
 </html>
