@@ -110,12 +110,12 @@
 				
 				<c:if test="${pageContext.request.userPrincipal.authenticated && !isFollower}">
 					<form:form action="${followSub }" method="post">
-					    <button class="btn btn-block btn-light" type="submit" >Follow</button>
+					    <button class="btn btn-success" type="submit" >Follow</button>
 					</form:form>
 				</c:if> 
 				<c:if test="${pageContext.request.userPrincipal.authenticated && isFollower}">
 					<form:form action="${unfollowSub }" method="post">
-					    <button class="btn btn-block btn-light" type="submit" >Unfollow</button>
+					    <button class="btn btn-warning" type="submit" >Unfollow</button>
 					</form:form>
 				</c:if> 
 				</div>
