@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /*
  * Hibernate ORM maps the comment table in the MySQL database 
@@ -46,6 +48,8 @@ public class Comment {
 	private String userName;
 	
 	@Column(name="content")
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
 	private String content;
 	
 	@Column(name="parent_id")
