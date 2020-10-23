@@ -1,6 +1,5 @@
 package com.jon.attachat.controller;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
