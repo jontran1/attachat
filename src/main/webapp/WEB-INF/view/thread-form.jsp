@@ -64,10 +64,12 @@
 		
 			<form:form action="saveThread" modelAttribute="thread" method="POST">
 	
-				<label>Thread title:</label>
+				<label>Thread title:</label> 
+				<form:errors class="failed" path="threadTitle"/>	
 				<form:input class="form-control" path="threadTitle"/>
-	
+				
 				<label>Thread content:</label>
+				<form:errors class="failed" path="threadContent"/>	
 				<textarea class="form-control" placeholder="Thread Content..." maxlength="1000" id="threadContent" name="threadContent">${thread.threadContent }</textarea>
 				
 				<form:input path="userName" type="hidden"/>
