@@ -8,11 +8,16 @@ import java.util.LinkedList;
 import java.util.Queue; 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +49,18 @@ public class ThreadController {
 	
 	@Autowired
 	private CommentService commentSerivce;
+	
+	/*
+	 * All string inputs will being routed into this controller
+	 * have all all white spaces trimmed.
+	 */
+	@InitBinder
+	public void initBinder(WebDataBinder dataBinder) {
+		
+		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+		
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+	}
 	
 	@GetMapping("/showThread")
 	public String showThread(@RequestParam("threadId") int threadId, Model model,
@@ -134,8 +151,13 @@ public class ThreadController {
 	}
 	
 	@PostMapping("/userAction/saveThread")
-	public String saveThread(@ModelAttribute("thread") Thread thread, 
+	public String saveThread(@Valid @ModelAttribute("thread") Thread thread, 
+			BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {	
+		
+		if(bindingResult.hasErrors()) {
+			return "thread-form";
+		}
 						
 		threadService.saveOrUpdateThread(thread);		
 		

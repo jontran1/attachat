@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Thread object relating to the thread table.
@@ -32,9 +34,13 @@ public class Thread {
 	@Column(name="sub_name")
 	private String subName;
 	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
 	@Column(name="thread_title")
 	private String threadTitle;
 	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
 	@Column(name="thread_content")
 	private String threadContent;
 	
